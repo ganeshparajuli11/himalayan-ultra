@@ -13,7 +13,6 @@ import {
     ArcElement,
 } from 'chart.js';
 import { Bar, Doughnut } from 'react-chartjs-2';
-import styles from './dashboard.module.css';
 
 ChartJS.register(
     CategoryScale,
@@ -102,73 +101,83 @@ export default function AdminDashboard() {
     };
 
     return (
-        <div className={styles.dashboard}>
-            <header className={styles.header}>
-                <h1>Dashboard</h1>
-                <button className={styles.logoutBtn}>LOGOUT</button>
+        <div className="flex flex-col gap-8">
+            <header className="flex justify-between items-center bg-[#15151e] p-6 rounded-xl border border-white/10 shadow-lg">
+                <h1 className="text-2xl font-bold text-white uppercase tracking-wider">Dashboard Overview</h1>
+                <div className="text-sm text-gray-400">Welcome, Admin User</div>
             </header>
 
-            <div className={styles.statsGrid}>
-                <div className={styles.statCard}>
-                    <h3>Total Registrations</h3>
-                    <div className={styles.statValue}>1,065</div>
-                    <div className={styles.statTrend}>+12% this week</div>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div className="bg-[#15151e] p-6 rounded-xl border border-white/10 shadow hover:border-primary/50 transition-colors">
+                    <h3 className="text-gray-400 text-sm uppercase tracking-wider font-bold mb-2">Total Registrations</h3>
+                    <div className="text-3xl font-black text-white mb-2">1,065</div>
+                    <div className="text-xs font-medium text-green-400 flex items-center gap-1">
+                        <span>↑</span> +12% this week
+                    </div>
                 </div>
-                <div className={styles.statCard}>
-                    <h3>Revenue</h3>
-                    <div className={styles.statValue}>$452k</div>
-                    <div className={styles.statTrend}>+5% vs last year</div>
+                <div className="bg-[#15151e] p-6 rounded-xl border border-white/10 shadow hover:border-primary/50 transition-colors">
+                    <h3 className="text-gray-400 text-sm uppercase tracking-wider font-bold mb-2">Revenue</h3>
+                    <div className="text-3xl font-black text-white mb-2">$452k</div>
+                    <div className="text-xs font-medium text-green-400 flex items-center gap-1">
+                        <span>↑</span> +5% vs last year
+                    </div>
                 </div>
-                <div className={styles.statCard}>
-                    <h3>Volunteers</h3>
-                    <div className={styles.statValue}>85</div>
-                    <div className={styles.statTrend}>All positions filled</div>
+                <div className="bg-[#15151e] p-6 rounded-xl border border-white/10 shadow hover:border-primary/50 transition-colors">
+                    <h3 className="text-gray-400 text-sm uppercase tracking-wider font-bold mb-2">Volunteers</h3>
+                    <div className="text-3xl font-black text-white mb-2">85</div>
+                    <div className="text-xs font-medium text-primary flex items-center gap-1">
+                        <span>✓</span> All positions filled
+                    </div>
                 </div>
             </div>
 
-            <div className={styles.chartsGrid}>
-                <div className={styles.chartCard}>
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                <div className="bg-[#15151e] p-6 rounded-xl border border-white/10">
                     <Bar data={barData} options={barOptions} />
                 </div>
-                <div className={styles.chartCard}>
-                    <div style={{ maxWidth: '350px', margin: '0 auto' }}>
+                <div className="bg-[#15151e] p-6 rounded-xl border border-white/10 flex items-center justify-center">
+                    <div style={{ maxWidth: '350px', width: '100%' }}>
                         <Doughnut data={doughnutData} options={doughnutOptions} />
                     </div>
                 </div>
             </div>
 
-            <div className={styles.recentSection}>
-                <h3>Recent Registrations</h3>
-                <table className={styles.table}>
-                    <thead>
-                        <tr>
-                            <th>Name</th>
-                            <th>Race Category</th>
-                            <th>Date</th>
-                            <th>Status</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>John Doe</td>
-                            <td>103km Ultra</td>
-                            <td>Oct 24, 2024</td>
-                            <td><span className={styles.statusPaid}>Paid</span></td>
-                        </tr>
-                        <tr>
-                            <td>Jane Smith</td>
-                            <td>56km Half</td>
-                            <td>Oct 24, 2024</td>
-                            <td><span className={styles.statusPending}>Pending</span></td>
-                        </tr>
-                        <tr>
-                            <td>Mike Johnson</td>
-                            <td>103km Ultra</td>
-                            <td>Oct 23, 2024</td>
-                            <td><span className={styles.statusPaid}>Paid</span></td>
-                        </tr>
-                    </tbody>
-                </table>
+            <div className="bg-[#15151e] rounded-xl border border-white/10 overflow-hidden">
+                <div className="p-6 border-b border-white/10">
+                    <h3 className="text-xl font-bold text-white">Recent Registrations</h3>
+                </div>
+                <div className="overflow-x-auto">
+                    <table className="w-full text-left border-collapse">
+                        <thead>
+                            <tr className="bg-black/20 text-gray-400 text-xs uppercase tracking-wider">
+                                <th className="p-4 font-bold border-b border-white/10">Name</th>
+                                <th className="p-4 font-bold border-b border-white/10">Race Category</th>
+                                <th className="p-4 font-bold border-b border-white/10">Date</th>
+                                <th className="p-4 font-bold border-b border-white/10">Status</th>
+                            </tr>
+                        </thead>
+                        <tbody className="divide-y divide-white/5">
+                            <tr className="hover:bg-white/5 transition-colors">
+                                <td className="p-4 text-white font-medium">John Doe</td>
+                                <td className="p-4 text-gray-300">103km Ultra</td>
+                                <td className="p-4 text-gray-400 text-sm font-mono">Oct 24, 2024</td>
+                                <td className="p-4"><span className="bg-green-500/20 text-green-400 text-xs font-bold px-2 py-1 rounded">Paid</span></td>
+                            </tr>
+                            <tr className="hover:bg-white/5 transition-colors">
+                                <td className="p-4 text-white font-medium">Jane Smith</td>
+                                <td className="p-4 text-gray-300">56km Half</td>
+                                <td className="p-4 text-gray-400 text-sm font-mono">Oct 24, 2024</td>
+                                <td className="p-4"><span className="bg-yellow-500/20 text-yellow-500 text-xs font-bold px-2 py-1 rounded">Pending</span></td>
+                            </tr>
+                            <tr className="hover:bg-white/5 transition-colors">
+                                <td className="p-4 text-white font-medium">Mike Johnson</td>
+                                <td className="p-4 text-gray-300">103km Ultra</td>
+                                <td className="p-4 text-gray-400 text-sm font-mono">Oct 23, 2024</td>
+                                <td className="p-4"><span className="bg-green-500/20 text-green-400 text-xs font-bold px-2 py-1 rounded">Paid</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
     );

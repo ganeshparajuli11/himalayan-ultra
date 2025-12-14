@@ -7,7 +7,7 @@ export default function PublicLayout() {
     return (
         <>
             <Header />
-            <main style={{ minHeight: '100vh', paddingTop: '80px' }}>
+            <main className="min-h-screen pt-20 flex flex-col">
                 <Outlet />
             </main>
             <Footer />

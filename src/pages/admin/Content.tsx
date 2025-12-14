@@ -1,5 +1,5 @@
+
 import { useState } from 'react';
-import styles from './content.module.css';
 
 type Section = 'home' | 'about' | 'footer';
 
@@ -33,85 +33,91 @@ export default function ContentManagementPage() {
     };
 
     return (
-        <div className={styles.container}>
-            <header className={styles.header}>
-                <h1>Site Content Management</h1>
-                <button onClick={handleSave} className="btn btn-primary">Publish Changes</button>
+        <div className="flex flex-col gap-8">
+            <header className="flex justify-between items-center mb-4">
+                <h1 className="text-3xl font-bold text-white uppercase tracking-wider">Site Content Management</h1>
+                <button onClick={handleSave} className="btn btn-primary px-6 py-2">Publish Changes</button>
             </header>
 
-            <div className={styles.tabs}>
+            <div className="flex border-b border-white/10 mb-6">
                 <button
-                    className={`${styles.tab} ${activeSection === 'home' ? styles.active : ''}`}
+                    className={`px-6 py-3 font-bold transition-colors border-b-2 ${activeSection === 'home'
+                            ? 'border-primary text-primary'
+                            : 'border-transparent text-gray-400 hover:text-white'
+                        }`}
                     onClick={() => setActiveSection('home')}
                 >
                     Home Page
                 </button>
                 <button
-                    className={`${styles.tab} ${activeSection === 'footer' ? styles.active : ''}`}
+                    className={`px-6 py-3 font-bold transition-colors border-b-2 ${activeSection === 'footer'
+                            ? 'border-primary text-primary'
+                            : 'border-transparent text-gray-400 hover:text-white'
+                        }`}
                     onClick={() => setActiveSection('footer')}
                 >
                     Footer & Contact
                 </button>
             </div>
 
-            <div className={styles.contentArea}>
+            <div className="bg-[#15151e] p-8 rounded-xl border border-white/10">
                 {activeSection === 'home' && (
-                    <div className={styles.sectionForm}>
-                        <h2>Home Page Hero</h2>
-                        <div className={styles.formGroup}>
-                            <label>Hero Title</label>
+                    <div className="max-w-3xl">
+                        <h2 className="text-xl font-bold text-white uppercase mb-6 pb-2 border-b border-white/5">Home Page Hero</h2>
+                        <div className="mb-6">
+                            <label className="block text-gray-400 text-sm font-bold mb-2 uppercase tracking-wider">Hero Title</label>
                             <input
                                 type="text"
                                 name="heroTitle"
                                 value={homeContent.heroTitle}
                                 onChange={handleHomeChange}
-                                className={styles.input}
+                                className="w-full bg-black/30 border border-white/10 rounded px-4 py-3 text-white focus:outline-none focus:border-primary transition-colors"
                             />
                         </div>
-                        <div className={styles.formGroup}>
-                            <label>Hero Subtitle</label>
+                        <div className="mb-6">
+                            <label className="block text-gray-400 text-sm font-bold mb-2 uppercase tracking-wider">Hero Subtitle</label>
                             <input
                                 type="text"
                                 name="heroSubtitle"
                                 value={homeContent.heroSubtitle}
                                 onChange={handleHomeChange}
-                                className={styles.input}
+                                className="w-full bg-black/30 border border-white/10 rounded px-4 py-3 text-white focus:outline-none focus:border-primary transition-colors"
                             />
                         </div>
-                        <div className={styles.formGroup}>
-                            <label>Intro Text</label>
+                        <div className="mb-6">
+                            <label className="block text-gray-400 text-sm font-bold mb-2 uppercase tracking-wider">Intro Text</label>
                             <textarea
                                 name="introText"
                                 rows={5}
                                 value={homeContent.introText}
                                 onChange={handleHomeChange}
-                                className={styles.textarea}
+                                className="w-full bg-black/30 border border-white/10 rounded px-4 py-3 text-white focus:outline-none focus:border-primary transition-colors resize-y"
                             />
                         </div>
                     </div>
                 )}
 
                 {activeSection === 'footer' && (
-                    <div className={styles.sectionForm}>
-                        <h2>Footer Settings</h2>
-                        <div className={styles.formGroup}>
-                            <label>Copyright Text</label>
+                    <div className="max-w-3xl">
+                        <h2 className="text-xl font-bold text-white uppercase mb-6 pb-2 border-b border-white/5">Footer Settings</h2>
+                        <div className="mb-6">
+                            <label className="block text-gray-400 text-sm font-bold mb-2 uppercase tracking-wider">Copyright Text</label>
                             <input
                                 type="text"
                                 name="copyrightText"
                                 value={footerContent.copyrightText}
                                 onChange={handleFooterChange}
-                                className={styles.input}
+                                className="w-full bg-black/30 border border-white/10 rounded px-4 py-3 text-white focus:outline-none focus:border-primary transition-colors"
                             />
                         </div>
-                        <div className={styles.formGroup}>
-                            <label>Contact Email</label>
+                        <div className="mb-6">
+                            <label className="block text-gray-400 text-sm font-bold mb-2 uppercase tracking-wider">Contact Email</label>
                             <input
                                 type="email"
                                 name="contactEmail"
                                 value={footerContent.contactEmail}
                                 onChange={handleFooterChange}
-                                className={styles.input}
+                                className="w-full bg-black/30 border border-white/10 rounded px-4 py-3 text-white focus:outline-none focus:border-primary transition-colors"
                             />
                         </div>
                     </div>

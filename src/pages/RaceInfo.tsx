@@ -1,7 +1,7 @@
+
 import PageHeader from '@/components/PageHeader';
-import styles from './RaceInfo.module.css';
 import { useState } from 'react';
-import StylizedRaceTrack from '@/components/StylizedRaceTrack';
+import RaceMap from '@/components/RaceMap';
 
 type RaceCategory = 'H100' | 'Half' | 'Third';
 
@@ -45,121 +45,112 @@ export default function RaceInfoPage() {
     const content = raceData[activeTab];
 
     const handleDownloadGPX = () => {
-        // Create a dummy GPX content
-        const gpxContent = `<?xml version="1.0" encoding="UTF-8"?>
-<gpx version="1.1" creator="HimalayanUltra">
-  <trk>
-    <name>${content.name} Route</name>
-    <trkseg>
-      <!-- Dummy Data -->
-      <trkpt lat="22.3" lon="114.2"><ele>10</ele></trkpt>
-      <trkpt lat="22.4" lon="114.1"><ele>957</ele></trkpt>
-    </trkseg>
-  </trk>
-</gpx>`;
-        const blob = new Blob([gpxContent], { type: 'application/gpx+xml' });
-        const url = URL.createObjectURL(blob);
         const link = document.createElement('a');
-        link.href = url;
-        link.download = `himalayan_ultra_${activeTab}.gpx`;
+        link.href = '/trail.gpx';
+        link.download = `himalayan_ultra_official.gpx`;
         document.body.appendChild(link);
         link.click();
         document.body.removeChild(link);
     };
 
     return (
-        <>
+        <div className="flex flex-col">
             <PageHeader title="The Race" subtitle="Course Maps & Details" />
 
-            <div className="container">
-                <div className={styles.tabs}>
-                    <button
-                        className={`${styles.tab} ${activeTab === 'H100' ? styles.active : ''}`}
-                        onClick={() => setActiveTab('H100')}
-                    >
-                        Himalayan 100
-                    </button>
-                    <button
-                        className={`${styles.tab} ${activeTab === 'Half' ? styles.active : ''}`}
-                        onClick={() => setActiveTab('Half')}
-                    >
-                        The Half
-                    </button>
-                    <button
-                        className={`${styles.tab} ${activeTab === 'Third' ? styles.active : ''}`}
-                        onClick={() => setActiveTab('Third')}
-                    >
-                        The Third
-                    </button>
+            <div className="container mx-auto px-4 py-16">
+                <div className="flex justify-center mb-12 flex-wrap gap-4">
+                    {(Object.keys(raceData) as RaceCategory[]).map((tab) => (
+                        <button
+                            key={tab}
+                            className={`
+                                py-3 px-8 rounded-full text-sm font-bold uppercase tracking-wider transition-all duration-300 border-2
+                                ${activeTab === tab
+                                    ? 'bg-primary border-primary text-black scale-105 shadow-glow'
+                                    : 'bg-transparent border-white/20 text-gray-400 hover:border-white hover:text-white'}
+                            `}
+                            onClick={() => setActiveTab(tab)}
+                        >
+                            {tab === 'H100' ? 'Himalayan 100' : tab === 'Half' ? 'The Half' : 'The Third'}
+                        </button>
+                    ))}
                 </div>
 
-                <section className={styles.content}>
-                    <div className={styles.intro}>
-                        <h2>{content.name} Course</h2>
-                        <p>{content.description}</p>
+                <section className="space-y-16">
+                    <div className="text-center max-w-3xl mx-auto">
+                        <h2 className="text-4xl font-bold mb-6 text-white uppercase">{content.name} Course</h2>
+                        <p className="text-lg text-gray-300 leading-relaxed">{content.description}</p>
                     </div>
 
-                    <div className={styles.mapSection}>
-                        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '15px' }}>
-                            <h3>Course Map</h3>
-                            <button onClick={handleDownloadGPX} className="btn btn-outline" style={{ fontSize: '0.9rem', padding: '8px 15px' }}>
+                    <div className="bg-[#15151e] rounded-xl border border-white/10 overflow-hidden">
+                        <div className="p-6 md:p-8 border-b border-white/10 flex flex-col md:flex-row justify-between items-center gap-4">
+                            <h3 className="text-2xl font-bold text-white uppercase">Course Map</h3>
+                            <button onClick={handleDownloadGPX} className="btn btn-outline text-xs px-6 py-2">
                                 Download GPX File
                             </button>
                         </div>
-                        <div className={styles.mapWrapper}>
-                            <StylizedRaceTrack />
+                        <div className="p-0 bg-[#0a0a1a] h-[500px] w-full relative z-0">
+                            <RaceMap />
                         </div>
                     </div>
 
-                    <div className={styles.elevationSection}>
-                        <h3>Elevation Profile</h3>
-                        <div className={styles.elevationPlaceholder}>
-                            <span>Elevation Chart Placeholder ({content.name})</span>
-                            <div className={styles.elevationStats}>
-                                <div>
-                                    <strong>Gain</strong>
-                                    {content.elevation.gain}
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+                        <div className="bg-[#15151e] p-8 rounded-xl border border-white/10">
+                            <h3 className="text-2xl font-bold text-white uppercase mb-8 border-b border-white/10 pb-4">Elevation Profile</h3>
+                            <div className="h-40 bg-white/5 rounded-lg flex items-center justify-center text-gray-500 mb-8 border border-dashed border-white/10">
+                                <span>Elevation Chart Placeholder ({content.name})</span>
+                            </div>
+                            <div className="grid grid-cols-2 gap-6">
+                                <div className="bg-black/30 p-6 rounded-lg text-center">
+                                    <strong className="block text-gray-400 uppercase text-xs tracking-widest mb-2">Gain</strong>
+                                    <span className="text-3xl font-black text-primary">{content.elevation.gain}</span>
                                 </div>
-                                <div>
-                                    <strong>Loss</strong>
-                                    {content.elevation.loss}
+                                <div className="bg-black/30 p-6 rounded-lg text-center">
+                                    <strong className="block text-gray-400 uppercase text-xs tracking-widest mb-2">Loss</strong>
+                                    <span className="text-3xl font-black text-white">{content.elevation.loss}</span>
                                 </div>
                             </div>
                         </div>
-                    </div>
 
-                    <div className={styles.checkpoints}>
-                        <h3>Checkpoints</h3>
-                        <div className={styles.cpTable}>
-                            <div className={styles.cpHeader}>
-                                <div>CP</div>
-                                <div>Distance</div>
-                                <div>Cut-off</div>
-                            </div>
-                            {content.checkpoints.map((cp, idx) => (
-                                <div key={idx} className={styles.cpRow}>
-                                    <div>{cp.name}</div>
-                                    <div>{cp.dist}</div>
-                                    <div>{cp.cutoff}</div>
+                        <div className="bg-[#15151e] p-8 rounded-xl border border-white/10">
+                            <h3 className="text-2xl font-bold text-white uppercase mb-8 border-b border-white/10 pb-4">Checkpoints</h3>
+                            <div className="space-y-4">
+                                <div className="grid grid-cols-3 text-xs uppercase text-gray-500 font-bold tracking-widest pb-2 border-b border-white/5 px-2">
+                                    <div>CP</div>
+                                    <div>Distance</div>
+                                    <div>Cut-off</div>
                                 </div>
-                            ))}
+                                {content.checkpoints.map((cp, idx) => (
+                                    <div key={idx} className="grid grid-cols-3 py-4 border-b border-white/5 last:border-0 hover:bg-white/5 px-2 transition-colors rounded">
+                                        <div className="font-medium text-white">{cp.name}</div>
+                                        <div className="font-mono text-primary">{cp.dist}</div>
+                                        <div className="font-mono text-gray-300">{cp.cutoff}</div>
+                                    </div>
+                                ))}
+                            </div>
                         </div>
                     </div>
 
                     {/* New Rules Section */}
-                    <div className={styles.rulesSection} style={{ marginTop: '60px', padding: '30px', background: 'rgba(255,255,255,0.05)', borderRadius: '12px' }}>
-                        <h3>Rules & Regulations</h3>
-                        <ul style={{ listStyle: 'disc', color: '#ccc', paddingLeft: '20px', lineHeight: '1.8' }}>
-                            <li>Participants must be self-sufficient and carry mandatory gear at all times.</li>
-                            <li>Littering on the course is strictly prohibited and will result in immediate disqualification.</li>
-                            <li>Bib numbers must be worn on the front and visible at all times.</li>
-                            <li>Helping other runners in distress is mandatory; time lost will be adjusted.</li>
-                            <li>The race director reserves the right to modify the course due to weather conditions.</li>
-                            <li>Supporters provided by runners are only allowed at designated checkpoints.</li>
+                    <div className="glass p-10 rounded-xl border-l-4 border-primary">
+                        <h3 className="text-2xl font-bold text-white uppercase mb-6">Rules & Regulations</h3>
+                        <ul className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-4">
+                            {[
+                                "Participants must be self-sufficient and carry mandatory gear at all times.",
+                                "Littering on the course is strictly prohibited and will result in immediate disqualification.",
+                                "Bib numbers must be worn on the front and visible at all times.",
+                                "Helping other runners in distress is mandatory; time lost will be adjusted.",
+                                "The race director reserves the right to modify the course due to weather conditions.",
+                                "Supporters provided by runners are only allowed at designated checkpoints."
+                            ].map((rule, i) => (
+                                <li key={i} className="flex items-start gap-3 text-gray-300">
+                                    <span className="text-primary mt-1.5 min-w-[6px] h-[6px] rounded-full bg-primary block"></span>
+                                    <span>{rule}</span>
+                                </li>
+                            ))}
                         </ul>
                     </div>
                 </section>
             </div>
-        </>
+        </div>
     );
 }

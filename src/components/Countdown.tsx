@@ -1,7 +1,6 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import styles from './Countdown.module.css';
 
 interface CountdownProps {
     targetDate: string; // ISO string e.g., "2026-03-28T00:00:00"
@@ -39,27 +38,27 @@ export default function Countdown({ targetDate }: CountdownProps) {
     }, [targetDate]);
 
     return (
-        <div className={styles.container}>
-            <h3 className={styles.label}>Race Start In</h3>
-            <div className={styles.timer}>
-                <div className={styles.unit}>
-                    <span className={styles.value}>{timeLeft.days}</span>
-                    <span className={styles.text}>Days</span>
+        <div className="inline-block bg-black/60 px-8 py-5 rounded-xl border border-white/10 backdrop-blur-sm mt-8 text-center w-full md:w-auto">
+            <h3 className="text-sm uppercase tracking-widest text-gray-400 mb-2 font-medium">Race Start In</h3>
+            <div className="flex items-start justify-center gap-4">
+                <div className="flex flex-col items-center">
+                    <span className="text-4xl md:text-5xl font-black text-white leading-none">{timeLeft.days}</span>
+                    <span className="text-xs uppercase text-gray-300 mt-1">Days</span>
                 </div>
-                <div className={styles.separator}>:</div>
-                <div className={styles.unit}>
-                    <span className={styles.value}>{timeLeft.hours.toString().padStart(2, '0')}</span>
-                    <span className={styles.text}>Hrs</span>
+                <div className="text-4xl md:text-5xl font-black text-white/30 -mt-1">:</div>
+                <div className="flex flex-col items-center">
+                    <span className="text-4xl md:text-5xl font-black text-white leading-none">{timeLeft.hours.toString().padStart(2, '0')}</span>
+                    <span className="text-xs uppercase text-gray-300 mt-1">Hrs</span>
                 </div>
-                <div className={styles.separator}>:</div>
-                <div className={styles.unit}>
-                    <span className={styles.value}>{timeLeft.minutes.toString().padStart(2, '0')}</span>
-                    <span className={styles.text}>Min</span>
+                <div className="text-4xl md:text-5xl font-black text-white/30 -mt-1">:</div>
+                <div className="flex flex-col items-center">
+                    <span className="text-4xl md:text-5xl font-black text-white leading-none">{timeLeft.minutes.toString().padStart(2, '0')}</span>
+                    <span className="text-xs uppercase text-gray-300 mt-1">Min</span>
                 </div>
-                <div className={styles.separator}>:</div>
-                <div className={styles.unit}>
-                    <span className={styles.value}>{timeLeft.seconds.toString().padStart(2, '0')}</span>
-                    <span className={styles.text}>Sec</span>
+                <div className="text-4xl md:text-5xl font-black text-white/30 -mt-1">:</div>
+                <div className="flex flex-col items-center">
+                    <span className="text-4xl md:text-5xl font-black text-white leading-none">{timeLeft.seconds.toString().padStart(2, '0')}</span>
+                    <span className="text-xs uppercase text-gray-300 mt-1">Sec</span>
                 </div>
             </div>
         </div>

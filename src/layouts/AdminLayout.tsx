@@ -1,36 +1,63 @@
 
 import { Link, Outlet } from 'react-router-dom';
-import styles from '@/app/(admin)/admin/admin.module.css';
 
 export default function AdminLayout() {
     return (
-        <div className={styles.adminLayout}>
-            <aside className={styles.sidebar}>
-                <div className={styles.brand}>
-                    HIMALAYAN <span>ULTRA</span>
+        <div className="flex min-h-screen bg-[#0a0a1a] text-gray-300 font-sans">
+            <aside className="w-64 bg-[#15151e] border-r border-white/10 flex flex-col fixed inset-y-0 h-screen overflow-y-auto">
+                <div className="p-6 border-b border-white/10 text-xl font-black text-white tracking-widest text-center">
+                    HIMALAYAN <span className="text-primary">ULTRA</span>
                 </div>
-                <nav className={styles.nav}>
-                    <ul>
-                        <li><Link to="/admin">Dashboard</Link></li>
-                        <li><Link to="/admin/registrations">Registrations</Link></li>
-                        <li><Link to="/admin/payments">Payments</Link></li>
-                        <li><Link to="/admin/races">Races</Link></li>
-                        <li><Link to="/admin/users">Users</Link></li>
-                        <li><Link to="/admin/content">Content</Link></li>
-                        <li><Link to="/admin/settings">Settings</Link></li>
+                <nav className="flex-grow py-6">
+                    <ul className="space-y-1">
+                        <li>
+                            <Link to="/admin" className="block px-6 py-3 hover:bg-white/5 hover:text-primary transition-colors border-l-4 border-transparent hover:border-primary">
+                                Dashboard
+                            </Link>
+                        </li>
+                        <li>
+                            <Link to="/admin/registrations" className="block px-6 py-3 hover:bg-white/5 hover:text-primary transition-colors border-l-4 border-transparent hover:border-primary">
+                                Registrations
+                            </Link>
+                        </li>
+                        <li>
+                            <Link to="/admin/payments" className="block px-6 py-3 hover:bg-white/5 hover:text-primary transition-colors border-l-4 border-transparent hover:border-primary">
+                                Payments
+                            </Link>
+                        </li>
+                        <li>
+                            <Link to="/admin/races" className="block px-6 py-3 hover:bg-white/5 hover:text-primary transition-colors border-l-4 border-transparent hover:border-primary">
+                                Races
+                            </Link>
+                        </li>
+                        <li>
+                            <Link to="/admin/users" className="block px-6 py-3 hover:bg-white/5 hover:text-primary transition-colors border-l-4 border-transparent hover:border-primary">
+                                Users
+                            </Link>
+                        </li>
+                        <li>
+                            <Link to="/admin/content" className="block px-6 py-3 hover:bg-white/5 hover:text-primary transition-colors border-l-4 border-transparent hover:border-primary">
+                                Content
+                            </Link>
+                        </li>
+                        <li>
+                            <Link to="/admin/settings" className="block px-6 py-3 hover:bg-white/5 hover:text-primary transition-colors border-l-4 border-transparent hover:border-primary">
+                                Settings
+                            </Link>
+                        </li>
                     </ul>
                 </nav>
-                <div className={styles.user}>
-                    <div className={styles.avatar}>A</div>
-                    <span>Admin User</span>
+                <div className="p-6 border-t border-white/10 flex items-center gap-3">
+                    <div className="h-10 w-10 bg-primary/20 rounded-full flex items-center justify-center text-primary font-bold">A</div>
+                    <span className="font-bold text-white">Admin User</span>
                 </div>
             </aside>
-            <main className={styles.main}>
-                <header className={styles.header}>
-                    <h2>Dashboard</h2>
-                    <button className="btn btn-primary" style={{ padding: '8px 16px', fontSize: '0.8rem' }}>Logout</button>
+            <main className="flex-1 ml-64 p-8">
+                <header className="flex justify-between items-center mb-8 pb-6 border-b border-white/10">
+                    <h2 className="text-3xl font-bold text-white uppercase tracking-wide">Dashboard</h2>
+                    <button className="btn btn-primary px-4 py-2 text-xs">Logout</button>
                 </header>
-                <div className={styles.content}>
+                <div className="animate-fade-in">
                     <Outlet />
                 </div>
             </main>
