@@ -1,0 +1,161 @@
+.f1Container {
+    background-color: #15151e;
+    border-top: 5px solid #ff1801;
+    border-radius: 8px 8px 0 0;
+    color: #fff;
+    font-family: "Titillium Web", sans-serif;
+    /* Standard F1-like font if available, else sans */
+    padding: 20px;
+    margin-bottom: 40px;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    padding-bottom: 15px;
+    margin-bottom: 5px;
+}
+
+.title {
+    font-size: 1.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin: 0;
+    letter-spacing: 1px;
+}
+
+.subtitle {
+    color: #ff1801;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+}
+
+.tableWrapper {
+    overflow-x: auto;
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 800px;
+}
+
+.table th {
+    text-align: left;
+    padding: 12px 15px;
+    color: #949498;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.table td {
+    padding: 15px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: 0.9rem;
+    font-weight: 600;
+    vertical-align: middle;
+}
+
+.table tr:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+.pos {
+    width: 50px;
+    text-align: center;
+}
+
+.posBadge {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    border-radius: 4px;
+    background-color: transparent;
+    color: #fff;
+}
+
+/* F1 Style Leaders */
+.table tr:nth-child(1) .posBadge {
+    background-color: #ff1801;
+    /* F1 Red */
+    color: #fff;
+}
+
+.table tr:nth-child(2) .posBadge {
+    background-color: #fff;
+    color: #000;
+}
+
+.table tr:nth-child(3) .posBadge {
+    background-color: #fff;
+    color: #000;
+}
+
+.driverCell {
+    display: flex;
+    flex-direction: column;
+}
+
+.name {
+    font-size: 1rem;
+    color: #fff;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.team {
+    font-size: 0.75rem;
+    color: #949498;
+    text-transform: uppercase;
+    margin-top: 2px;
+}
+
+.time {
+    font-family: "Roboto Mono", monospace;
+    color: #fff;
+}
+
+.gap {
+    font-family: "Roboto Mono", monospace;
+    color: #949498;
+    font-size: 0.85rem;
+}
+
+.pts {
+    color: #ff1801;
+    font-weight: 700;
+    text-align: center;
+}
+
+.statusFinished {
+    color: #4ade80;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+}
+
+.statusDnf {
+    color: #ef4444;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+}
+
+/* Flag simulation */
+.flag {
+    width: 24px;
+    height: 16px;
+    object-fit: cover;
+    border-radius: 2px;
+    margin-right: 10px;
+}
+
+.flexCenter {
+    display: flex;
+    align-items: center;
+}

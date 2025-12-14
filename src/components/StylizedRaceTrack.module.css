@@ -1,0 +1,243 @@
+.trackContainer {
+    position: relative;
+    width: 100%;
+    max-width: 1200px;
+    /* Increased max width */
+    background-color: #0b0b15;
+    background-image:
+        radial-gradient(circle at 50% 50%, rgba(20, 20, 40, 1) 0%, rgba(11, 11, 21, 1) 100%);
+    border-radius: 16px;
+    padding: 40px;
+    margin: 0 auto;
+    overflow: hidden;
+    box-shadow: 0 0 50px rgba(0, 0, 0, 0.9);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.title {
+    text-align: center;
+    font-family: 'Arial', sans-serif;
+    font-weight: 900;
+    text-transform: uppercase;
+    color: #fff;
+    font-size: 2.5rem;
+    margin-bottom: 5px;
+    letter-spacing: 4px;
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+    z-index: 10;
+}
+
+.description {
+    text-align: center;
+    color: #a0a0b0;
+    font-size: 1rem;
+    max-width: 700px;
+    margin: 0 auto 30px auto;
+    line-height: 1.6;
+    z-index: 10;
+}
+
+.perspectiveWrapper {
+    perspective: 1000px;
+    /* 3D Perspective */
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.svgWrapper {
+    position: relative;
+    width: 100%;
+    max-width: 1000px;
+    /* Remove padded-bottom hack, use explicit sizing or flex */
+    height: auto;
+    transform: rotateX(20deg) scale(1.1);
+    /* TILT EFFECT */
+    transform-style: preserve-3d;
+    transition: transform 0.5s ease;
+}
+
+.svgWrapper:hover {
+    transform: rotateX(10deg) scale(1.15);
+    /* Interactive tilt */
+}
+
+.trackSvg {
+    width: 100%;
+    height: auto;
+    min-height: 500px;
+    overflow: visible;
+    filter: drop-shadow(0 20px 30px rgba(0, 0, 0, 0.5));
+}
+
+.pathShadow {
+    fill: none;
+    stroke: rgba(255, 215, 0, 0.1);
+    stroke-width: 25;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    transform: translateZ(-10px);
+    /* Push shadow back in 3D */
+}
+
+.pathLine {
+    fill: none;
+    stroke: #FFD700;
+    stroke-width: 8;
+    /* Thicker line */
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    animation: drawPath 2s ease-out forwards;
+    vector-effect: non-scaling-stroke;
+}
+
+.pulseRing {
+    animation: pulse 2s infinite;
+    transform-origin: center;
+    transform-box: fill-box;
+}
+
+.markerGroup {
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.markerCircle {
+    stroke-width: 2;
+    transition: all 0.2s;
+}
+
+.markerLabel {
+    fill: #fff;
+    font-family: 'Arial', sans-serif;
+    font-weight: bold;
+    text-anchor: middle;
+    pointer-events: none;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+.markerGroup:hover .markerCircle {
+    r: 10;
+    stroke-width: 3;
+    filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.8));
+}
+
+.decorLabel {
+    fill: rgba(255, 255, 255, 0.8);
+    font-family: 'Arial', sans-serif;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 1);
+}
+
+.overlayContainer {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: -50px;
+    /* Pull up into the perspective void */
+    z-index: 20;
+    position: relative;
+}
+
+.infoBox {
+    background: rgba(11, 11, 21, 0.8);
+    border-top: 2px solid #FFD700;
+    padding: 20px 40px;
+    border-radius: 0 0 16px 16px;
+    /* Bottom rounded only? Or full pill */
+    border-radius: 50px;
+    color: #fff;
+    min-width: 400px;
+    backdrop-filter: blur(20px);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
+    text-align: center;
+    animation: slideIn 0.3s ease-out;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.infoHeader {
+    margin-bottom: 4px;
+}
+
+.infoId {
+    color: #FFD700;
+    font-size: 0.9rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.infoTitle {
+    font-size: 1.5rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    margin-bottom: 2px;
+    letter-spacing: 1px;
+}
+
+.infoDetail {
+    font-size: 1rem;
+    color: #bbb;
+}
+
+@keyframes drawPath {
+    from {
+        stroke-dasharray: 0, 10000;
+    }
+
+    to {
+        stroke-dasharray: 10000, 10000;
+    }
+}
+
+@keyframes pulse {
+    0% {
+        opacity: 0.3;
+        transform: scale(0.8);
+    }
+
+    50% {
+        opacity: 0.8;
+        transform: scale(1.2);
+    }
+
+    100% {
+        opacity: 0.3;
+        transform: scale(0.8);
+    }
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 768px) {
+    .svgWrapper {
+        transform: none;
+        /* Disable 3D on mobile for readability */
+    }
+
+    .trackSvg {
+        min-height: 300px;
+    }
+
+    .infoBox {
+        min-width: 90%;
+        border-radius: 12px;
+    }
+}
