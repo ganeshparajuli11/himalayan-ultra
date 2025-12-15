@@ -53,28 +53,28 @@ export default function ResultsPage() {
                 </div>
             </section>
 
-            <div className="container mx-auto px-4 py-8 md:py-16">
+            <div className="container mx-auto px-4 py-6 md:py-8 lg:py-16">
                 {/* F1 Style Results Table */}
-                <div className="bg-[#15151e] rounded-xl overflow-hidden border border-white/10 shadow-2xl flex flex-col max-h-[800px]">
-                    <div className="bg-[#1a1a2e] p-6 border-b border-white/10 flex justify-between items-center shrink-0 z-20 relative">
+                <div className="bg-[#15151e] rounded-xl overflow-hidden border border-white/10 shadow-2xl flex flex-col max-h-[600px] md:max-h-[800px]">
+                    <div className="bg-[#1a1a2e] p-4 md:p-6 border-b border-white/10 flex justify-between items-center shrink-0 z-20 relative">
                         <div>
-                            <h2 className="text-2xl font-black text-white uppercase tracking-wider">Classification</h2>
-                            <span className="text-sm text-gray-400 font-mono mt-1 block">Live Updates • {tableRunners.length + 3} Athletes</span>
+                            <h2 className="text-lg md:text-2xl font-black text-white uppercase tracking-wider">Classification</h2>
+                            <span className="text-xs md:text-sm text-gray-400 font-mono mt-1 block">Live Updates • {tableRunners.length + 3} Athletes</span>
                         </div>
-                        <div className="h-2 w-20 bg-primary rounded-full animate-pulse"></div>
+                        <div className="h-2 w-12 md:w-20 bg-primary rounded-full animate-pulse"></div>
                     </div>
 
                     <div className="overflow-auto custom-scrollbar">
                         <table className="w-full text-left border-collapse relative">
                             <thead className="sticky top-0 z-10 bg-[#0f0f18] shadow-md">
-                                <tr className="text-gray-400 text-xs uppercase tracking-widest border-b border-white/10">
-                                    <th className="p-4 w-16 text-center bg-[#0f0f18]">Pos</th>
-                                    <th className="p-4 w-20 bg-[#0f0f18] font-bold text-primary">No</th>
-                                    <th className="p-4 bg-[#0f0f18]">Runner / Country</th>
-                                    <th className="p-4 hidden md:table-cell bg-[#0f0f18] text-right">Checkpoint</th>
-                                    <th className="p-4 bg-[#0f0f18] text-right">Time</th>
-                                    <th className="p-4 hidden sm:table-cell bg-[#0f0f18] text-right">Gap</th>
-                                    <th className="p-4 text-center bg-[#0f0f18]">Pts</th>
+                                <tr className="text-gray-400 text-[10px] md:text-xs uppercase tracking-widest border-b border-white/10">
+                                    <th className="p-2 md:p-4 w-10 md:w-16 text-center bg-[#0f0f18]">Pos</th>
+                                    <th className="p-2 md:p-4 w-12 md:w-20 bg-[#0f0f18] font-bold text-primary">No</th>
+                                    <th className="p-2 md:p-4 bg-[#0f0f18]">Runner</th>
+                                    <th className="p-2 md:p-4 hidden md:table-cell bg-[#0f0f18] text-right">CP</th>
+                                    <th className="p-2 md:p-4 bg-[#0f0f18] text-right">Time</th>
+                                    <th className="p-2 md:p-4 hidden sm:table-cell bg-[#0f0f18] text-right">Gap</th>
+                                    <th className="p-2 md:p-4 text-center bg-[#0f0f18]">Pts</th>
                                 </tr>
                             </thead>
                             <tbody className="divide-y divide-white/5">
@@ -83,26 +83,26 @@ export default function ResultsPage() {
                                         key={driver.no}
                                         className="transition-colors hover:bg-white/5 group"
                                     >
-                                        <td className="p-4 text-center text-gray-400 font-mono font-bold group-hover:text-white transition-colors">
+                                        <td className="p-2 md:p-4 text-center text-gray-400 font-mono font-bold group-hover:text-white transition-colors text-xs md:text-sm">
                                             {driver.pos}
                                         </td>
-                                        <td className="p-4 font-mono text-primary font-bold">{driver.no}</td>
-                                        <td className="p-4">
+                                        <td className="p-2 md:p-4 font-mono text-primary font-bold text-xs md:text-sm">{driver.no}</td>
+                                        <td className="p-2 md:p-4">
                                             <div className="flex flex-col">
-                                                <span className="text-white font-bold text-base md:text-lg">{driver.name}</span>
-                                                <span className="text-[10px] text-gray-400 uppercase tracking-wider font-bold mt-0.5">{driver.team}</span>
+                                                <span className="text-white font-bold text-xs md:text-base lg:text-lg truncate max-w-[100px] md:max-w-none">{driver.name}</span>
+                                                <span className="text-[8px] md:text-[10px] text-gray-400 uppercase tracking-wider font-bold mt-0.5">{driver.team}</span>
                                             </div>
                                         </td>
-                                        <td className="p-4 hidden md:table-cell text-gray-400 font-mono text-sm text-right">
+                                        <td className="p-2 md:p-4 hidden md:table-cell text-gray-400 font-mono text-sm text-right">
                                             <span className={`px-2 py-1 rounded ${driver.cp === 'Finish' ? 'bg-green-500/20 text-green-400' : 'bg-white/5'}`}>
                                                 {driver.cp}
                                             </span>
                                         </td>
-                                        <td className={`p-4 font-mono font-bold text-right ${driver.time === 'DNF' ? 'text-red-500' : 'text-white'}`}>
+                                        <td className={`p-2 md:p-4 font-mono font-bold text-right text-xs md:text-sm ${driver.time === 'DNF' ? 'text-red-500' : 'text-white'}`}>
                                             {driver.time}
                                         </td>
-                                        <td className="p-4 hidden sm:table-cell font-mono text-gray-500 text-sm text-right">{driver.gap}</td>
-                                        <td className="p-4 text-center font-black text-white/50 group-hover:text-white transition-colors">{driver.pts}</td>
+                                        <td className="p-2 md:p-4 hidden sm:table-cell font-mono text-gray-500 text-xs md:text-sm text-right">{driver.gap}</td>
+                                        <td className="p-2 md:p-4 text-center font-black text-white/50 group-hover:text-white transition-colors text-xs md:text-sm">{driver.pts}</td>
                                     </tr>
                                 ))}
                             </tbody>

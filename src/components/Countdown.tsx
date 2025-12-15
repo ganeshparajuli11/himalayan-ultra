@@ -38,27 +38,27 @@ export default function Countdown({ targetDate }: CountdownProps) {
     }, [targetDate]);
 
     return (
-        <div className="inline-block bg-black/60 px-8 py-5 rounded-xl border border-white/10 backdrop-blur-sm mt-8 text-center w-full md:w-auto">
-            <h3 className="text-sm uppercase tracking-widest text-gray-400 mb-2 font-medium">Race Start In</h3>
-            <div className="flex items-start justify-center gap-4">
-                <div className="flex flex-col items-center">
-                    <span className="text-4xl md:text-5xl font-black text-white leading-none">{timeLeft.days}</span>
-                    <span className="text-xs uppercase text-gray-300 mt-1">Days</span>
+        <div className="inline-block bg-black/60 px-4 sm:px-6 md:px-8 py-4 md:py-5 rounded-xl border border-white/10 backdrop-blur-sm mt-6 md:mt-8 text-center w-full max-w-md md:max-w-none md:w-auto">
+            <h3 className="text-xs sm:text-sm uppercase tracking-widest text-gray-400 mb-2 font-medium">Race Start In</h3>
+            <div className="flex items-start justify-center gap-2 sm:gap-3 md:gap-4">
+                <div className="flex flex-col items-center min-w-[40px] sm:min-w-[50px]">
+                    <span className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black text-white leading-none">{timeLeft.days}</span>
+                    <span className="text-[10px] sm:text-xs uppercase text-gray-300 mt-1">Days</span>
                 </div>
-                <div className="text-4xl md:text-5xl font-black text-white/30 -mt-1">:</div>
-                <div className="flex flex-col items-center">
-                    <span className="text-4xl md:text-5xl font-black text-white leading-none">{timeLeft.hours.toString().padStart(2, '0')}</span>
-                    <span className="text-xs uppercase text-gray-300 mt-1">Hrs</span>
+                <div className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black text-white/30 -mt-0.5 md:-mt-1">:</div>
+                <div className="flex flex-col items-center min-w-[40px] sm:min-w-[50px]">
+                    <span className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black text-white leading-none">{timeLeft.hours.toString().padStart(2, '0')}</span>
+                    <span className="text-[10px] sm:text-xs uppercase text-gray-300 mt-1">Hrs</span>
                 </div>
-                <div className="text-4xl md:text-5xl font-black text-white/30 -mt-1">:</div>
-                <div className="flex flex-col items-center">
-                    <span className="text-4xl md:text-5xl font-black text-white leading-none">{timeLeft.minutes.toString().padStart(2, '0')}</span>
-                    <span className="text-xs uppercase text-gray-300 mt-1">Min</span>
+                <div className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black text-white/30 -mt-0.5 md:-mt-1">:</div>
+                <div className="flex flex-col items-center min-w-[40px] sm:min-w-[50px]">
+                    <span className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black text-white leading-none">{timeLeft.minutes.toString().padStart(2, '0')}</span>
+                    <span className="text-[10px] sm:text-xs uppercase text-gray-300 mt-1">Min</span>
                 </div>
-                <div className="text-4xl md:text-5xl font-black text-white/30 -mt-1">:</div>
-                <div className="flex flex-col items-center">
-                    <span className="text-4xl md:text-5xl font-black text-white leading-none">{timeLeft.seconds.toString().padStart(2, '0')}</span>
-                    <span className="text-xs uppercase text-gray-300 mt-1">Sec</span>
+                <div className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black text-white/30 -mt-0.5 md:-mt-1">:</div>
+                <div className="flex flex-col items-center min-w-[40px] sm:min-w-[50px]">
+                    <span className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black text-white leading-none">{timeLeft.seconds.toString().padStart(2, '0')}</span>
+                    <span className="text-[10px] sm:text-xs uppercase text-gray-300 mt-1">Sec</span>
                 </div>
             </div>
         </div>

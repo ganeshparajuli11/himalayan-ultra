@@ -1,8 +1,8 @@
-
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import RootLayout from '@/layouts/RootLayout';
 import PublicLayout from '@/layouts/PublicLayout';
 import AdminLayout from '@/layouts/AdminLayout';
+import ScrollToTop from '@/components/ScrollToTop';
 
 // Pages
 import Home from '@/pages/Home';
@@ -23,6 +23,7 @@ import AdminContent from '@/pages/admin/Content';
 function App() {
     return (
         <BrowserRouter>
+            <ScrollToTop />
             <RootLayout>
                 <Routes>
                     {/* Public Routes */}
