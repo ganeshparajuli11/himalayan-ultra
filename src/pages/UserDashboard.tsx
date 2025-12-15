@@ -1,5 +1,6 @@
 
 import { useAuth } from '@/context/AuthContext';
+import Footer from '@/components/Footer';
 
 export default function UserDashboard() {
     const { user, logout } = useAuth();
@@ -52,6 +53,7 @@ export default function UserDashboard() {
                     </div>
                 </div>
             </div>
+            <Footer />
         </div>
     );
 }

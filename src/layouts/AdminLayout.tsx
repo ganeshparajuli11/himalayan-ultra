@@ -1,5 +1,6 @@
 
 import { Link, Outlet } from 'react-router-dom';
+import Footer from '@/components/Footer';
 
 export default function AdminLayout() {
     return (
@@ -52,14 +53,17 @@ export default function AdminLayout() {
                     <span className="font-bold text-white">Admin User</span>
                 </div>
             </aside>
-            <main className="flex-1 ml-64 p-8">
-                <header className="flex justify-between items-center mb-8 pb-6 border-b border-white/10">
-                    <h2 className="text-3xl font-bold text-white uppercase tracking-wide">Dashboard</h2>
-                    <button className="btn btn-primary px-4 py-2 text-xs">Logout</button>
-                </header>
-                <div className="animate-fade-in">
-                    <Outlet />
+            <main className="flex-1 ml-64 flex flex-col min-h-screen">
+                <div className="p-8 flex-grow">
+                    <header className="flex justify-between items-center mb-8 pb-6 border-b border-white/10">
+                        <h2 className="text-3xl font-bold text-white uppercase tracking-wide">Dashboard</h2>
+                        <button className="btn btn-primary px-4 py-2 text-xs">Logout</button>
+                    </header>
+                    <div className="animate-fade-in">
+                        <Outlet />
+                    </div>
                 </div>
+                <Footer />
             </main>
         </div>
     );
