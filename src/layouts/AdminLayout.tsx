@@ -4,8 +4,8 @@ import Footer from '@/components/Footer';
 
 export default function AdminLayout() {
     return (
-        <div className="flex min-h-screen bg-[#0a0a1a] text-gray-300 font-sans">
-            <aside className="w-64 bg-[#15151e] border-r border-white/10 flex flex-col fixed inset-y-0 h-screen overflow-y-auto">
+        <div className="flex min-h-screen bg-background text-gray-300 font-sans">
+            <aside className="w-64 bg-white/5 border-r border-white/10 flex flex-col fixed inset-y-0 h-screen overflow-y-auto">
                 <div className="p-6 border-b border-white/10 text-xl font-black text-white tracking-widest text-center">
                     HIMALAYAN <span className="text-primary">ULTRA</span>
                 </div>

@@ -7,7 +7,7 @@ export default function UserDashboard() {
 
     return (
         <div className="flex flex-col min-h-screen">
-            <header className="bg-[#15151e] border-b border-white/10 py-6">
+            <header className="bg-white/5 border-b border-white/10 py-6">
                 <div className="container mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-4">
                     <div className="text-center md:text-left">
                         <h1 className="text-3xl font-black text-white uppercase tracking-wider">Hello, <span className="text-primary">{user?.name || 'Runner'}</span></h1>
@@ -32,7 +32,7 @@ export default function UserDashboard() {
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    <div className="bg-[#15151e] p-8 rounded-xl border border-white/10 hover:border-white/30 transition-all duration-300 group">
+                    <div className="bg-white/5 p-8 rounded-xl border border-white/10 hover:border-white/30 transition-all duration-300 group">
                         <div className="h-12 w-12 bg-primary/20 rounded-lg flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
                             <span className="text-2xl">🏆</span>
                         </div>
@@ -41,7 +41,7 @@ export default function UserDashboard() {
                         <span className="text-xs font-mono bg-black/30 px-3 py-1 rounded text-gray-500">No past results found.</span>
                     </div>
 
-                    <div className="bg-[#15151e] p-8 rounded-xl border border-white/10 hover:border-white/30 transition-all duration-300 group">
+                    <div className="bg-white/5 p-8 rounded-xl border border-white/10 hover:border-white/30 transition-all duration-300 group">
                         <div className="h-12 w-12 bg-blue-500/20 rounded-lg flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
                             <span className="text-2xl">📅</span>
                         </div>

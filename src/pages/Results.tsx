@@ -47,7 +47,7 @@ export default function ResultsPage() {
             <PageHeader title="Race Results" subtitle="Live Pro Classifications | 2026 Test Season" />
 
             {/* Podium Section */}
-            <section className="py-12 bg-[#0a0a1a] border-b border-white/5">
+            <section className="py-12 bg-background border-b border-white/5">
                 <div className="container mx-auto px-4">
                     <WinnerPodium winners={podiumWinners} />
                 </div>
@@ -55,8 +55,8 @@ export default function ResultsPage() {
 
             <div className="container mx-auto px-4 py-6 md:py-8 lg:py-16">
                 {/* F1 Style Results Table */}
-                <div className="bg-[#15151e] rounded-xl overflow-hidden border border-white/10 shadow-2xl flex flex-col max-h-[600px] md:max-h-[800px]">
-                    <div className="bg-[#1a1a2e] p-4 md:p-6 border-b border-white/10 flex justify-between items-center shrink-0 z-20 relative">
+                <div className="bg-white/5 rounded-xl overflow-hidden border border-white/10 shadow-2xl flex flex-col max-h-[600px] md:max-h-[800px]">
+                    <div className="bg-white/5 p-4 md:p-6 border-b border-white/10 flex justify-between items-center shrink-0 z-20 relative">
                         <div>
                             <h2 className="text-lg md:text-2xl font-black text-white uppercase tracking-wider">Classification</h2>
                             <span className="text-xs md:text-sm text-gray-400 font-mono mt-1 block">Live Updates • {tableRunners.length + 3} Athletes</span>
@@ -66,15 +66,15 @@ export default function ResultsPage() {
 
                     <div className="overflow-auto custom-scrollbar">
                         <table className="w-full text-left border-collapse relative">
-                            <thead className="sticky top-0 z-10 bg-[#0f0f18] shadow-md">
+                            <thead className="sticky top-0 z-10 bg-black/80 shadow-md">
                                 <tr className="text-gray-400 text-[10px] md:text-xs uppercase tracking-widest border-b border-white/10">
-                                    <th className="p-2 md:p-4 w-10 md:w-16 text-center bg-[#0f0f18]">Pos</th>
-                                    <th className="p-2 md:p-4 w-12 md:w-20 bg-[#0f0f18] font-bold text-primary">No</th>
-                                    <th className="p-2 md:p-4 bg-[#0f0f18]">Runner</th>
-                                    <th className="p-2 md:p-4 hidden md:table-cell bg-[#0f0f18] text-right">CP</th>
-                                    <th className="p-2 md:p-4 bg-[#0f0f18] text-right">Time</th>
-                                    <th className="p-2 md:p-4 hidden sm:table-cell bg-[#0f0f18] text-right">Gap</th>
-                                    <th className="p-2 md:p-4 text-center bg-[#0f0f18]">Pts</th>
+                                    <th className="p-2 md:p-4 w-10 md:w-16 text-center bg-black/80">Pos</th>
+                                    <th className="p-2 md:p-4 w-12 md:w-20 bg-black/80 font-bold text-primary">No</th>
+                                    <th className="p-2 md:p-4 bg-black/80">Runner</th>
+                                    <th className="p-2 md:p-4 hidden md:table-cell bg-black/80 text-right">CP</th>
+                                    <th className="p-2 md:p-4 bg-black/80 text-right">Time</th>
+                                    <th className="p-2 md:p-4 hidden sm:table-cell bg-black/80 text-right">Gap</th>
+                                    <th className="p-2 md:p-4 text-center bg-black/80">Pts</th>
                                 </tr>
                             </thead>
                             <tbody className="divide-y divide-white/5">

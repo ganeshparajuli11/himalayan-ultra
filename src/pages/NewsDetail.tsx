@@ -33,7 +33,7 @@ export default function ArticlePage() {
             <PageHeader title={article.title} subtitle={article.date} />
 
             <div className="container mx-auto px-4 py-16">
-                <article className="max-w-4xl mx-auto bg-[#15151e] rounded-xl border border-white/10 p-8 md:p-12 shadow-2xl">
+                <article className="max-w-4xl mx-auto bg-white/5 rounded-xl border border-white/10 p-8 md:p-12 shadow-2xl">
                     <div className="flex justify-between items-center mb-10 border-b border-white/10 pb-6">
                         <span className="bg-primary/20 text-primary text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">{article.category}</span>
                         <Link to="/news" className="text-gray-400 hover:text-white transition-colors text-sm font-bold uppercase tracking-wide flex items-center gap-2">

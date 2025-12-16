@@ -59,7 +59,7 @@ const Header = () => {
 
                                         {/* Dropdown Menu */}
                                         <div className="absolute top-full left-1/2 -translate-x-1/2 w-56 pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 transform translate-y-2 group-hover:translate-y-0">
-                                            <div className="bg-[#0a0a0f] border border-white/10 rounded-xl overflow-hidden shadow-2xl p-1">
+                                            <div className="bg-background border border-white/10 rounded-xl overflow-hidden shadow-2xl p-1">
                                                 {item.children.map((child) => (
                                                     <Link
                                                         key={child.label}
@@ -117,7 +117,7 @@ const Header = () => {
                         initial={{ opacity: 0, height: 0 }}
                         animate={{ opacity: 1, height: 'auto' }}
                         exit={{ opacity: 0, height: 0 }}
-                        className="lg:hidden fixed top-16 left-0 w-full bg-[#050510] border-b border-white/10 overflow-hidden"
+                        className="lg:hidden fixed top-16 left-0 w-full bg-background border-b border-white/10 overflow-hidden"
                     >
                         <nav className="container px-4 py-6 max-h-[80vh] overflow-y-auto">
                             <ul className="flex flex-col gap-2">

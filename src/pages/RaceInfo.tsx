@@ -98,7 +98,7 @@ export default function RaceInfoPage() {
 
                     <FadeInUp delay={0.2}>
                         <motion.div
-                            className="bg-[#15151e] rounded-xl border border-white/10 overflow-hidden"
+                            className="bg-white/5 rounded-xl border border-white/10 overflow-hidden"
                             whileHover={{ borderColor: 'rgba(255,255,255,0.2)' }}
                             transition={{ duration: 0.3 }}
                         >
@@ -113,7 +113,7 @@ export default function RaceInfoPage() {
                                     Download GPX File
                                 </motion.button>
                             </div>
-                            <div className="p-0 bg-[#0a0a1a] h-[300px] md:h-[400px] lg:h-[500px] w-full relative z-0">
+                            <div className="p-0 bg-black/40 h-[300px] md:h-[400px] lg:h-[500px] w-full relative z-0">
                                 <RaceMap />
                             </div>
                         </motion.div>

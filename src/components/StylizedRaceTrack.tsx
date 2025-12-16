@@ -57,7 +57,7 @@ const StylizedRaceTrack = () => {
     ];
 
     return (
-        <div className="bg-[#101018] rounded-2xl p-8 relative overflow-hidden border border-white/10 shadow-2xl">
+        <div className="bg-white/5 rounded-2xl p-8 relative overflow-hidden border border-white/10 shadow-2xl">
             <h2 className="text-3xl font-black text-white uppercase tracking-wider mb-2 text-center drop-shadow-[0_0_10px_rgba(255,215,0,0.5)]">HIMALAYAN 100 CIRCUIT</h2>
             <p className="text-gray-400 text-center max-w-2xl mx-auto mb-10 text-sm">
                 Spanning 103km with over 5,300m elevation gain, this legendary course tests endurance

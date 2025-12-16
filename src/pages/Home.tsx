@@ -8,7 +8,7 @@ export default function Home() {
         <div className="flex flex-col overflow-hidden">
             {/* Hero Section */}
             <section className="relative min-h-screen md:min-h-[800px] flex items-center justify-center overflow-hidden p-0 pt-16 md:pt-0">
-                <div className="absolute inset-0 bg-gradient-to-b from-[#050510]/30 to-[#050510]/80 z-10"></div>
+                <div className="absolute inset-0 bg-gradient-to-b from-background/30 to-background/80 z-10"></div>
                 <motion.img
                     src="/hero-bg.png"
                     alt="Trail Runner on Ridge"
@@ -141,7 +141,7 @@ export default function Home() {
             </section>
 
             {/* Latest News */}
-            <section className="bg-[#020205] py-12 md:py-20">
+            <section className="bg-background py-12 md:py-20">
                 <div className="container mx-auto px-4">
                     <FadeInUp>
                         <h2 className="text-center mb-8 md:mb-16 text-2xl md:text-3xl lg:text-4xl font-bold uppercase">

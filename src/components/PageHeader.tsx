@@ -11,7 +11,7 @@ interface PageHeaderProps {
 const PageHeader = ({ title, subtitle, bgImage = '/inner-bg.png' }: PageHeaderProps) => {
     return (
         <div className="relative h-[250px] md:h-[350px] w-full flex items-center justify-center overflow-hidden mb-8">
-            <div className="absolute inset-0 bg-[#050510]/60 z-10"></div>
+            <div className="absolute inset-0 bg-background/60 z-10"></div>
             <motion.img
                 src={bgImage}
                 alt="Background"

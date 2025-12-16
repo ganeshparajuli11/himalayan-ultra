@@ -1,24 +1,59 @@
 @import "tailwindcss";
 
 @theme {
-  --color-background: rgb(5 5 16);
+  /* 
+     Palette based on 'Himalayan Harmony' Poster
+     Theme: "Pink Sky, Blue Runners"
+  */
+
+  /* Extracted Colors */
+  --color-harmony-pink: rgb(255 143 163);
+  /* Soft Salmon/Pink from sky */
+  --color-harmony-blue: rgb(42 107 242);
+  /* Vibrant Blue from runners */
+  --color-harmony-dark: rgb(10 25 60);
+  /* Deep Blue for readable background */
+
+  /* Structural Variables */
+  --color-background: var(--color-harmony-dark);
   --color-foreground: rgb(255 255 255);
-  --color-primary: rgb(22 163 74);
-  --color-primary-hover: rgb(21 128 61);
-  --color-secondary: rgb(240 240 240);
-  --color-muted: rgb(160 160 160);
+
+  /* Primary Action: The Pink Sky Color */
+  --color-primary: var(--color-harmony-pink);
+  --color-primary-hover: rgb(255 113 133);
+
+  /* Secondary: The Runner Blue */
+  --color-secondary: var(--color-harmony-blue);
+
+  --color-muted: rgb(148 178 255);
+  /* Lighter Blue text */
 
   --font-sans: Inter, system-ui, sans-serif;
-
   --container-2xl: 1200px;
 }
 
 @layer base {
   body {
     @apply bg-background text-foreground antialiased;
+
+    /* 
+       "Play around this": Adding the Polka Dot Pattern from the poster.
+       Created using a radial gradient pattern overlay.
+    */
+    background-image:
+      radial-gradient(var(--color-secondary) 1px, transparent 1px),
+      radial-gradient(var(--color-secondary) 1px, transparent 1px);
+    background-size: 40px 40px;
+    background-position: 0 0, 20px 20px;
+    /* Soften the dots so they aren't distracting */
+    background-blend-mode: overlay;
+    opacity: 1;
   }
 
-  /* Custom Scrollbar */
+  /* Make the content area readable against the pattern if needed, 
+     but typical pages have their own bg-containers */
+
+  /* Custom Scrollbar - Matching the Blue/Pink theme */
   ::-webkit-scrollbar {
     width: 10px;
   }
@@ -29,13 +64,15 @@
   }
 
   ::-webkit-scrollbar-thumb {
-    @apply bg-primary/80 rounded-full transition-colors duration-300;
+    background: var(--color-primary);
+    /* Pink Thumb */
+    border-radius: 9999px;
     border: 2px solid var(--color-background);
     background-clip: padding-box;
   }
 
   ::-webkit-scrollbar-thumb:hover {
-    @apply bg-primary;
+    background: var(--color-primary-hover);
   }
 
   /* Firefox */
@@ -50,15 +87,17 @@
   h4,
   h5,
   h6 {
-    @apply font-bold leading-tight;
+    @apply font-bold leading-tight uppercase tracking-widest;
+    /* Poster font style */
   }
 
   h1 {
-    @apply text-5xl tracking-tight;
+    @apply text-5xl;
   }
 
   h2 {
-    @apply text-4xl mb-4;
+    @apply text-4xl mb-4 text-primary;
+    /* Pink Headings like sky */
   }
 
   h3 {
@@ -71,16 +110,29 @@
     @apply px-6 py-3 rounded-full font-bold uppercase tracking-wider transition-all duration-300 text-sm inline-block cursor-pointer border-none;
   }
 
+  /* 
+     Primary Button: Pink (Sky)
+  */
   .btn-primary {
-    @apply bg-primary text-black hover:bg-primary-hover hover:-translate-y-0.5 hover:shadow-lg hover:shadow-primary/30;
+    @apply bg-primary text-black hover:bg-white hover:text-primary shadow-lg hover:shadow-primary/50 hover:-translate-y-0.5;
   }
 
+  /* 
+     Outline/Secondary Button: Blue (Runners)
+  */
   .btn-outline {
-    @apply border-2 border-foreground bg-transparent text-foreground hover:bg-foreground hover:text-black;
+    @apply border-2 border-secondary bg-transparent text-white hover:bg-secondary hover:text-white;
   }
 
+  /* 
+     Glass effect: Blue tint 
+  */
   .glass {
-    @apply bg-white/5 backdrop-blur-md border border-white/10;
+    @apply bg-secondary/10 backdrop-blur-md border border-white/10;
+  }
+
+  .text-gradient {
+    @apply text-primary;
   }
 
   .container-custom {

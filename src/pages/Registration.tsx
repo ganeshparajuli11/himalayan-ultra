@@ -11,7 +11,7 @@ export default function RegistrationPage() {
                 <section className="mb-12 md:mb-24">
                     <FadeInUp>
                         <motion.div
-                            className="bg-[#15151e] rounded-xl border border-white/10 p-5 md:p-8 lg:p-12 text-center max-w-4xl mx-auto mb-10 md:mb-20 relative overflow-hidden"
+                            className="bg-white/5 rounded-xl border border-white/10 p-5 md:p-8 lg:p-12 text-center max-w-4xl mx-auto mb-10 md:mb-20 relative overflow-hidden"
                             whileHover={{ borderColor: 'rgba(22, 163, 74, 0.3)' }}
                             transition={{ duration: 0.3 }}
                         >
@@ -63,7 +63,7 @@ export default function RegistrationPage() {
                         {/* The Third */}
                         <FadeInLeft delay={0.2} className="order-2 md:order-1">
                             <motion.div
-                                className="bg-[#15151e] rounded-xl border border-white/10 p-5 md:p-8 flex flex-col h-full"
+                                className="bg-white/5 rounded-xl border border-white/10 p-5 md:p-8 flex flex-col h-full"
                                 whileHover={{
                                     y: -10,
                                     borderColor: 'rgba(255, 255, 255, 0.3)',
@@ -103,7 +103,7 @@ export default function RegistrationPage() {
                         {/* Himalayan 100 - Featured */}
                         <ScaleIn delay={0.1} className="order-1 md:order-2">
                             <motion.div
-                                className="bg-[#0a0a1a] rounded-xl border-2 border-primary/50 p-5 md:p-8 flex flex-col relative h-full"
+                                className="bg-black/40 rounded-xl border-2 border-primary/50 p-5 md:p-8 flex flex-col relative h-full"
                                 initial={{ boxShadow: '0 0 30px rgba(22, 163, 74, 0.1)' }}
                                 whileHover={{
                                     y: -10,
@@ -166,7 +166,7 @@ export default function RegistrationPage() {
                         {/* The Half */}
                         <FadeInRight delay={0.2} className="order-3">
                             <motion.div
-                                className="bg-[#15151e] rounded-xl border border-white/10 p-5 md:p-8 flex flex-col h-full"
+                                className="bg-white/5 rounded-xl border border-white/10 p-5 md:p-8 flex flex-col h-full"
                                 whileHover={{
                                     y: -10,
                                     borderColor: 'rgba(255, 255, 255, 0.3)',
@@ -207,7 +207,7 @@ export default function RegistrationPage() {
 
                 <FadeInUp delay={0.2}>
                     <motion.section
-                        className="bg-[#1a1a2e] rounded-xl overflow-hidden shadow-2xl"
+                        className="bg-black/60 rounded-xl overflow-hidden shadow-2xl"
                         whileHover={{ boxShadow: '0 25px 50px rgba(0, 0, 0, 0.5)' }}
                         transition={{ duration: 0.3 }}
                     >
