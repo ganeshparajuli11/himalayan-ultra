@@ -13,6 +13,8 @@
   /* Vibrant Blue from runners */
   --color-harmony-dark: rgb(10 25 60);
   /* Deep Blue for readable background */
+  --color-harmony-purple: rgb(88 28 135);
+  /* Deep Purple for gradients */
 
   /* Structural Variables */
   --color-background: var(--color-harmony-dark);
@@ -37,105 +39,120 @@
     @apply bg-background text-foreground antialiased;
 
     /* 
-       "Play around this": Adding the Polka Dot Pattern from the poster.
-       Created using a radial gradient pattern overlay.
+       Poster Aesthetic:
+       Combination of a deep gradient + the "halftone" dot texture.
     */
+    background-color: var(--color-harmony-dark);
     background-image:
-      radial-gradient(var(--color-secondary) 1px, transparent 1px),
-      radial-gradient(var(--color-secondary) 1px, transparent 1px);
-    background-size: 40px 40px;
-    background-position: 0 0, 20px 20px;
-    /* Soften the dots so they aren't distracting */
-    background-blend-mode: overlay;
-    opacity: 1;
-  }
+      radial-gradient(circle at 15% 50%, rgba(42, 107, 242, 0.15) 0%, transparent 50%),
+      radial-gradient(circle at 85% 30%, rgba(255, 143, 163, 0.1) 0%, transparent 50%),
+      radial-gradient(var(--color-harmony-blue) 1px, transparent 1px),
+      radial-gradient(var(--color-harmony-blue) 1px, transparent 1px);
+    background-size: 100% 100%, 100% 100%, 40px 40px, 40px 40px;
+    background-position: 0 0, 0 0, 0 0, 20px 20px;
+    background-attachment: fixed;
+    /* Soften the dots */
+    background-blend-mode: normal, normal, overlay, overlay;
 
-  /* Make the content area readable against the pattern if needed, 
-     but typical pages have their own bg-containers */
+    /* Selection Color */
+    ::selection {
+      background-color: var(--color-primary);
+      color: var(--color-harmony-dark);
+    }
+  }
 
   /* Custom Scrollbar - Matching the Blue/Pink theme */
   ::-webkit-scrollbar {
-    width: 10px;
+    width: 8px;
   }
 
   ::-webkit-scrollbar-track {
     background: var(--color-background);
-    border-left: 1px solid rgba(255, 255, 255, 0.05);
   }
 
   ::-webkit-scrollbar-thumb {
-    background: var(--color-primary);
-    /* Pink Thumb */
+    background: linear-gradient(to bottom, var(--color-primary), var(--color-secondary));
     border-radius: 9999px;
-    border: 2px solid var(--color-background);
-    background-clip: padding-box;
   }
 
   ::-webkit-scrollbar-thumb:hover {
     background: var(--color-primary-hover);
   }
 
-  /* Firefox */
-  html {
-    scrollbar-width: thin;
-    scrollbar-color: var(--color-primary) var(--color-background);
-  }
-
+  /* Typography */
   h1,
   h2,
   h3,
   h4,
   h5,
   h6 {
-    @apply font-bold leading-tight uppercase tracking-widest;
-    /* Poster font style */
+    @apply font-bold uppercase tracking-wide;
   }
 
   h1 {
-    @apply text-5xl;
+    @apply text-5xl md:text-7xl mb-6;
+    /* Poster Headline Style: maybe a slight text shadow */
+    text-shadow: 2px 2px 0px rgba(42, 107, 242, 0.5);
   }
 
   h2 {
-    @apply text-4xl mb-4 text-primary;
-    /* Pink Headings like sky */
+    @apply text-3xl md:text-4xl mb-6 text-primary;
   }
 
   h3 {
-    @apply text-2xl mb-2;
+    @apply text-xl md:text-2xl mb-4 text-white/90;
   }
 }
 
 @layer components {
   .btn {
-    @apply px-6 py-3 rounded-full font-bold uppercase tracking-wider transition-all duration-300 text-sm inline-block cursor-pointer border-none;
+    @apply px-8 py-4 rounded-none font-black uppercase tracking-widest transition-all duration-300 text-sm inline-flex items-center justify-center cursor-pointer border-none skew-x-[-10deg];
+  }
+
+  .btn span {
+    @apply skew-x-[10deg] inline-block;
   }
 
   /* 
-     Primary Button: Pink (Sky)
+     Primary Button: "Wisely" using the Pink as a high-contrast action
   */
   .btn-primary {
-    @apply bg-primary text-black hover:bg-white hover:text-primary shadow-lg hover:shadow-primary/50 hover:-translate-y-0.5;
+    @apply bg-primary text-[#0a193c] hover:brightness-110 shadow-[4px_4px_0px_0px_var(--color-secondary)];
+    /* No rounded corners, robust shadow for 'poster' feel */
+  }
+
+  .btn-primary:active {
+    @apply translate-x-[2px] translate-y-[2px] shadow-[2px_2px_0px_0px_var(--color-secondary)];
   }
 
   /* 
-     Outline/Secondary Button: Blue (Runners)
+     Outline/Secondary Button
   */
   .btn-outline {
     @apply border-2 border-secondary bg-transparent text-white hover:bg-secondary hover:text-white;
   }
 
   /* 
-     Glass effect: Blue tint 
+     Cards / Glass Panels
   */
-  .glass {
-    @apply bg-secondary/10 backdrop-blur-md border border-white/10;
+  .card-poster {
+    @apply bg-[#1a2c55]/80 backdrop-blur-sm border-l-4 border-primary p-6 relative overflow-hidden;
+  }
+
+  .card-poster::before {
+    content: '';
+    @apply absolute top-0 right-0 w-20 h-20 bg-gradient-to-bl from-white/5 to-transparent pointer-events-none;
   }
 
   .text-gradient {
-    @apply text-primary;
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary to-white;
   }
 
   .container-custom {
     @apply max-w-7xl mx-auto px-4;
+  }
+
+  .clip-path-slant {
+    clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
   }
 }

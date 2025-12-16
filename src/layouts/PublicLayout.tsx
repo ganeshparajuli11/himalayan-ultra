@@ -7,7 +7,7 @@ export default function PublicLayout() {
     return (
         <>
             <Header />
-            <main className="min-h-screen pt-20 flex flex-col">
+            <main className="min-h-screen flex flex-col">
                 <Outlet />
             </main>
             <Footer />

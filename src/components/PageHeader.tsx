@@ -10,14 +10,17 @@ interface PageHeaderProps {
 
 const PageHeader = ({ title, subtitle, bgImage = '/inner-bg.png' }: PageHeaderProps) => {
     return (
-        <div className="relative h-[250px] md:h-[350px] w-full flex items-center justify-center overflow-hidden mb-8">
-            <div className="absolute inset-0 bg-background/60 z-10"></div>
+        <div className="relative h-[300px] md:h-[450px] w-full flex items-center justify-center overflow-hidden mb-8 clip-path-slant">
+            {/* Poster Gradient Overlay */}
+            <div className="absolute inset-0 bg-gradient-to-b from-[#0a193c]/30 via-[#0a193c]/60 to-[#0a193c] z-10 mix-blend-multiply"></div>
+            <div className="absolute inset-0 bg-gradient-to-tr from-primary/20 via-transparent to-secondary/20 z-10 mix-blend-overlay"></div>
+
             <motion.img
                 src={bgImage}
                 alt="Background"
-                className="absolute inset-0 w-full h-full object-cover z-0 filter brightness-75"
-                initial={{ scale: 1.1 }}
-                animate={{ scale: 1 }}
+                className="absolute inset-0 w-full h-full object-cover z-0"
+                initial={{ scale: 1.1, filter: 'grayscale(0%)' }}
+                animate={{ scale: 1, filter: 'grayscale(20%)' }}
                 transition={{ duration: 1.2, ease: 'easeOut' }}
             />
             <div className="container mx-auto px-4 relative z-20 text-center">
