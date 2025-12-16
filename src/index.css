@@ -18,6 +18,32 @@
     @apply bg-background text-foreground antialiased;
   }
 
+  /* Custom Scrollbar */
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: var(--color-background);
+    border-left: 1px solid rgba(255, 255, 255, 0.05);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-primary/80 rounded-full transition-colors duration-300;
+    border: 2px solid var(--color-background);
+    background-clip: padding-box;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-primary;
+  }
+
+  /* Firefox */
+  html {
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-primary) var(--color-background);
+  }
+
   h1,
   h2,
   h3,

@@ -11,6 +11,11 @@ import NewsDetail from '@/pages/NewsDetail';
 import RaceInfo from '@/pages/RaceInfo';
 import Registration from '@/pages/Registration';
 import Results from '@/pages/Results';
+import RacePackPickUp from '@/pages/RacePackPickUp';
+import Prizes from '@/pages/Prizes';
+import Transport from '@/pages/Transport';
+import RulesAndRegulations from '@/pages/RulesAndRegulations';
+import Volunteer from '@/pages/Volunteer';
 import Login from '@/pages/Login';
 import UserDashboard from '@/pages/UserDashboard';
 import AdminDashboard from '@/pages/admin/Dashboard';
@@ -34,6 +39,11 @@ function App() {
                         <Route path="/race-info" element={<RaceInfo />} />
                         <Route path="/registration" element={<Registration />} />
                         <Route path="/results" element={<Results />} />
+                        <Route path="/race-pack-pick-up" element={<RacePackPickUp />} />
+                        <Route path="/prizes" element={<Prizes />} />
+                        <Route path="/transport" element={<Transport />} />
+                        <Route path="/rules-and-regulations" element={<RulesAndRegulations />} />
+                        <Route path="/volunteer" element={<Volunteer />} />
                     </Route>
 
                     {/* Auth Routes */}
