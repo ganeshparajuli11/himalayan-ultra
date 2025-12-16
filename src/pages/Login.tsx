@@ -53,63 +53,67 @@ export default function LoginPage() {
 
                 {/* Right Panel - Login Form */}
                 <div className="w-full lg:w-1/2 flex items-center justify-center p-8 relative">
-                    <div className="w-full max-w-md bg-[#15151e] p-8 md:p-10 rounded-2xl shadow-2xl border border-white/5 relative z-10">
-                        <div className="text-center mb-10">
-                            <h2 className="text-3xl font-bold text-white mb-2">Welcome Back</h2>
-                            <p className="text-gray-400">Please enter your details to sign in.</p>
-                        </div>
-
-                        <div className="flex bg-[#0a0a1a] p-1 rounded-lg mb-8 border border-white/5">
-                            <button
-                                className={`flex-1 py-2 text-sm font-bold rounded-md transition-all duration-300 ${!isAdmin ? 'bg-white text-black shadow-lg' : 'text-gray-400 hover:text-white'}`}
-                                onClick={() => setIsAdmin(false)}
-                            >
-                                Runner
-                            </button>
-                            <button
-                                className={`flex-1 py-2 text-sm font-bold rounded-md transition-all duration-300 ${isAdmin ? 'bg-primary text-black shadow-lg' : 'text-gray-400 hover:text-white'}`}
-                                onClick={() => setIsAdmin(true)}
-                            >
-                                Admin
-                            </button>
-                        </div>
-
-                        <form onSubmit={handleSubmit} className="space-y-6">
-                            <div className="space-y-2">
-                                <label className="text-sm font-bold text-gray-300 uppercase tracking-wider">Email Address</label>
-                                <input
-                                    type="email"
-                                    placeholder="Enter your email"
-                                    value={email}
-                                    onChange={(e) => setEmail(e.target.value)}
-                                    required
-                                    className="w-full bg-[#0a0a1a] border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors"
-                                />
+                    <div className="w-full max-w-md bg-[#15151e] p-8 md:p-10 border border-white/10 relative z-10 skew-x-[-3deg] shadow-[10px_10px_0px_0px_rgba(42,107,242,0.1)]">
+                        <div className="skew-x-[3deg]">
+                            <div className="text-center mb-10">
+                                <h2 className="text-3xl font-black text-white mb-2 uppercase italic tracking-tighter">Welcome Back</h2>
+                                <p className="text-gray-400">Please enter your details to sign in.</p>
                             </div>
 
-                            <div className="space-y-2">
-                                <label className="text-sm font-bold text-gray-300 uppercase tracking-wider">Password</label>
-                                <input
-                                    type="password"
-                                    placeholder="Enter your password"
-                                    value={password}
-                                    onChange={(e) => setPassword(e.target.value)}
-                                    required
-                                    className="w-full bg-[#0a0a1a] border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors"
-                                />
+                            <div className="flex bg-[#0a0a1a] p-1 mb-8 border border-white/5 skew-x-[-6deg]">
+                                <button
+                                    className={`flex-1 py-2 text-sm font-bold skew-x-[6deg] transition-all duration-300 ${!isAdmin ? 'bg-white text-black shadow-lg' : 'text-gray-400 hover:text-white'}`}
+                                    onClick={() => setIsAdmin(false)}
+                                >
+                                    Runner
+                                </button>
+                                <button
+                                    className={`flex-1 py-2 text-sm font-bold skew-x-[6deg] transition-all duration-300 ${isAdmin ? 'bg-primary text-black shadow-lg' : 'text-gray-400 hover:text-white'}`}
+                                    onClick={() => setIsAdmin(true)}
+                                >
+                                    Admin
+                                </button>
                             </div>
 
-                            <button type="submit" className="btn btn-primary w-full mt-8 py-4 text-base shadow-lg shadow-primary/20">
-                                {isAdmin ? 'Login as Admin' : 'Login as Runner'}
-                            </button>
-                        </form>
+                            <form onSubmit={handleSubmit} className="space-y-6">
+                                <div className="space-y-2">
+                                    <label className="text-xs font-bold text-primary uppercase tracking-widest block mb-1">Email Address</label>
+                                    <input
+                                        type="email"
+                                        placeholder="Enter your email"
+                                        value={email}
+                                        onChange={(e) => setEmail(e.target.value)}
+                                        required
+                                        className="w-full bg-[#0a0a1a] border border-white/10 px-4 py-3 text-white focus:outline-none focus:border-primary focus:bg-[#0a0a1a] transition-colors placeholder-gray-600 rounded-none skew-x-[-3deg]"
+                                    />
+                                </div>
 
-                        <p className="text-center text-gray-400 mt-8 text-sm">
-                            Don't have an account? <Link to="/registration" className="text-primary hover:underline font-bold">Register for Race</Link>
-                        </p>
+                                <div className="space-y-2">
+                                    <label className="text-xs font-bold text-primary uppercase tracking-widest block mb-1">Password</label>
+                                    <input
+                                        type="password"
+                                        placeholder="Enter your password"
+                                        value={password}
+                                        onChange={(e) => setPassword(e.target.value)}
+                                        required
+                                        className="w-full bg-[#0a0a1a] border border-white/10 px-4 py-3 text-white focus:outline-none focus:border-primary focus:bg-[#0a0a1a] transition-colors placeholder-gray-600 rounded-none skew-x-[-3deg]"
+                                    />
+                                </div>
 
-                        <div className="mt-8 pt-6 border-t border-white/5 text-xs text-center text-gray-500 font-mono bg-black/20 p-4 rounded">
-                            <strong>Demo:</strong> Admin (admin@himalayanultra.com / admin) <br /> User (user@test.com / any)
+                                <button type="submit" className="btn btn-primary w-full mt-8 py-4 text-base shadow-lg shadow-primary/20 skew-x-[-3deg] hover:brightness-110">
+                                    <span className="skew-x-[3deg] inline-block">{isAdmin ? 'Login as Admin' : 'Login as Runner'}</span>
+                                </button>
+                            </form>
+
+                            <p className="text-center text-gray-400 mt-8 text-sm">
+                                Don't have an account? <Link to="/registration" className="text-primary hover:text-white font-bold uppercase tracking-wider transition-colors ml-1">Register</Link>
+                            </p>
+
+                            <div className="mt-8 pt-6 border-t border-white/5 text-xs text-center text-gray-500 font-mono bg-black/20 p-4 border border-white/5 skew-x-[-3deg]">
+                                <div className="skew-x-[3deg]">
+                                    <strong>Demo:</strong> Admin (admin@himalayanultra.com / admin) <br /> User (user@test.com / any)
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

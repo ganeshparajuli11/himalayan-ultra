@@ -11,19 +11,21 @@ export default function RegistrationPage() {
                 <section className="mb-12 md:mb-24">
                     <FadeInUp>
                         <motion.div
-                            className="bg-white/5 rounded-xl border border-white/10 p-5 md:p-8 lg:p-12 text-center max-w-4xl mx-auto mb-10 md:mb-20 relative overflow-hidden"
-                            whileHover={{ borderColor: 'rgba(22, 163, 74, 0.3)' }}
+                            className="design-box p-5 md:p-8 lg:p-12 text-center max-w-4xl mx-auto mb-10 md:mb-20"
+                            initial={{ skewX: -6 }}
+                            whileHover={{
+                                borderColor: 'rgba(22, 163, 74, 0.3)',
+                                boxShadow: '0 0 40px rgba(42, 107, 242, 0.1)',
+                                skewX: -6
+                            }}
                             transition={{ duration: 0.3 }}
                         >
-                            <motion.div
-                                className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-primary to-transparent"
-                                animate={{ opacity: [0.5, 1, 0.5] }}
-                                transition={{ duration: 2, repeat: Infinity }}
-                            />
-                            <h2 className="text-2xl md:text-3xl font-bold mb-6 md:mb-10 uppercase tracking-widest text-white">Important Dates</h2>
+                            <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-primary to-transparent animate-pulse" />
+
+                            <h2 className="text-2xl md:text-3xl font-black mb-6 md:mb-10 uppercase tracking-widest text-white">Important Dates</h2>
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 text-center max-w-2xl mx-auto mb-6 md:mb-8">
                                 <motion.div
-                                    className="flex flex-col items-center"
+                                    className="flex flex-col items-center bg-black/20 p-4 border border-white/5"
                                     initial={{ opacity: 0, y: 20 }}
                                     whileInView={{ opacity: 1, y: 0 }}
                                     viewport={{ once: true }}
@@ -33,7 +35,7 @@ export default function RegistrationPage() {
                                     <span className="text-2xl md:text-3xl font-black text-primary">Aug 15, 2025</span>
                                 </motion.div>
                                 <motion.div
-                                    className="flex flex-col items-center"
+                                    className="flex flex-col items-center bg-black/20 p-4 border border-white/5"
                                     initial={{ opacity: 0, y: 20 }}
                                     whileInView={{ opacity: 1, y: 0 }}
                                     viewport={{ once: true }}
@@ -44,7 +46,7 @@ export default function RegistrationPage() {
                                 </motion.div>
                             </div>
                             <motion.p
-                                className="text-xs md:text-sm text-gray-400 italic bg-black/30 inline-block px-3 md:px-4 py-2 rounded-full"
+                                className="text-xs md:text-sm text-gray-400 italic bg-black/30 inline-block px-3 md:px-4 py-2 border-l-2 border-primary"
                                 initial={{ opacity: 0 }}
                                 whileInView={{ opacity: 1 }}
                                 viewport={{ once: true }}
@@ -61,19 +63,23 @@ export default function RegistrationPage() {
 
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-8 max-w-6xl mx-auto">
                         {/* The Third */}
+                        {/* The Third */}
                         <FadeInLeft delay={0.2} className="order-2 md:order-1">
                             <motion.div
-                                className="bg-white/5 rounded-xl border border-white/10 p-5 md:p-8 flex flex-col h-full"
+                                className="design-box flex flex-col h-full"
+                                initial={{ skewX: -6 }}
                                 whileHover={{
                                     y: -10,
+                                    x: 5,
+                                    skewX: -6,
                                     borderColor: 'rgba(255, 255, 255, 0.3)',
-                                    boxShadow: '0 20px 40px rgba(0, 0, 0, 0.3)'
+                                    boxShadow: '8px 8px 0px 0px rgba(42, 107, 242, 0.4)'
                                 }}
                                 transition={{ duration: 0.3 }}
                             >
                                 <div className="text-center mb-6 md:mb-8 border-b border-white/5 pb-6 md:pb-8">
                                     <h3 className="text-xl md:text-2xl font-bold text-white uppercase mb-2">The Third</h3>
-                                    <span className="inline-block bg-white/10 text-white text-xs font-bold px-3 py-1 rounded-full">33KM</span>
+                                    <span className="inline-block bg-white/10 text-white text-xs font-bold px-3 py-1 skew-x-[-12deg]">33KM</span>
                                 </div>
                                 <div className="text-center text-3xl md:text-4xl font-black text-white mb-6 md:mb-8">HKD 1,200</div>
                                 <ul className="space-y-3 md:space-y-4 mb-6 md:mb-10 flex-grow text-gray-300 text-sm md:text-base">
@@ -103,17 +109,19 @@ export default function RegistrationPage() {
                         {/* Himalayan 100 - Featured */}
                         <ScaleIn delay={0.1} className="order-1 md:order-2">
                             <motion.div
-                                className="bg-black/40 rounded-xl border-2 border-primary/50 p-5 md:p-8 flex flex-col relative h-full"
-                                initial={{ boxShadow: '0 0 30px rgba(22, 163, 74, 0.1)' }}
+                                className="design-box border-2 border-primary/50 flex flex-col relative h-full bg-[#1a2c55]"
+                                initial={{ boxShadow: '0 0 30px rgba(22, 163, 74, 0.1)', skewX: -6 }}
                                 whileHover={{
                                     y: -10,
-                                    boxShadow: '0 0 60px rgba(22, 163, 74, 0.3)',
+                                    x: 5,
+                                    skewX: -6,
+                                    boxShadow: '10px 10px 0px 0px rgba(22, 163, 74, 0.3)',
                                     borderColor: 'rgba(22, 163, 74, 0.8)'
                                 }}
                                 transition={{ duration: 0.3 }}
                             >
                                 <motion.div
-                                    className="absolute top-0 right-0 bg-primary text-black text-[10px] md:text-xs font-bold px-2 md:px-3 py-1 rounded-bl-lg"
+                                    className="absolute top-0 right-0 bg-primary text-[#0a193c] text-[10px] md:text-xs font-black px-4 py-1 transform skew-x-[-12deg] translate-x-2 -translate-y-2 shadow-lg"
                                     animate={{ scale: [1, 1.05, 1] }}
                                     transition={{ duration: 2, repeat: Infinity }}
                                 >
@@ -121,7 +129,7 @@ export default function RegistrationPage() {
                                 </motion.div>
                                 <div className="text-center mb-6 md:mb-8 border-b border-white/10 pb-6 md:pb-8">
                                     <h3 className="text-2xl md:text-3xl font-black text-primary uppercase mb-2">Himalayan 100</h3>
-                                    <span className="inline-block bg-primary/20 text-primary text-xs font-bold px-3 py-1 rounded-full">103KM</span>
+                                    <span className="inline-block bg-primary text-[#0a193c] text-xs font-bold px-3 py-1 skew-x-[-12deg]">103KM</span>
                                 </div>
                                 <motion.div
                                     className="text-center text-3xl md:text-5xl font-black text-white mb-6 md:mb-8"
@@ -155,7 +163,7 @@ export default function RegistrationPage() {
                                 </ul>
                                 <motion.button
                                     className="btn btn-primary w-full py-3 md:py-4 text-sm md:text-base shadow-lg shadow-primary/25"
-                                    whileHover={{ scale: 1.02, boxShadow: '0 0 40px rgba(22, 163, 74, 0.5)' }}
+                                    whileHover={{ scale: 1.02, boxShadow: '0 0 40px rgba(255, 143, 163, 0.4)' }}
                                     whileTap={{ scale: 0.98 }}
                                 >
                                     Register Now
@@ -166,17 +174,20 @@ export default function RegistrationPage() {
                         {/* The Half */}
                         <FadeInRight delay={0.2} className="order-3">
                             <motion.div
-                                className="bg-white/5 rounded-xl border border-white/10 p-5 md:p-8 flex flex-col h-full"
+                                className="design-box flex flex-col h-full"
+                                initial={{ skewX: -6 }}
                                 whileHover={{
                                     y: -10,
+                                    x: 5,
+                                    skewX: -6,
                                     borderColor: 'rgba(255, 255, 255, 0.3)',
-                                    boxShadow: '0 20px 40px rgba(0, 0, 0, 0.3)'
+                                    boxShadow: '8px 8px 0px 0px rgba(42, 107, 242, 0.4)'
                                 }}
                                 transition={{ duration: 0.3 }}
                             >
                                 <div className="text-center mb-6 md:mb-8 border-b border-white/5 pb-6 md:pb-8">
                                     <h3 className="text-xl md:text-2xl font-bold text-white uppercase mb-2">The Half</h3>
-                                    <span className="inline-block bg-white/10 text-white text-xs font-bold px-3 py-1 rounded-full">56KM</span>
+                                    <span className="inline-block bg-white/10 text-white text-xs font-bold px-3 py-1 skew-x-[-12deg]">56KM</span>
                                 </div>
                                 <div className="text-center text-3xl md:text-4xl font-black text-white mb-6 md:mb-8">HKD 1,800</div>
                                 <ul className="space-y-3 md:space-y-4 mb-6 md:mb-10 flex-grow text-gray-300 text-sm md:text-base">
@@ -207,15 +218,18 @@ export default function RegistrationPage() {
 
                 <FadeInUp delay={0.2}>
                     <motion.section
-                        className="bg-black/60 rounded-xl overflow-hidden shadow-2xl"
+                        className="bg-black/60 border border-white/10 overflow-hidden shadow-2xl skew-x-[-3deg] transform"
                         whileHover={{ boxShadow: '0 25px 50px rgba(0, 0, 0, 0.5)' }}
                         transition={{ duration: 0.3 }}
                     >
-                        <div className="p-5 md:p-10 lg:p-16 text-center">
+                        <div className="skew-x-[3deg] p-5 md:p-10 lg:p-16 text-center">
                             <h2 className="text-2xl md:text-3xl font-bold mb-6 md:mb-8 text-white uppercase">Cancellation & Refunds</h2>
                             <motion.div
-                                className="glass p-5 md:p-8 rounded-xl max-w-3xl mx-auto border-l-4 border-red-500/50 text-left"
-                                whileHover={{ borderColor: 'rgba(239, 68, 68, 0.8)' }}
+                                className="bg-[#0a193c] border border-white/10 p-5 md:p-8 max-w-3xl mx-auto border-l-4 border-l-red-500 text-left relative"
+                                whileHover={{
+                                    borderColor: 'rgba(239, 68, 68, 0.8)',
+                                    boxShadow: '0 0 30px rgba(239, 68, 68, 0.2)'
+                                }}
                                 transition={{ duration: 0.3 }}
                             >
                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8 mb-4 md:mb-6">

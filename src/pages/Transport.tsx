@@ -11,19 +11,24 @@ const Transport = () => {
 
                 {/* Shuttle Bus Main Info */}
                 <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    className="bg-white/5 rounded-3xl overflow-hidden border border-white/10 shadow-2xl mb-12"
+                    initial={{ skewX: -6 }}
+                    whileHover={{
+                        y: -5,
+                        skewX: -6,
+                        boxShadow: '8px 8px 0px 0px rgba(42, 107, 242, 0.4)'
+                    }}
+                    transition={{ duration: 0.3 }}
+                    className="design-box mb-12"
                 >
-                    <div className="bg-primary/20 p-8 border-b border-primary/20">
-                        <h2 className="text-3xl font-bold flex items-center gap-3 text-white">
+                    <div className="border-b border-white/10 pb-6 mb-6">
+                        <h2 className="text-3xl font-black text-white uppercase italic tracking-wider flex items-center gap-3">
                             <Bus className="w-8 h-8 text-primary" /> Official Shuttle Bus
                         </h2>
-                        <p className="text-primary font-medium mt-2">Departure Time: 5:20 AM Sharp</p>
+                        <p className="text-primary font-bold tracking-widest uppercase mt-2 text-sm">Departure Time: 5:20 AM Sharp</p>
                     </div>
 
-                    <div className="p-8">
-                        <p className="mb-6 text-gray-300">
+                    <div>
+                        <p className="mb-6 text-blue-200/80 leading-relaxed font-medium">
                             Please show your bus ticket attached to the back of your race bib.
                             Buses arrive around 5:45-5:50 AM at Pineapple Dam, Shing Mun Road.
                         </p>
@@ -40,47 +45,56 @@ const Transport = () => {
                                     href={loc.link}
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="flex items-center justify-between p-4 bg-black/20 rounded-xl hover:bg-black/40 transition-all group border border-white/5 hover:border-primary/30"
+                                    className="flex items-center justify-between p-4 bg-black/40 border border-white/10 hover:bg-primary hover:text-black hover:border-primary transition-all group"
                                 >
                                     <div className="flex items-center gap-3">
-                                        <Map className="w-5 h-5 text-gray-400 group-hover:text-primary transition-colors" />
-                                        <span className="font-semibold text-lg">{loc.name}</span>
+                                        <Map className="w-5 h-5 text-gray-400 group-hover:text-black transition-colors" />
+                                        <span className="font-bold uppercase tracking-wider text-sm">{loc.name}</span>
                                     </div>
-                                    <div className="flex items-center gap-2 text-sm text-primary">
+                                    <div className="flex items-center gap-2 text-xs font-black uppercase group-hover:text-black text-primary">
                                         Map <Navigation className="w-3 h-3" />
                                     </div>
                                 </a>
                             ))}
                         </div>
 
-                        <div className="mt-8 flex items-center gap-3 p-4 bg-green-500/10 border border-green-500/20 rounded-lg">
-                            <DollarSign className="w-5 h-5 text-green-500" />
-                            <span className="font-bold text-green-500">Fee: HK$ 40 per person</span>
+                        <div className="mt-8 flex items-center gap-3 p-4 bg-primary/20 border border-primary/30 text-primary">
+                            <DollarSign className="w-5 h-5" />
+                            <span className="font-black uppercase tracking-wider">Fee: HK$ 40 per person</span>
                         </div>
                     </div>
                 </motion.div>
 
                 {/* Personal Transport */}
                 <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    className="bg-secondary/5 rounded-2xl p-8 border border-white/10"
+                    initial={{ skewX: -6 }}
+                    whileHover={{
+                        y: -5,
+                        skewX: -6,
+                        boxShadow: '8px 8px 0px 0px rgba(42, 107, 242, 0.4)'
+                    }}
+                    transition={{ duration: 0.3 }}
+                    className="design-box"
                 >
-                    <h2 className="text-2xl font-bold mb-4 flex items-center gap-2">
+                    <h2 className="text-2xl font-black mb-4 flex items-center gap-2 text-white uppercase italic">
                         <Navigation className="w-6 h-6 text-primary" /> Personal Transport
                     </h2>
-                    <p className="text-gray-300 mb-4">
+                    <p className="text-blue-200/80 mb-6 font-medium">
                         If you are heading to the start by yourself, please note the race starting point is at:
                     </p>
-                    <div className="bg-black/30 p-6 rounded-xl border border-white/5">
-                        <h3 className="text-xl font-bold text-white mb-2">Shing Mun Reservoir, Tsuen Wan</h3>
+                    <div className="bg-black/40 p-6 border border-white/10 flex flex-col md:flex-row items-center justify-between gap-4 group hover:border-primary/50 transition-colors">
+                        <div>
+                            <h3 className="text-xl font-black text-white uppercase tracking-wider mb-1">Shing Mun Reservoir</h3>
+                            <span className="text-primary font-bold uppercase text-xs tracking-widest">Tsuen Wan, New Territories</span>
+                        </div>
                         <a
                             href="https://goo.gl/maps/MNJ6ihNpYbYCDws59"
-                            className="btn btn-outline btn-sm inline-flex items-center gap-2"
+                            className="bg-primary hover:bg-white hover:text-black text-black font-black text-sm px-6 py-3 uppercase tracking-widest transition-all skew-x-[-12deg] shadow-lg shadow-primary/20 hover:shadow-primary/50"
                             target="_blank"
                         >
-                            Open in Google Maps
+                            <span className="skew-x-[12deg] inline-flex items-center gap-2">
+                                Open Map <Map className="w-4 h-4" />
+                            </span>
                         </a>
                     </div>
                 </motion.div>

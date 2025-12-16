@@ -11,61 +11,64 @@ const Prizes = () => {
 
                 {/* 54km Category */}
                 <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
+                    initial={{ skewX: -6 }}
+                    whileInView={{ opacity: 1, skewX: -6 }}
                     viewport={{ once: true }}
-                    className="mb-16"
+                    whileHover={{
+                        y: -5,
+                        skewX: -6,
+                        boxShadow: '8px 8px 0px 0px rgba(42, 107, 242, 0.4)'
+                    }}
+                    transition={{ duration: 0.3 }}
+                    className="design-box mb-16 overflow-visible"
                 >
-                    <div className="flex items-center gap-4 mb-8">
-                        <div className="p-3 bg-primary/20 rounded-full text-primary">
-                            <Crown size={32} />
-                        </div>
-                        <h2 className="text-3xl font-black uppercase tracking-wide">54 KM Individual Categories</h2>
-                    </div>
-
-                    <div className="grid md:grid-cols-2 gap-8">
-                        {/* Trophies */}
-                        <div className="bg-secondary/5 rounded-2xl p-8 border border-white/10 hover:border-primary/50 transition-colors">
-                            <h3 className="text-xl font-bold mb-6 text-primary flex items-center gap-2">
-                                <Trophy className="w-5 h-5" /> Trophies & Gear
-                            </h3>
-                            <ul className="space-y-4">
-                                <li className="flex justify-between items-center p-3 bg-white/5 rounded-lg">
-                                    <span className="font-medium">1st Overall M/F</span>
-                                    <span className="text-primary text-sm font-bold">Trophy + Sudio Prize</span>
-                                </li>
-                                <li className="flex justify-between items-center p-3 bg-white/5 rounded-lg">
-                                    <span className="font-medium">2nd Overall M/F</span>
-                                    <span className="text-primary text-sm font-bold">Trophy + Sudio Prize</span>
-                                </li>
-                                <li className="flex justify-between items-center p-3 bg-white/5 rounded-lg">
-                                    <span className="font-medium">3rd Overall M/F</span>
-                                    <span className="text-primary text-sm font-bold">Trophy + Sudio Prize</span>
-                                </li>
-                                <li className="px-3 py-2 text-sm text-gray-400">
-                                    Top 5 Men & Women also receive certificates.
-                                </li>
-                            </ul>
+                    <div className="skew-x-[6deg] px-2 md:px-4">
+                        <div className="flex items-center gap-6 mb-8 border-b border-white/10 pb-6">
+                            <div className="p-4 bg-primary text-black transform skew-x-[-12deg] shadow-lg shadow-primary/20">
+                                <Crown size={32} className="skew-x-[12deg]" />
+                            </div>
+                            <h2 className="text-3xl md:text-4xl font-black uppercase tracking-tighter italic text-white">54 KM Individual Categories</h2>
                         </div>
 
-                        {/* Cash Prizes */}
-                        <div className="bg-gradient-to-br from-yellow-500/10 to-orange-500/10 rounded-2xl p-8 border border-yellow-500/20">
-                            <h3 className="text-xl font-bold mb-6 text-yellow-500 flex items-center gap-2">
-                                <Award className="w-5 h-5" /> Cash Prizes (Solo)
-                            </h3>
-                            <div className="space-y-3">
-                                {[
-                                    { rank: "1st", amount: "HKD 1,000" },
-                                    { rank: "2nd", amount: "HKD 800" },
-                                    { rank: "3rd", amount: "HKD 700" },
-                                    { rank: "4th", amount: "HKD 600" },
-                                    { rank: "5th", amount: "HKD 500" },
-                                ].map((item, index) => (
-                                    <div key={index} className="flex justify-between items-center border-b border-yellow-500/20 pb-2 last:border-0">
-                                        <span className="font-bold text-lg">{item.rank}</span>
-                                        <span className="font-mono text-yellow-400">{item.amount}</span>
-                                    </div>
-                                ))}
+                        <div className="grid md:grid-cols-2 gap-8 md:gap-12">
+                            {/* Trophies */}
+                            <div>
+                                <h3 className="text-xl font-black mb-6 text-primary flex items-center gap-3 uppercase italic tracking-wider">
+                                    <Trophy className="w-6 h-6" /> Trophies & Gear
+                                </h3>
+                                <ul className="space-y-4">
+                                    {['1st', '2nd', '3rd'].map((rank, i) => (
+                                        <li key={i} className="flex justify-between items-center p-4 bg-black/40 border border-white/10 hover:border-primary/50 transition-colors group">
+                                            <span className="font-bold text-white uppercase italic">{rank} Overall M/F</span>
+                                            <span className="text-primary text-xs font-black uppercase tracking-widest bg-primary/10 px-3 py-1 border border-primary/20 group-hover:bg-primary group-hover:text-black transition-colors">Trophy + Sudio Prize</span>
+                                        </li>
+                                    ))}
+                                    <li className="px-3 py-2 text-xs font-mono text-gray-400 border-l-2 border-white/20 pl-4 mt-6">
+                                        Top 5 Men & Women also receive certificates.
+                                    </li>
+                                </ul>
+                            </div>
+
+                            {/* Cash Prizes */}
+                            <div className="bg-gradient-to-br from-yellow-500/10 to-transparent p-6 border border-yellow-500/20 relative overflow-visible">
+                                <div className="absolute top-0 right-0 bg-yellow-500 text-black text-[10px] font-black px-3 py-1 uppercase tracking-widest transform skew-x-[-12deg] translate-x-2 -translate-y-2 shadow-lg z-10">SOLO ONLY</div>
+                                <h3 className="text-xl font-black mb-6 text-yellow-500 flex items-center gap-3 uppercase italic tracking-wider">
+                                    <Award className="w-6 h-6" /> Cash Prizes
+                                </h3>
+                                <div className="space-y-2">
+                                    {[
+                                        { rank: "1st", amount: "HKD 1,000" },
+                                        { rank: "2nd", amount: "HKD 800" },
+                                        { rank: "3rd", amount: "HKD 700" },
+                                        { rank: "4th", amount: "HKD 600" },
+                                        { rank: "5th", amount: "HKD 500" },
+                                    ].map((item, index) => (
+                                        <div key={index} className="flex justify-between items-center border-b border-yellow-500/10 pb-3 last:border-0 hover:bg-yellow-500/5 px-2 transition-colors">
+                                            <span className="font-black text-xl italic text-white/90">{item.rank}</span>
+                                            <span className="font-bold font-mono text-yellow-400 tracking-wider">{item.amount}</span>
+                                        </div>
+                                    ))}
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -74,50 +77,62 @@ const Prizes = () => {
                 {/* 25km & 11km Categories */}
                 <div className="grid md:grid-cols-2 gap-8 mb-16">
                     <motion.div
-                        initial={{ opacity: 0, x: -20 }}
-                        whileInView={{ opacity: 1, x: 0 }}
+                        initial={{ skewX: -6 }}
+                        whileInView={{ opacity: 1, skewX: -6 }}
                         viewport={{ once: true }}
-                        className="bg-secondary/5 rounded-2xl p-8 border border-white/10"
+                        whileHover={{
+                            y: -5,
+                            skewX: -6,
+                            boxShadow: '8px 8px 0px 0px rgba(42, 107, 242, 0.4)'
+                        }}
+                        transition={{ duration: 0.3 }}
+                        className="design-box"
                     >
-                        <h2 className="text-2xl font-bold mb-6 flex items-center gap-3">
-                            <Medal className="text-primary" /> 25 KM Category
+                        <h2 className="text-2xl font-black mb-6 flex items-center gap-3 text-white uppercase italic">
+                            <Medal className="text-primary w-8 h-8" /> 25 KM Category
                         </h2>
-                        <ul className="space-y-3 text-gray-300">
-                            <li className="flex gap-3 items-center">
-                                <span className="w-2 h-2 rounded-full bg-primary"></span>
-                                Top 5 Individual Men & Women Trophies
+                        <ul className="space-y-4 text-gray-300">
+                            <li className="flex gap-3 items-center p-3 bg-black/20 border border-white/5 hover:bg-black/40 transition-colors">
+                                <span className="w-1.5 h-1.5 rounded-full bg-primary shrink-0"></span>
+                                <span className="font-bold text-white">Top 5 Individual Men & Women Trophies</span>
                             </li>
-                            <li className="flex gap-3 items-center">
-                                <span className="w-2 h-2 rounded-full bg-primary"></span>
-                                Top 5 Certificates
+                            <li className="flex gap-3 items-center p-3 bg-black/20 border border-white/5 hover:bg-black/40 transition-colors">
+                                <span className="w-1.5 h-1.5 rounded-full bg-primary shrink-0"></span>
+                                <span className="font-medium">Top 5 Certificates</span>
                             </li>
-                            <li className="flex gap-3 items-center font-bold text-white mt-4">
-                                <Award className="w-4 h-4 text-primary" />
+                            <li className="flex gap-3 items-center font-black text-white mt-6 bg-primary/20 p-4 border border-primary/30 text-sm uppercase tracking-wide">
+                                <Award className="w-5 h-5 text-primary" />
                                 All Finishers: Finisher Medal
                             </li>
                         </ul>
                     </motion.div>
 
                     <motion.div
-                        initial={{ opacity: 0, x: 20 }}
-                        whileInView={{ opacity: 1, x: 0 }}
+                        initial={{ skewX: -6 }}
+                        whileInView={{ opacity: 1, skewX: -6 }}
                         viewport={{ once: true }}
-                        className="bg-secondary/5 rounded-2xl p-8 border border-white/10"
+                        whileHover={{
+                            y: -5,
+                            skewX: -6,
+                            boxShadow: '8px 8px 0px 0px rgba(42, 107, 242, 0.4)'
+                        }}
+                        transition={{ duration: 0.3 }}
+                        className="design-box"
                     >
-                        <h2 className="text-2xl font-bold mb-6 flex items-center gap-3">
-                            <Medal className="text-primary" /> 11 KM Category
+                        <h2 className="text-2xl font-black mb-6 flex items-center gap-3 text-white uppercase italic">
+                            <Medal className="text-primary w-8 h-8" /> 11 KM Category
                         </h2>
-                        <ul className="space-y-3 text-gray-300">
-                            <li className="flex gap-3 items-center">
-                                <span className="w-2 h-2 rounded-full bg-primary"></span>
-                                Top 5 Individual Men & Women Trophies
+                        <ul className="space-y-4 text-gray-300">
+                            <li className="flex gap-3 items-center p-3 bg-black/20 border border-white/5 hover:bg-black/40 transition-colors">
+                                <span className="w-1.5 h-1.5 rounded-full bg-primary shrink-0"></span>
+                                <span className="font-bold text-white">Top 5 Individual Men & Women Trophies</span>
                             </li>
-                            <li className="flex gap-3 items-center">
-                                <span className="w-2 h-2 rounded-full bg-primary"></span>
-                                Top 5 Certificates
+                            <li className="flex gap-3 items-center p-3 bg-black/20 border border-white/5 hover:bg-black/40 transition-colors">
+                                <span className="w-1.5 h-1.5 rounded-full bg-primary shrink-0"></span>
+                                <span className="font-medium">Top 5 Certificates</span>
                             </li>
-                            <li className="flex gap-3 items-center font-bold text-white mt-4">
-                                <Award className="w-4 h-4 text-primary" />
+                            <li className="flex gap-3 items-center font-black text-white mt-6 bg-primary/20 p-4 border border-primary/30 text-sm uppercase tracking-wide">
+                                <Award className="w-5 h-5 text-primary" />
                                 All Finishers: Finisher Medal
                             </li>
                         </ul>

@@ -135,6 +135,9 @@
   /* 
      Cards / Glass Panels
   */
+  /* 
+     Cards / Glass Panels
+  */
   .card-poster {
     @apply bg-[#1a2c55]/80 backdrop-blur-sm border-l-4 border-primary p-6 relative overflow-hidden;
   }
@@ -142,6 +145,22 @@
   .card-poster::before {
     content: '';
     @apply absolute top-0 right-0 w-20 h-20 bg-gradient-to-bl from-white/5 to-transparent pointer-events-none;
+  }
+
+  /* New Design Box - Parallelogram/Rectangular Technical Look */
+  .design-box {
+    @apply relative bg-[#0a193c] border border-white/10 p-6 skew-x-[-6deg] hover:border-primary/50 transition-colors duration-300 italic;
+    box-shadow: 4px 4px 0px 0px rgba(42, 107, 242, 0.2);
+  }
+
+  .design-box>* {
+    @apply skew-x-[6deg];
+    /* Counter-skew content */
+  }
+
+  .design-box::after {
+    content: '';
+    @apply absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-primary/30 z-0 skew-x-[6deg] translate-x-2 -translate-y-2;
   }
 
   .text-gradient {

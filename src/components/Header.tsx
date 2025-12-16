@@ -36,22 +36,22 @@ const Header = () => {
 
     return (
         <header className="h-16 md:h-20 w-full fixed top-0 left-0 z-50 bg-background/80 backdrop-blur-md border-b border-white/10">
-            <div className="container h-full flex items-center justify-between px-4">
-                <div className="text-xl md:text-2xl font-extrabold tracking-tighter z-50">
+            <div className="container h-full flex items-center justify-between px-4 relative">
+                <div className="text-xl md:text-2xl font-extrabold tracking-tighter z-50 italic shrink-0">
                     <Link to="/" onClick={() => setIsMenuOpen(false)}>
                         HIMALAYAN<span className="text-primary">ULTRA</span>
                     </Link>
                 </div>
 
-                {/* Desktop Navigation */}
-                <nav className="hidden lg:block">
+                {/* Desktop Navigation - Centered */}
+                <nav className="hidden lg:flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
                     <ul className="flex gap-8 items-center">
                         {navItems.map((item) => (
                             <li key={item.label} className="relative group">
                                 {item.children ? (
                                     <div className="relative">
                                         <button
-                                            className="flex items-center gap-1 text-sm font-medium opacity-80 hover:opacity-100 hover:text-primary transition-all py-4"
+                                            className="flex items-center gap-1 text-sm font-medium opacity-80 hover:opacity-100 hover:text-primary transition-all py-4 italic"
                                         >
                                             {item.label}
                                             <ChevronDown className="w-4 h-4 transition-transform group-hover:rotate-180" />
@@ -64,7 +64,7 @@ const Header = () => {
                                                     <Link
                                                         key={child.label}
                                                         to={child.path}
-                                                        className="block px-4 py-2 text-sm text-gray-300 hover:text-white hover:bg-white/5 rounded-lg transition-colors"
+                                                        className="block px-4 py-2 text-sm text-gray-300 hover:text-white hover:bg-white/5 rounded-lg transition-colors italic"
                                                     >
                                                         {child.label}
                                                     </Link>
@@ -75,7 +75,7 @@ const Header = () => {
                                 ) : (
                                     <Link
                                         to={item.path!}
-                                        className={`text-sm font-medium transition-all relative group ${location.pathname === item.path
+                                        className={`text-sm font-medium transition-all relative group italic ${location.pathname === item.path
                                             ? 'text-primary opacity-100'
                                             : 'opacity-80 hover:opacity-100 hover:text-primary'
                                             }`}
@@ -91,12 +91,15 @@ const Header = () => {
                 </nav>
 
                 {/* Desktop Buttons */}
-                <div className="hidden md:flex items-center gap-4">
-                    <Link to="/login" className="btn btn-outline px-4 py-2 text-xs">
+                <div className="hidden md:flex items-center gap-8 shrink-0">
+                    <Link to="/login" className="text-sm font-black italic uppercase tracking-wider text-white hover:text-primary transition-colors">
                         Login
                     </Link>
-                    <Link to="/registration" className="btn btn-primary">
-                        Register Now
+                    <Link to="/registration" className="relative group inline-block">
+                        <span className="absolute inset-0 bg-[#2a6bf2] transform -skew-x-12 translate-x-1.5 translate-y-1.5 border border-white/10"></span>
+                        <span className="relative block bg-[#ff8fa3] transform -skew-x-12 px-8 py-3 hover:-translate-y-0.5 transition-transform border border-white/10">
+                            <span className="block font-black italic uppercase text-[#0a193c] tracking-widest text-sm">Register Now</span>
+                        </span>
                     </Link>
                 </div>
 

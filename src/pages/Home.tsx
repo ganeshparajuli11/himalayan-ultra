@@ -139,19 +139,27 @@ export default function Home() {
                         ].map((news, index) => (
                             <StaggerItem key={index}>
                                 <motion.div
-                                    className="card-poster h-full group cursor-pointer"
-                                    whileHover={{ y: -8, transition: { duration: 0.3 } }}
+                                    className="design-box h-full group cursor-pointer flex flex-col p-0 overflow-hidden"
+                                    initial={{ skewX: -6 }}
+                                    whileHover={{
+                                        y: -10,
+                                        x: 5,
+                                        skewX: -6,
+                                        boxShadow: '8px 8px 0px 0px rgba(42, 107, 242, 0.4)'
+                                    }}
+                                    transition={{ duration: 0.3 }}
                                 >
-                                    <div className="h-48 bg-blue-900/30 overflow-hidden mb-4 relative">
+                                    <div className="h-48 bg-blue-900/30 overflow-hidden relative w-[110%] -ml-[5%] origin-center scale-105">
                                         {/* Placeholder for news image */}
-                                        <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                                        <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
+                                        <div className="absolute top-2 right-4 bg-primary text-black text-[10px] font-bold px-2 py-0.5 skew-x-[-12deg]">NEWS</div>
                                     </div>
-                                    <div className="">
+                                    <div className="p-6 flex-grow flex flex-col">
                                         <span className="text-xs text-primary font-bold block mb-2 tracking-widest">{news.date}</span>
-                                        <h4 className="text-2xl font-black mb-3 text-white group-hover:text-primary transition-colors uppercase italic leading-none">{news.title}</h4>
-                                        <p className="text-blue-200 mb-6 text-sm leading-relaxed">{news.desc}</p>
-                                        <Link to={news.link} className="inline-block text-white font-bold text-sm hover:text-primary transition-colors uppercase tracking-wider border-b border-primary/50 pb-1">
-                                            Read More
+                                        <h4 className="text-xl font-black mb-3 text-white group-hover:text-primary transition-colors uppercase italic leading-none">{news.title}</h4>
+                                        <p className="text-blue-200/80 mb-6 text-sm leading-relaxed flex-grow">{news.desc}</p>
+                                        <Link to={news.link} className="self-start inline-block border border-white/30 hover:border-primary hover:text-primary text-white font-bold text-xs px-4 py-2 uppercase tracking-wider transition-all skew-x-[-12deg]">
+                                            <span className="skew-x-[12deg] inline-block">Read More</span>
                                         </Link>
                                     </div>
                                 </motion.div>
@@ -178,15 +186,18 @@ export default function Home() {
                         ].map((faq, index) => (
                             <StaggerItem key={index}>
                                 <motion.div
-                                    className="bg-white/5 p-8 border-l-4 border-white/20 backdrop-blur-sm hover:bg-white/10 transition-colors"
+                                    className="design-box h-full group"
+                                    initial={{ skewX: -6 }}
                                     whileHover={{
                                         x: 5,
+                                        y: -5,
+                                        skewX: -6,
                                         borderColor: 'var(--color-primary)',
-                                        boxShadow: '0 0 20px rgba(255, 143, 163, 0.1)'
+                                        boxShadow: '6px 6px 0px 0px rgba(42, 107, 242, 0.3)'
                                     }}
                                     transition={{ duration: 0.3 }}
                                 >
-                                    <h3 className="text-xl text-white font-black uppercase italic mb-3">{faq.q}</h3>
+                                    <h3 className="text-xl text-primary font-black uppercase italic mb-3 group-hover:text-white transition-colors">{faq.q}</h3>
                                     <p className="text-blue-200 leading-relaxed text-base">{faq.a}</p>
                                 </motion.div>
                             </StaggerItem>

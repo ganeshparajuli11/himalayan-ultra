@@ -51,41 +51,46 @@ export default function NewsPage() {
                     {newsItems.map((item) => (
                         <StaggerItem key={item.id}>
                             <motion.div
-                                className="glass rounded-xl overflow-hidden flex flex-col group h-full"
-                                whileHover={{ y: -8, boxShadow: '0 20px 40px rgba(0, 0, 0, 0.3)' }}
+                                className="design-box flex flex-col group h-full p-0 overflow-hidden"
+                                initial={{ skewX: -6 }}
+                                whileHover={{
+                                    y: -10,
+                                    x: 5,
+                                    skewX: -6,
+                                    boxShadow: '8px 8px 0px 0px rgba(42, 107, 242, 0.4)'
+                                }}
                                 transition={{ duration: 0.3 }}
                             >
-                                <div className="h-40 md:h-48 bg-gray-800 relative overflow-hidden">
-                                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent z-10"></div>
+                                <div className="h-40 md:h-48 bg-gray-800 relative w-[110%] -ml-[5%] overflow-hidden origin-center scale-105">
+                                    <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent z-10"></div>
                                     <motion.div
-                                        className="w-full h-full bg-gradient-to-br from-gray-700 to-gray-900"
+                                        className="w-full h-full bg-gradient-to-br from-[#1a2c55] to-[#0a193c]"
                                         whileHover={{ scale: 1.1 }}
                                         transition={{ duration: 0.5 }}
                                     />
                                     <motion.span
-                                        className="absolute top-3 right-3 md:top-4 md:right-4 z-20 bg-primary text-black text-[10px] md:text-xs font-bold px-2 md:px-3 py-1 rounded-full uppercase tracking-wider"
+                                        className="absolute top-3 right-8 flex items-center justify-center bg-primary text-[#0a193c] text-[10px] md:text-xs font-black px-3 py-1 uppercase tracking-wider transform -skew-x-[12deg]"
                                         whileHover={{ scale: 1.1 }}
                                     >
                                         {item.category}
                                     </motion.span>
                                 </div>
-                                <div className="p-5 md:p-8 flex-grow flex flex-col">
-                                    <div className="flex items-center text-[10px] md:text-xs text-gray-500 font-bold uppercase tracking-widest mb-3 md:mb-4">
+
+                                <div className="p-6 md:p-8 flex-grow flex flex-col">
+                                    <div className="flex items-center text-[10px] md:text-xs text-primary font-bold uppercase tracking-widest mb-3 md:mb-4">
                                         <motion.span
-                                            className="text-primary mr-2"
-                                            animate={{ scale: [1, 1.2, 1] }}
+                                            className="w-2 h-2 rounded-full bg-primary mr-3"
+                                            animate={{ opacity: [0.5, 1, 0.5] }}
                                             transition={{ duration: 2, repeat: Infinity }}
-                                        >
-                                            ●
-                                        </motion.span>
+                                        />
                                         {item.date}
                                     </div>
-                                    <h3 className="text-lg md:text-xl font-bold text-white mb-3 md:mb-4 leading-tight group-hover:text-primary transition-colors">
+                                    <h3 className="text-xl md:text-2xl font-black text-white mb-3 md:mb-4 leading-none uppercase italic group-hover:text-primary transition-colors">
                                         <Link to={`/news/${item.id}`}>
                                             {item.title}
                                         </Link>
                                     </h3>
-                                    <p className="text-gray-400 text-xs md:text-sm leading-relaxed mb-4 md:mb-6 flex-grow">
+                                    <p className="text-blue-200/80 text-sm leading-relaxed mb-6 flex-grow ">
                                         {item.excerpt}
                                     </p>
                                     <motion.div
@@ -94,15 +99,9 @@ export default function NewsPage() {
                                     >
                                         <Link
                                             to={`/news/${item.id}`}
-                                            className="text-primary text-xs md:text-sm font-bold uppercase tracking-wider hover:text-white transition-colors flex items-center gap-2"
+                                            className="inline-block border-2 border-primary/50 hover:border-primary hover:bg-primary hover:text-black text-primary px-6 py-2 text-xs font-bold uppercase tracking-widest transition-all skew-x-[-12deg]"
                                         >
-                                            Read Full Story
-                                            <motion.span
-                                                animate={{ x: [0, 5, 0] }}
-                                                transition={{ duration: 1.5, repeat: Infinity }}
-                                            >
-                                                →
-                                            </motion.span>
+                                            <span className="inline-block skew-x-[12deg]">Read Story</span>
                                         </Link>
                                     </motion.div>
                                 </div>

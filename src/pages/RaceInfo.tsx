@@ -103,7 +103,7 @@ export default function RaceInfoPage() {
                             transition={{ duration: 0.3 }}
                         >
                             <div className="p-4 md:p-6 lg:p-8 border-b border-white/10 flex flex-col md:flex-row justify-between items-center gap-3 md:gap-4">
-                                <h3 className="text-xl md:text-2xl font-bold text-white uppercase">Course Map</h3>
+                                <h3 className="text-xl md:text-2xl font-bold text-white uppercase italic">Course Map</h3>
                                 <motion.button
                                     onClick={handleDownloadGPX}
                                     className="btn btn-outline text-xs px-4 md:px-6 py-2 w-full md:w-auto"
@@ -122,26 +122,30 @@ export default function RaceInfoPage() {
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-12">
                         <FadeInLeft delay={0.1}>
                             <motion.div
-                                className="bg-[#15151e] p-4 md:p-8 rounded-xl border border-white/10 h-full"
-                                whileHover={{ borderColor: 'rgba(22, 163, 74, 0.3)', boxShadow: '0 0 30px rgba(22, 163, 74, 0.1)' }}
+                                className="design-box h-full"
+                                initial={{ skewX: -6 }}
+                                whileHover={{
+                                    scale: 1.01,
+                                    skewX: -6
+                                }}
                                 transition={{ duration: 0.3 }}
                             >
                                 <h3 className="text-xl md:text-2xl font-bold text-white uppercase mb-4 md:mb-8 border-b border-white/10 pb-4">Elevation Profile</h3>
-                                <div className="h-32 md:h-40 bg-white/5 rounded-lg flex items-center justify-center text-gray-500 mb-6 md:mb-8 border border-dashed border-white/10 text-sm md:text-base">
+                                <div className="h-32 md:h-40 bg-white/5 flex items-center justify-center text-gray-500 mb-6 md:mb-8 border border-dashed border-white/10 text-sm md:text-base">
                                     <span>Elevation Chart Placeholder ({content.name})</span>
                                 </div>
                                 <div className="grid grid-cols-2 gap-3 md:gap-6">
                                     <motion.div
-                                        className="bg-black/30 p-4 md:p-6 rounded-lg text-center"
-                                        whileHover={{ scale: 1.02, backgroundColor: 'rgba(22, 163, 74, 0.1)' }}
+                                        className="bg-black/30 p-4 md:p-6 text-center border border-white/5"
+                                        whileHover={{ backgroundColor: 'rgba(22, 163, 74, 0.1)' }}
                                         transition={{ duration: 0.2 }}
                                     >
                                         <strong className="block text-gray-400 uppercase text-[10px] md:text-xs tracking-widest mb-1 md:mb-2">Gain</strong>
                                         <span className="text-xl md:text-3xl font-black text-primary">{content.elevation.gain}</span>
                                     </motion.div>
                                     <motion.div
-                                        className="bg-black/30 p-4 md:p-6 rounded-lg text-center"
-                                        whileHover={{ scale: 1.02, backgroundColor: 'rgba(255, 255, 255, 0.05)' }}
+                                        className="bg-black/30 p-4 md:p-6 text-center border border-white/5"
+                                        whileHover={{ backgroundColor: 'rgba(255, 255, 255, 0.05)' }}
                                         transition={{ duration: 0.2 }}
                                     >
                                         <strong className="block text-gray-400 uppercase text-[10px] md:text-xs tracking-widest mb-1 md:mb-2">Loss</strong>
@@ -153,8 +157,12 @@ export default function RaceInfoPage() {
 
                         <FadeInRight delay={0.2}>
                             <motion.div
-                                className="bg-[#15151e] p-4 md:p-8 rounded-xl border border-white/10 h-full"
-                                whileHover={{ borderColor: 'rgba(22, 163, 74, 0.3)', boxShadow: '0 0 30px rgba(22, 163, 74, 0.1)' }}
+                                className="design-box h-full"
+                                initial={{ skewX: -6 }}
+                                whileHover={{
+                                    scale: 1.01,
+                                    skewX: -6
+                                }}
                                 transition={{ duration: 0.3 }}
                             >
                                 <h3 className="text-xl md:text-2xl font-bold text-white uppercase mb-4 md:mb-8 border-b border-white/10 pb-4">Checkpoints</h3>
@@ -175,7 +183,7 @@ export default function RaceInfoPage() {
                                             {content.checkpoints.map((cp, idx) => (
                                                 <motion.div
                                                     key={idx}
-                                                    className="grid grid-cols-3 py-3 md:py-4 border-b border-white/5 last:border-0 px-2 transition-colors rounded min-w-[280px]"
+                                                    className="grid grid-cols-3 py-3 md:py-4 border-b border-white/5 last:border-0 px-2 transition-colors min-w-[280px]"
                                                     initial={{ opacity: 0, x: -10 }}
                                                     animate={{ opacity: 1, x: 0 }}
                                                     transition={{ delay: idx * 0.1 }}
@@ -193,11 +201,15 @@ export default function RaceInfoPage() {
                         </FadeInRight>
                     </div>
 
-                    {/* Rules Section */}
+                    {/* Rules Section using Design Box */}
                     <FadeInUp delay={0.3}>
                         <motion.div
-                            className="glass p-5 md:p-10 rounded-xl border-l-4 border-primary"
-                            whileHover={{ boxShadow: '0 0 40px rgba(22, 163, 74, 0.15)' }}
+                            className="design-box border-l-4 border-l-primary"
+                            initial={{ skewX: -6 }}
+                            whileHover={{
+                                scale: 1.01,
+                                skewX: -6
+                            }}
                             transition={{ duration: 0.3 }}
                         >
                             <h3 className="text-xl md:text-2xl font-bold text-white uppercase mb-4 md:mb-6">Rules & Regulations</h3>

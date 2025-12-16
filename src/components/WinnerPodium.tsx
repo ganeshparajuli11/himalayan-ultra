@@ -27,46 +27,43 @@ export default function WinnerPodium({ winners }: WinnerProps) {
 
     const getRankStyles = (rank: number) => {
         if (rank === 1) return {
-            // Rank 1: Pink/Primary - Elevated
-            card: 'h-[420px] md:h-[500px] border-primary shadow-[0_0_50px_rgba(255,143,163,0.4)]',
-            avatarSize: 'w-32 h-32 md:w-48 md:h-48 border-primary',
-            badge: 'bg-primary text-black',
-            textColor: 'text-primary',
-            scale: 'scale-110 z-20',
-            subText: 'text-pink-200'
+            // Rank 1: Gold - Center
+            container: 'h-[360px] md:h-[440px] w-full max-w-[280px] bg-transparent z-20 scale-110',
+            imageBorder: 'border-2 border-[#FFD700] shadow-[0_0_30px_rgba(255,215,0,0.5)]',
+            rankText: 'text-[#FFD700] drop-shadow-[0_0_10px_rgba(255,215,0,0.6)]',
+            barColor: 'bg-[#FFD700]'
         };
         if (rank === 2) return {
-            // Rank 2: Silver/Slate - Left
-            card: 'h-[380px] md:h-[450px] border-slate-400 shadow-[0_0_30px_rgba(148,163,184,0.3)]',
-            avatarSize: 'w-24 h-24 md:w-36 md:h-36 border-slate-400',
-            badge: 'bg-slate-200 text-black',
-            textColor: 'text-slate-200',
-            scale: 'scale-100 z-10 mt-12',
-            subText: 'text-slate-400'
+            // Rank 2: Silver - Left
+            container: 'h-[320px] md:h-[380px] w-full max-w-[240px] bg-transparent z-10 scale-100',
+            imageBorder: 'border-2 border-[#C0C0C0] shadow-[0_0_20px_rgba(192,192,192,0.4)]',
+            rankText: 'text-[#C0C0C0] drop-shadow-[0_0_10px_rgba(192,192,192,0.6)]',
+            barColor: 'bg-[#C0C0C0]'
         };
         return {
-            // Rank 3: Gold/Amber - Right
-            card: 'h-[360px] md:h-[430px] border-amber-500 shadow-[0_0_30px_rgba(245,158,11,0.3)]',
-            avatarSize: 'w-24 h-24 md:w-36 md:h-36 border-amber-500',
-            badge: 'bg-amber-500 text-black',
-            textColor: 'text-amber-500',
-            scale: 'scale-95 z-0 mt-16',
-            subText: 'text-amber-200/80'
+            // Rank 3: Bronze - Right
+            container: 'h-[320px] md:h-[380px] w-full max-w-[240px] bg-transparent z-10 scale-100',
+            imageBorder: 'border-2 border-[#CD7F32] shadow-[0_0_20px_rgba(205,127,50,0.4)]',
+            rankText: 'text-[#CD7F32] drop-shadow-[0_0_10px_rgba(205,127,50,0.6)]',
+            barColor: 'bg-[#CD7F32]'
         };
     };
 
     return (
-        <div className="flex flex-row items-end justify-center gap-4 md:gap-8 mt-12 mb-12 w-full max-w-6xl mx-auto px-4 perspective-1000">
+        <div className="flex flex-row items-end justify-center gap-4 md:gap-8 mt-12 mb-8 w-full max-w-6xl mx-auto px-4 perspective-1000 font-sans">
             {displayOrder.map((winner, index) => {
                 if (!winner) return null;
                 const rank = index === 1 ? 1 : index === 0 ? 2 : 3;
                 const styles = getRankStyles(rank);
 
-                // Placeholder images based on names or generic defaults
                 let imgSrc = "/runner_default.png";
                 if (winner.name.includes("Guo Min")) imgSrc = "/runner_guo_min.png";
                 else if (winner.name.includes("Tom Joly")) imgSrc = "/runner_tom_joly.png";
                 else if (winner.name.includes("Tyler Green")) imgSrc = "/runner_tyler_green.png";
+
+                // Split name for styling
+                const [firstName, ...lastNameParts] = winner.name.split(' ');
+                const lastName = lastNameParts.join(' ');
 
                 return (
                     <motion.div
@@ -76,72 +73,33 @@ export default function WinnerPodium({ winners }: WinnerProps) {
                         whileInView="visible"
                         viewport={{ once: true }}
                         variants={podiumVariants}
-                        className={`relative flex flex-col items-center w-full max-w-[320px] group ${styles.scale}`}
+                        className={`relative flex flex-col items-center group ${styles.container}`}
                     >
-                        {/* Avatar Section - Floating above */}
-                        <div className={`relative z-30 -mb-16 md:-mb-24 flex flex-col items-center`}>
-                            <div className={`
-                                rounded-full border-4 bg-[#15151e]
-                                flex items-center justify-center overflow-hidden shadow-2xl relative
-                                ${styles.avatarSize} transition-transform duration-500 group-hover:scale-105
-                            `}>
-                                <img src={imgSrc} alt={winner.name} className="w-full h-full object-cover" />
-                            </div>
+                        {/* Name Above (F1 Style) - Italic as requested */}
+                        <div className="text-center mb-3 w-full flex flex-col items-center justify-end h-16">
+                            <div className="font-bold italic uppercase text-white/70 text-base md:text-xl tracking-widest leading-none mb-1">{firstName}</div>
+                            <div className="font-black italic uppercase text-white text-2xl md:text-4xl tracking-wide leading-none">{lastName || firstName}</div>
+                        </div>
 
-                            {/* Rank Badge */}
-                            <div className={`
-                                absolute -bottom-3 z-40 w-8 h-8 md:w-10 md:h-10 rounded-full ${styles.badge}
-                                flex items-center justify-center font-black text-sm md:text-lg border-4 border-[#1e1e2d] shadow-lg
-                            `}>
-                                {rank}
+                        {/* Big Rank Number Line */}
+                        <div className="flex items-center w-full gap-2 mb-1 pl-1">
+                            <div className={`text-5xl md:text-6xl font-black italic ${styles.rankText} leading-none`}>0{rank}</div>
+                            <div className="h-[2px] grow bg-white/20 relative mt-4">
+                                <div className={`absolute right-0 top-0 h-full w-1/2 ${styles.barColor}`}></div>
                             </div>
                         </div>
 
-                        {/* Main Card */}
+                        {/* Image Frame - Pure Rectangle (no rounded corners) */}
                         <div className={`
-                            w-full bg-[#1b1b26] rounded-[2rem] border-2
-                            ${styles.card}
-                            relative flex flex-col pt-20 md:pt-28 pb-6 px-4 md:px-6 overflow-hidden
-                            transition-all duration-300 hover:-translate-y-2
+                            w-full h-full relative overflow-hidden bg-black/40 backdrop-blur-sm
+                            ${styles.imageBorder}
                         `}>
-                            {/* Card Header */}
-                            <div className="text-center mb-6">
-                                <h3 className={`font-black uppercase tracking-wider text-lg md:text-2xl mb-2 ${styles.textColor}`}>
-                                    {winner.name}
-                                </h3>
-                                <span className={`text-[10px] md:text-xs font-bold uppercase tracking-[0.2em] bg-white/5 px-3 py-1 rounded-full ${styles.subText}`}>
-                                    {winner.team}
-                                </span>
-                            </div>
+                            <img src={imgSrc} alt={winner.name} className="w-full h-full object-cover object-top opacity-90 group-hover:opacity-100 transition-opacity" />
 
-                            {/* Stats Grid - Mid Section */}
-                            <div className="grid grid-cols-2 gap-3 mb-auto px-2">
-                                <div className="bg-black/30 rounded-xl p-2 md:p-3 text-center backdrop-blur-sm border border-white/5">
-                                    <div className="text-[9px] md:text-[10px] text-gray-500 uppercase font-black tracking-wider mb-1">STM</div>
-                                    <div className="text-sm md:text-lg font-bold text-white">98</div>
-                                </div>
-                                <div className="bg-black/30 rounded-xl p-2 md:p-3 text-center backdrop-blur-sm border border-white/5">
-                                    <div className="text-[9px] md:text-[10px] text-gray-500 uppercase font-black tracking-wider mb-1">RACE</div>
-                                    <div className="text-sm md:text-lg font-bold text-white">95</div>
-                                </div>
-                            </div>
-
-                            {/* Bottom Stats */}
-                            <div className="space-y-3 font-mono text-xs md:text-sm border-t border-white/5 pt-4 mt-4">
-                                <div className="flex justify-between items-center group/stat">
-                                    <span className="text-gray-500 font-bold uppercase text-[10px]">Checkpoint</span>
-                                    <span className={`${styles.textColor} font-bold`}>{winner.cp || 'Finish'}</span>
-                                </div>
-                                <div className="flex justify-between items-center">
-                                    <span className="text-gray-500 font-bold uppercase text-[10px]">Time</span>
-                                    <span className="text-white font-bold tracking-wide">{winner.time}</span>
-                                </div>
-
-                                {/* Points Highlight */}
-                                <div className={`flex justify-between items-center bg-white/5 p-3 rounded-xl mt-2 border border-white/5`}>
-                                    <span className="text-gray-400 font-bold uppercase text-[10px]">Points</span>
-                                    <span className={`text-xl md:text-2xl font-black ${styles.textColor}`}>{winner.pts}</span>
-                                </div>
+                            {/* Bottom Info Bar Overlay */}
+                            <div className="absolute bottom-0 w-full bg-black/90 backdrop-blur-md p-2 flex justify-between items-center border-t border-white/10">
+                                <span className="text-white font-bold text-xs italic">{winner.pts} PTS</span>
+                                <span className="text-gray-400 text-[10px] font-mono">{winner.time}</span>
                             </div>
                         </div>
                     </motion.div>
