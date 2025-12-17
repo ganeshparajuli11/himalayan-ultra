@@ -54,25 +54,23 @@ export default function Home() {
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8, delay: 1 }}
                     >
-                        <motion.button
-                            className="btn btn-primary text-sm md:text-xl px-10 py-5"
-                            whileHover={{ scale: 1.05, boxShadow: '0 0 20px rgba(255, 143, 163, 0.4)' }}
-                            whileTap={{ scale: 0.98 }}
-                        >
-                            <span>Registration</span>
-                        </motion.button>
+                        <Link to="/registration" className="relative group inline-block">
+                            <span className="absolute inset-0 bg-[#2a6bf2] -skew-x-12 translate-x-1.5 translate-y-1.5 border border-white/10"></span>
+                            <span className="relative block bg-[#ff8fa3] -skew-x-12 px-10 py-4 hover:-translate-y-0.5 transition-transform border border-white/10">
+                                <span className="block font-black italic uppercase text-[#0a193c] tracking-widest text-sm md:text-lg">Registration</span>
+                            </span>
+                        </Link>
 
-                        <motion.button
-                            className="btn btn-outline border-white/50 text-white hover:border-white hover:bg-white hover:text-black text-sm md:text-xl px-10 py-5"
-                            whileHover={{ scale: 1.05 }}
-                            whileTap={{ scale: 0.98 }}
-                        >
-                            <span>Watch Aftermovie</span>
-                        </motion.button>
+                        <button className="relative group inline-block">
+                            <span className="absolute inset-0 bg-[#2a6bf2] -skew-x-12 translate-x-1.5 translate-y-1.5 border border-white/10"></span>
+                            <span className="relative block bg-gray-200 -skew-x-12 px-10 py-4 hover:-translate-y-0.5 transition-transform border border-white/10">
+                                <span className="block font-black italic uppercase text-[#0a193c] tracking-widest text-sm md:text-lg">Watch Aftermovie</span>
+                            </span>
+                        </button>
                     </motion.div>
 
                     <motion.div
-                        className="mt-12 bg-black/30 backdrop-blur-md px-6 py-2 rounded-none border border-white/10 skew-x-[-10deg]"
+                        className="mt-12 mb-16 bg-black/30 backdrop-blur-md px-6 py-2 rounded-none border border-white/10 skew-x-[-10deg]"
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         transition={{ duration: 0.8, delay: 1.2 }}

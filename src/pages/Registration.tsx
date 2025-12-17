@@ -226,12 +226,16 @@ export default function RegistrationPage() {
                             <h2 className="text-2xl md:text-3xl font-bold mb-6 md:mb-8 text-white uppercase">Cancellation & Refunds</h2>
                             <motion.div
                                 className="bg-[#0a193c] border border-white/10 p-5 md:p-8 max-w-3xl mx-auto border-l-4 border-l-red-500 text-left relative"
+                                initial={{ skewX: -6 }}
                                 whileHover={{
+                                    y: -5,
+                                    skewX: -6,
                                     borderColor: 'rgba(239, 68, 68, 0.8)',
-                                    boxShadow: '0 0 30px rgba(239, 68, 68, 0.2)'
+                                    boxShadow: '8px 8px 0px 0px rgba(239, 68, 68, 0.4)'
                                 }}
                                 transition={{ duration: 0.3 }}
                             >
+                                <div className="skew-x-[6deg]">
                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8 mb-4 md:mb-6">
                                     <motion.div
                                         initial={{ opacity: 0, x: -20 }}
@@ -262,6 +266,7 @@ export default function RegistrationPage() {
                                     Transfers and deferrals are not permitted. Please see the full Rules & Regulations for more details.
                                     Medical deferrals are considered on a case-by-case basis with valid documentation.
                                 </motion.p>
+                                </div>
                             </motion.div>
                         </div>
                     </motion.section>

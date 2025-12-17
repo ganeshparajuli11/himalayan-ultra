@@ -71,7 +71,7 @@ const RaceMap = () => {
         <MapContainer
             center={center}
             zoom={11}
-            className="h-[400px] w-full rounded-xl z-0"
+            className="h-full w-full z-0"
             scrollWheelZoom={false}
         >
             <TileLayer

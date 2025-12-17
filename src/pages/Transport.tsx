@@ -11,15 +11,13 @@ const Transport = () => {
 
                 {/* Shuttle Bus Main Info */}
                 <motion.div
-                    initial={{ skewX: -6 }}
-                    whileHover={{
-                        y: -5,
-                        skewX: -6,
-                        boxShadow: '8px 8px 0px 0px rgba(42, 107, 242, 0.4)'
-                    }}
+                    whileHover={{ y: -5 }}
                     transition={{ duration: 0.3 }}
-                    className="design-box mb-12"
+                    className="relative bg-[#0a193c] border border-white/10 p-6 hover:border-primary/50 transition-colors duration-300 mb-12"
                 >
+                    {/* Corner decorations */}
+                    <div className="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-primary/30 translate-x-2 -translate-y-2" />
+                    <div className="absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 border-primary/30 -translate-x-2 translate-y-2" />
                     <div className="border-b border-white/10 pb-6 mb-6">
                         <h2 className="text-3xl font-black text-white uppercase italic tracking-wider flex items-center gap-3">
                             <Bus className="w-8 h-8 text-primary" /> Official Shuttle Bus
@@ -67,15 +65,13 @@ const Transport = () => {
 
                 {/* Personal Transport */}
                 <motion.div
-                    initial={{ skewX: -6 }}
-                    whileHover={{
-                        y: -5,
-                        skewX: -6,
-                        boxShadow: '8px 8px 0px 0px rgba(42, 107, 242, 0.4)'
-                    }}
+                    whileHover={{ y: -5 }}
                     transition={{ duration: 0.3 }}
-                    className="design-box"
+                    className="relative bg-[#0a193c] border border-white/10 p-6 hover:border-primary/50 transition-colors duration-300"
                 >
+                    {/* Corner decorations */}
+                    <div className="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-primary/30 translate-x-2 -translate-y-2" />
+                    <div className="absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 border-primary/30 -translate-x-2 translate-y-2" />
                     <h2 className="text-2xl font-black mb-4 flex items-center gap-2 text-white uppercase italic">
                         <Navigation className="w-6 h-6 text-primary" /> Personal Transport
                     </h2>

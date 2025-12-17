@@ -16,15 +16,13 @@ const RacePackPickUp = () => {
                     <div className="grid gap-8">
                         {/* Key Information Card */}
                         <motion.div
-                            initial={{ skewX: -6 }}
-                            whileHover={{
-                                y: -5,
-                                skewX: -6,
-                                boxShadow: '8px 8px 0px 0px rgba(42, 107, 242, 0.4)'
-                            }}
+                            whileHover={{ y: -5 }}
                             transition={{ duration: 0.3 }}
-                            className="design-box scale-100"
+                            className="relative bg-[#0a193c] border border-white/10 p-6 hover:border-primary/50 transition-colors duration-300"
                         >
+                            {/* Corner decorations */}
+                            <div className="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-primary/30 translate-x-2 -translate-y-2" />
+                            <div className="absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 border-primary/30 -translate-x-2 translate-y-2" />
                             <h2 className="text-3xl font-black mb-8 text-white flex items-center gap-3 uppercase italic tracking-wider border-b border-white/10 pb-4">
                                 <Calendar className="w-8 h-8 text-primary" /> Collection Schedule
                             </h2>
@@ -50,15 +48,13 @@ const RacePackPickUp = () => {
 
                         {/* Location Section */}
                         <motion.div
-                            initial={{ skewX: -6 }}
-                            whileHover={{
-                                y: -5,
-                                skewX: -6,
-                                boxShadow: '8px 8px 0px 0px rgba(42, 107, 242, 0.4)'
-                            }}
+                            whileHover={{ y: -5 }}
                             transition={{ duration: 0.3 }}
-                            className="design-box scale-100"
+                            className="relative bg-[#0a193c] border border-white/10 p-6 hover:border-primary/50 transition-colors duration-300"
                         >
+                            {/* Corner decorations */}
+                            <div className="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-primary/30 translate-x-2 -translate-y-2" />
+                            <div className="absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 border-primary/30 -translate-x-2 translate-y-2" />
                             <h2 className="text-3xl font-black mb-8 text-white flex items-center gap-3 uppercase italic tracking-wider border-b border-white/10 pb-4">
                                 <MapPin className="w-8 h-8 text-primary" /> Location
                             </h2>
@@ -90,15 +86,13 @@ const RacePackPickUp = () => {
                         {/* Important Info Grid */}
                         <div className="grid md:grid-cols-2 gap-8">
                             <motion.div
-                                initial={{ skewX: -6 }}
-                                whileHover={{
-                                    y: -5,
-                                    skewX: -6,
-                                    boxShadow: '8px 8px 0px 0px rgba(42, 107, 242, 0.4)'
-                                }}
+                                whileHover={{ y: -5 }}
                                 transition={{ duration: 0.3 }}
-                                className="design-box scale-100"
+                                className="relative bg-[#0a193c] border border-white/10 p-6 hover:border-primary/50 transition-colors duration-300"
                             >
+                                {/* Corner decorations */}
+                                <div className="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-primary/30 translate-x-2 -translate-y-2" />
+                                <div className="absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 border-primary/30 -translate-x-2 translate-y-2" />
                                 <h3 className="text-xl font-black mb-6 flex items-center gap-2 text-white uppercase italic tracking-wider">
                                     <FileText className="w-6 h-6 text-primary" /> What's Included?
                                 </h3>
@@ -113,15 +107,13 @@ const RacePackPickUp = () => {
                             </motion.div>
 
                             <motion.div
-                                initial={{ skewX: -6 }}
-                                whileHover={{
-                                    y: -5,
-                                    skewX: -6,
-                                    boxShadow: '8px 8px 0px 0px rgba(42, 107, 242, 0.4)'
-                                }}
+                                whileHover={{ y: -5 }}
                                 transition={{ duration: 0.3 }}
-                                className="design-box scale-100"
+                                className="relative bg-[#0a193c] border border-white/10 p-6 hover:border-primary/50 transition-colors duration-300"
                             >
+                                {/* Corner decorations */}
+                                <div className="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-primary/30 translate-x-2 -translate-y-2" />
+                                <div className="absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 border-primary/30 -translate-x-2 translate-y-2" />
                                 <h3 className="text-xl font-black mb-6 flex items-center gap-2 text-white uppercase italic tracking-wider">
                                     <AlertCircle className="w-6 h-6 text-primary" /> Friend Pickup?
                                 </h3>

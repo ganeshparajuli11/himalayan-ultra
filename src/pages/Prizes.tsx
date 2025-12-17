@@ -11,21 +11,17 @@ const Prizes = () => {
 
                 {/* 54km Category */}
                 <motion.div
-                    initial={{ skewX: -6 }}
-                    whileInView={{ opacity: 1, skewX: -6 }}
-                    viewport={{ once: true }}
-                    whileHover={{
-                        y: -5,
-                        skewX: -6,
-                        boxShadow: '8px 8px 0px 0px rgba(42, 107, 242, 0.4)'
-                    }}
+                    whileHover={{ y: -5 }}
                     transition={{ duration: 0.3 }}
-                    className="design-box mb-16 overflow-visible"
+                    className="relative bg-[#0a193c] border border-white/10 p-6 hover:border-primary/50 transition-colors duration-300 mb-16 overflow-visible"
                 >
-                    <div className="skew-x-[6deg] px-2 md:px-4">
+                    {/* Corner decorations */}
+                    <div className="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-primary/30 translate-x-2 -translate-y-2" />
+                    <div className="absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 border-primary/30 -translate-x-2 translate-y-2" />
+                    <div className="px-2 md:px-4">
                         <div className="flex items-center gap-6 mb-8 border-b border-white/10 pb-6">
-                            <div className="p-4 bg-primary text-black transform skew-x-[-12deg] shadow-lg shadow-primary/20">
-                                <Crown size={32} className="skew-x-[12deg]" />
+                            <div className="p-4 bg-primary text-black shadow-lg shadow-primary/20">
+                                <Crown size={32} />
                             </div>
                             <h2 className="text-3xl md:text-4xl font-black uppercase tracking-tighter italic text-white">54 KM Individual Categories</h2>
                         </div>
@@ -51,7 +47,7 @@ const Prizes = () => {
 
                             {/* Cash Prizes */}
                             <div className="bg-gradient-to-br from-yellow-500/10 to-transparent p-6 border border-yellow-500/20 relative overflow-visible">
-                                <div className="absolute top-0 right-0 bg-yellow-500 text-black text-[10px] font-black px-3 py-1 uppercase tracking-widest transform skew-x-[-12deg] translate-x-2 -translate-y-2 shadow-lg z-10">SOLO ONLY</div>
+                                <div className="absolute top-0 right-0 bg-yellow-500 text-black text-[10px] font-black px-3 py-1 uppercase tracking-widest translate-x-2 -translate-y-2 shadow-lg z-10">SOLO ONLY</div>
                                 <h3 className="text-xl font-black mb-6 text-yellow-500 flex items-center gap-3 uppercase italic tracking-wider">
                                     <Award className="w-6 h-6" /> Cash Prizes
                                 </h3>
@@ -77,17 +73,13 @@ const Prizes = () => {
                 {/* 25km & 11km Categories */}
                 <div className="grid md:grid-cols-2 gap-8 mb-16">
                     <motion.div
-                        initial={{ skewX: -6 }}
-                        whileInView={{ opacity: 1, skewX: -6 }}
-                        viewport={{ once: true }}
-                        whileHover={{
-                            y: -5,
-                            skewX: -6,
-                            boxShadow: '8px 8px 0px 0px rgba(42, 107, 242, 0.4)'
-                        }}
+                        whileHover={{ y: -5 }}
                         transition={{ duration: 0.3 }}
-                        className="design-box"
+                        className="relative bg-[#0a193c] border border-white/10 p-6 hover:border-primary/50 transition-colors duration-300"
                     >
+                        {/* Corner decorations */}
+                        <div className="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-primary/30 translate-x-2 -translate-y-2" />
+                        <div className="absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 border-primary/30 -translate-x-2 translate-y-2" />
                         <h2 className="text-2xl font-black mb-6 flex items-center gap-3 text-white uppercase italic">
                             <Medal className="text-primary w-8 h-8" /> 25 KM Category
                         </h2>
@@ -108,17 +100,13 @@ const Prizes = () => {
                     </motion.div>
 
                     <motion.div
-                        initial={{ skewX: -6 }}
-                        whileInView={{ opacity: 1, skewX: -6 }}
-                        viewport={{ once: true }}
-                        whileHover={{
-                            y: -5,
-                            skewX: -6,
-                            boxShadow: '8px 8px 0px 0px rgba(42, 107, 242, 0.4)'
-                        }}
+                        whileHover={{ y: -5 }}
                         transition={{ duration: 0.3 }}
-                        className="design-box"
+                        className="relative bg-[#0a193c] border border-white/10 p-6 hover:border-primary/50 transition-colors duration-300"
                     >
+                        {/* Corner decorations */}
+                        <div className="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-primary/30 translate-x-2 -translate-y-2" />
+                        <div className="absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 border-primary/30 -translate-x-2 translate-y-2" />
                         <h2 className="text-2xl font-black mb-6 flex items-center gap-3 text-white uppercase italic">
                             <Medal className="text-primary w-8 h-8" /> 11 KM Category
                         </h2>

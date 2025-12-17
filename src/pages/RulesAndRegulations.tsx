@@ -33,8 +33,9 @@ const RulesAndRegulations = () => {
                         ].map((gear, i) => (
                             <motion.div
                                 key={i}
-                                className="bg-[#1a0505] border border-red-500/20 p-6 skew-x-[-6deg] hover:border-red-500 hover:bg-red-500/10 transition-colors group cursor-default relative overflow-hidden"
-                                whileHover={{ y: -5, boxShadow: '4px 4px 0px 0px rgba(239, 68, 68, 0.4)' }}
+                                className="bg-[#1a0505] border border-red-500/20 p-6 hover:border-red-500 hover:bg-red-500/10 transition-colors group cursor-default relative overflow-hidden"
+                                initial={{ skewX: -6 }}
+                                whileHover={{ y: -5, skewX: -6, boxShadow: '4px 4px 0px 0px rgba(239, 68, 68, 0.4)' }}
                             >
                                 <div className="absolute -right-4 -top-4 text-6xl opacity-5 group-hover:opacity-10 transition-opacity rotate-12">{gear.icon}</div>
                                 <div className="skew-x-[6deg]">
@@ -48,14 +49,13 @@ const RulesAndRegulations = () => {
 
                 {/* General Rules - Technical List */}
                 <motion.div
-                    initial={{ skewX: -6 }}
-                    whileHover={{
-                        skewX: -6,
-                        boxShadow: '8px 8px 0px 0px rgba(42, 107, 242, 0.4)'
-                    }}
+                    whileHover={{ y: -5 }}
                     transition={{ duration: 0.3 }}
-                    className="design-box mb-16"
+                    className="relative bg-[#0a193c] border border-white/10 p-6 hover:border-primary/50 transition-colors duration-300 mb-16"
                 >
+                    {/* Corner decorations */}
+                    <div className="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-primary/30 translate-x-2 -translate-y-2" />
+                    <div className="absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 border-primary/30 -translate-x-2 translate-y-2" />
                     <h2 className="text-2xl font-black mb-8 flex items-center gap-3 text-white uppercase italic border-b border-white/10 pb-4">
                         <BookOpen className="w-6 h-6 text-primary" /> General Rules
                     </h2>

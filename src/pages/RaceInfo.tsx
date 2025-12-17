@@ -60,23 +60,20 @@ export default function RaceInfoPage() {
 
             <div className="container mx-auto px-4 py-8 md:py-16">
                 <FadeInUp>
-                    <div className="flex justify-center mb-8 md:mb-12 flex-wrap gap-2 md:gap-4">
+                    <div className="flex justify-center mb-8 md:mb-12 flex-wrap gap-4 md:gap-6">
                         {(Object.keys(raceData) as RaceCategory[]).map((tab) => (
-                            <motion.button
+                            <button
                                 key={tab}
-                                className={`
-                                    py-2 md:py-3 px-4 md:px-8 rounded-full text-xs md:text-sm font-bold uppercase tracking-wider transition-all duration-300 border-2
-                                    ${activeTab === tab
-                                        ? 'bg-primary border-primary text-black shadow-glow'
-                                        : 'bg-transparent border-white/20 text-gray-400 hover:border-white hover:text-white'}
-                                `}
+                                className="relative group inline-block"
                                 onClick={() => setActiveTab(tab)}
-                                whileHover={{ scale: 1.05 }}
-                                whileTap={{ scale: 0.98 }}
-                                animate={activeTab === tab ? { scale: 1.05 } : { scale: 1 }}
                             >
-                                {tab === 'H100' ? 'Himalayan 100' : tab === 'Half' ? 'The Half' : 'The Third'}
-                            </motion.button>
+                                <span className={`absolute inset-0 -skew-x-12 translate-x-1.5 translate-y-1.5 border border-white/10 ${activeTab === tab ? 'bg-[#2a6bf2]' : 'bg-[#2a6bf2]/50'}`}></span>
+                                <span className={`relative block -skew-x-12 px-6 md:px-10 py-3 md:py-4 hover:-translate-y-0.5 transition-transform border border-white/10 ${activeTab === tab ? 'bg-[#ff8fa3]' : 'bg-background'}`}>
+                                    <span className={`block font-black italic uppercase tracking-widest text-xs md:text-sm ${activeTab === tab ? 'text-[#0a193c]' : 'text-gray-400'}`}>
+                                        {tab === 'H100' ? 'Himalayan 100' : tab === 'Half' ? 'The Half' : 'The Third'}
+                                    </span>
+                                </span>
+                            </button>
                         ))}
                     </div>
                 </FadeInUp>
@@ -91,27 +88,28 @@ export default function RaceInfoPage() {
                             transition={{ duration: 0.4 }}
                             className="text-center max-w-3xl mx-auto"
                         >
-                            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-4 md:mb-6 text-white uppercase">{content.name} Course</h2>
+                            <h2 className="text-2xl md:text-3xl lg:text-4xl font-black mb-4 md:mb-6 text-white uppercase italic">{content.name} Course</h2>
                             <p className="text-base md:text-lg text-gray-300 leading-relaxed">{content.description}</p>
                         </motion.div>
                     </AnimatePresence>
 
                     <FadeInUp delay={0.2}>
                         <motion.div
-                            className="bg-white/5 rounded-xl border border-white/10 overflow-hidden"
+                            className="bg-white/5 border border-white/10 overflow-hidden"
                             whileHover={{ borderColor: 'rgba(255,255,255,0.2)' }}
                             transition={{ duration: 0.3 }}
                         >
                             <div className="p-4 md:p-6 lg:p-8 border-b border-white/10 flex flex-col md:flex-row justify-between items-center gap-3 md:gap-4">
-                                <h3 className="text-xl md:text-2xl font-bold text-white uppercase italic">Course Map</h3>
-                                <motion.button
+                                <h3 className="text-xl md:text-2xl font-black text-white uppercase italic">Course Map</h3>
+                                <button
                                     onClick={handleDownloadGPX}
-                                    className="btn btn-outline text-xs px-4 md:px-6 py-2 w-full md:w-auto"
-                                    whileHover={{ scale: 1.05 }}
-                                    whileTap={{ scale: 0.98 }}
+                                    className="relative group inline-block"
                                 >
-                                    Download GPX File
-                                </motion.button>
+                                    <span className="absolute inset-0 bg-[#2a6bf2] -skew-x-12 translate-x-1.5 translate-y-1.5 border border-white/10"></span>
+                                    <span className="relative block bg-background -skew-x-12 px-6 py-2 hover:-translate-y-0.5 transition-transform border border-white/10">
+                                        <span className="block font-black italic uppercase text-white tracking-widest text-xs">Download GPX</span>
+                                    </span>
+                                </button>
                             </div>
                             <div className="p-0 bg-black/40 h-[300px] md:h-[400px] lg:h-[500px] w-full relative z-0">
                                 <RaceMap />
@@ -122,52 +120,42 @@ export default function RaceInfoPage() {
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-12">
                         <FadeInLeft delay={0.1}>
                             <motion.div
-                                className="design-box h-full"
-                                initial={{ skewX: -6 }}
-                                whileHover={{
-                                    scale: 1.01,
-                                    skewX: -6
-                                }}
+                                className="relative bg-[#0a193c] border border-white/10 p-6 hover:border-primary/50 transition-colors duration-300 h-full"
+                                whileHover={{ scale: 1.01 }}
                                 transition={{ duration: 0.3 }}
                             >
-                                <h3 className="text-xl md:text-2xl font-bold text-white uppercase mb-4 md:mb-8 border-b border-white/10 pb-4">Elevation Profile</h3>
+                                {/* Corner decorations */}
+                                <div className="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-primary/30 translate-x-2 -translate-y-2" />
+                                <div className="absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 border-primary/30 -translate-x-2 translate-y-2" />
+                                <h3 className="text-xl md:text-2xl font-black text-white uppercase italic mb-4 md:mb-8 border-b border-white/10 pb-4">Elevation Profile</h3>
                                 <div className="h-32 md:h-40 bg-white/5 flex items-center justify-center text-gray-500 mb-6 md:mb-8 border border-dashed border-white/10 text-sm md:text-base">
                                     <span>Elevation Chart Placeholder ({content.name})</span>
                                 </div>
                                 <div className="grid grid-cols-2 gap-3 md:gap-6">
-                                    <motion.div
-                                        className="bg-black/30 p-4 md:p-6 text-center border border-white/5"
-                                        whileHover={{ backgroundColor: 'rgba(22, 163, 74, 0.1)' }}
-                                        transition={{ duration: 0.2 }}
-                                    >
+                                    <div className="bg-black/30 p-4 md:p-6 text-center border border-white/5 hover:bg-white/5 transition-colors cursor-pointer">
                                         <strong className="block text-gray-400 uppercase text-[10px] md:text-xs tracking-widest mb-1 md:mb-2">Gain</strong>
                                         <span className="text-xl md:text-3xl font-black text-primary">{content.elevation.gain}</span>
-                                    </motion.div>
-                                    <motion.div
-                                        className="bg-black/30 p-4 md:p-6 text-center border border-white/5"
-                                        whileHover={{ backgroundColor: 'rgba(255, 255, 255, 0.05)' }}
-                                        transition={{ duration: 0.2 }}
-                                    >
+                                    </div>
+                                    <div className="bg-black/30 p-4 md:p-6 text-center border border-white/5 hover:bg-white/5 transition-colors cursor-pointer">
                                         <strong className="block text-gray-400 uppercase text-[10px] md:text-xs tracking-widest mb-1 md:mb-2">Loss</strong>
                                         <span className="text-xl md:text-3xl font-black text-white">{content.elevation.loss}</span>
-                                    </motion.div>
+                                    </div>
                                 </div>
                             </motion.div>
                         </FadeInLeft>
 
                         <FadeInRight delay={0.2}>
                             <motion.div
-                                className="design-box h-full"
-                                initial={{ skewX: -6 }}
-                                whileHover={{
-                                    scale: 1.01,
-                                    skewX: -6
-                                }}
+                                className="relative bg-[#0a193c] border border-white/10 p-6 hover:border-primary/50 transition-colors duration-300 h-full"
+                                whileHover={{ scale: 1.01 }}
                                 transition={{ duration: 0.3 }}
                             >
-                                <h3 className="text-xl md:text-2xl font-bold text-white uppercase mb-4 md:mb-8 border-b border-white/10 pb-4">Checkpoints</h3>
+                                {/* Corner decorations */}
+                                <div className="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-primary/30 translate-x-2 -translate-y-2" />
+                                <div className="absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 border-primary/30 -translate-x-2 translate-y-2" />
+                                <h3 className="text-xl md:text-2xl font-black text-white uppercase italic mb-4 md:mb-8 border-b border-white/10 pb-4">Checkpoints</h3>
                                 <div className="space-y-2 md:space-y-4 overflow-x-auto">
-                                    <div className="grid grid-cols-3 text-[10px] md:text-xs uppercase text-gray-500 font-bold tracking-widest pb-2 border-b border-white/5 px-2 min-w-[280px]">
+                                    <div className="grid grid-cols-3 text-[10px] md:text-xs uppercase text-gray-500 font-bold italic tracking-widest pb-2 border-b border-white/5 px-2 min-w-[280px]">
                                         <div>CP</div>
                                         <div>Distance</div>
                                         <div>Cut-off</div>
@@ -183,15 +171,14 @@ export default function RaceInfoPage() {
                                             {content.checkpoints.map((cp, idx) => (
                                                 <motion.div
                                                     key={idx}
-                                                    className="grid grid-cols-3 py-3 md:py-4 border-b border-white/5 last:border-0 px-2 transition-colors min-w-[280px]"
+                                                    className="grid grid-cols-3 py-3 md:py-4 border-b border-white/5 last:border-0 px-2 min-w-[280px] hover:bg-white/5 transition-colors cursor-pointer"
                                                     initial={{ opacity: 0, x: -10 }}
                                                     animate={{ opacity: 1, x: 0 }}
                                                     transition={{ delay: idx * 0.1 }}
-                                                    whileHover={{ backgroundColor: 'rgba(255, 255, 255, 0.05)', x: 5 }}
                                                 >
-                                                    <div className="font-medium text-white text-xs md:text-base truncate pr-2">{cp.name}</div>
-                                                    <div className="font-mono text-primary text-xs md:text-base">{cp.dist}</div>
-                                                    <div className="font-mono text-gray-300 text-xs md:text-base">{cp.cutoff}</div>
+                                                    <div className="font-medium text-white text-xs md:text-base truncate pr-2 italic">{cp.name}</div>
+                                                    <div className="font-mono text-primary text-xs md:text-base italic">{cp.dist}</div>
+                                                    <div className="font-mono text-gray-300 text-xs md:text-base italic">{cp.cutoff}</div>
                                                 </motion.div>
                                             ))}
                                         </motion.div>

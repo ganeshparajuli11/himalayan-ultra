@@ -36,22 +36,23 @@ const Header = () => {
 
     return (
         <header className="h-16 md:h-20 w-full fixed top-0 left-0 z-50 bg-background/80 backdrop-blur-md border-b border-white/10">
-            <div className="container h-full flex items-center justify-between px-4 relative">
-                <div className="text-xl md:text-2xl font-extrabold tracking-tighter z-50 italic shrink-0">
+            <div className="w-full h-full flex items-center justify-between px-4 md:px-8 lg:px-16">
+                {/* Logo - Left */}
+                <div className="text-xl md:text-2xl font-extrabold tracking-tighter z-50 italic shrink-0 flex-1">
                     <Link to="/" onClick={() => setIsMenuOpen(false)}>
                         HIMALAYAN<span className="text-primary">ULTRA</span>
                     </Link>
                 </div>
 
                 {/* Desktop Navigation - Centered */}
-                <nav className="hidden lg:flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
+                <nav className="hidden lg:flex flex-1 justify-center">
                     <ul className="flex gap-8 items-center">
                         {navItems.map((item) => (
                             <li key={item.label} className="relative group">
                                 {item.children ? (
                                     <div className="relative">
                                         <button
-                                            className="flex items-center gap-1 text-sm font-medium opacity-80 hover:opacity-100 hover:text-primary transition-all py-4 italic"
+                                            className="flex items-center gap-1 text-sm font-medium opacity-80 hover:opacity-100 hover:text-primary transition-all py-4 italic whitespace-nowrap"
                                         >
                                             {item.label}
                                             <ChevronDown className="w-4 h-4 transition-transform group-hover:rotate-180" />
@@ -59,16 +60,18 @@ const Header = () => {
 
                                         {/* Dropdown Menu */}
                                         <div className="absolute top-full left-1/2 -translate-x-1/2 w-56 pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 transform translate-y-2 group-hover:translate-y-0">
-                                            <div className="bg-background border border-white/10 rounded-xl overflow-hidden shadow-2xl p-1">
-                                                {item.children.map((child) => (
-                                                    <Link
-                                                        key={child.label}
-                                                        to={child.path}
-                                                        className="block px-4 py-2 text-sm text-gray-300 hover:text-white hover:bg-white/5 rounded-lg transition-colors italic"
-                                                    >
-                                                        {child.label}
-                                                    </Link>
-                                                ))}
+                                            <div className="bg-background border border-white/10 overflow-hidden shadow-2xl p-2 skew-x-[-6deg]">
+                                                <div className="skew-x-[6deg]">
+                                                    {item.children.map((child) => (
+                                                        <Link
+                                                            key={child.label}
+                                                            to={child.path}
+                                                            className="block px-4 py-2 text-sm text-gray-300 hover:text-white hover:bg-white/5 transition-colors italic"
+                                                        >
+                                                            {child.label}
+                                                        </Link>
+                                                    ))}
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -90,8 +93,8 @@ const Header = () => {
                     </ul>
                 </nav>
 
-                {/* Desktop Buttons */}
-                <div className="hidden md:flex items-center gap-8 shrink-0">
+                {/* Desktop Buttons - Right */}
+                <div className="hidden md:flex items-center justify-end gap-8 shrink-0 flex-1">
                     <Link to="/login" className="text-sm font-black italic uppercase tracking-wider text-white hover:text-primary transition-colors">
                         Login
                     </Link>
