@@ -1,6 +1,6 @@
 import PageHeader from '@/components/PageHeader';
 import { motion } from 'framer-motion';
-import { Trophy, Medal, Award, Crown, Calendar, Clock, MapPin, User, DollarSign } from 'lucide-react';
+import { Trophy, Medal, Award, Crown } from 'lucide-react';
 
 const Prizes = () => {
     return (
@@ -9,7 +9,7 @@ const Prizes = () => {
 
             <div className="container mx-auto px-4 py-12 max-w-5xl">
 
-                {/* 50KG Category */}
+                {/* 50KM Category */}
                 <motion.div
                     whileHover={{ y: -5 }}
                     transition={{ duration: 0.3 }}
@@ -19,41 +19,11 @@ const Prizes = () => {
                     <div className="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-primary/30 translate-x-2 -translate-y-2" />
                     <div className="absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 border-primary/30 -translate-x-2 translate-y-2" />
                     <div className="px-2 md:px-4">
-                        <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6 mb-8 border-b border-white/10 pb-6">
-                            <div className="flex items-center gap-6">
-                                <div className="p-4 bg-primary text-black shadow-lg shadow-primary/20">
-                                    <Crown size={32} />
-                                </div>
-                                <h2 className="text-3xl md:text-4xl font-black uppercase tracking-tighter italic text-white">50 KM Race Info</h2>
+                        <div className="flex items-center gap-6 mb-8 border-b border-white/10 pb-6">
+                            <div className="p-4 bg-primary text-black shadow-lg shadow-primary/20">
+                                <Crown size={32} />
                             </div>
-                            <div className="flex flex-col items-end">
-                                <span className="text-2xl font-black text-primary">HKD 790</span>
-                                <span className="text-sm text-gray-400 uppercase tracking-widest">Registration Fee</span>
-                            </div>
-                        </div>
-
-                        {/* Race Info Grid */}
-                        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
-                            <div className="bg-black/20 p-3 border border-white/5 rounded">
-                                <div className="flex items-center gap-2 text-primary mb-1"><Calendar size={16} /><span className="text-xs uppercase font-bold">Date</span></div>
-                                <div className="font-bold text-white text-sm">22 Mar 2026</div>
-                                <div className="text-xs text-gray-500">Sunday</div>
-                            </div>
-                            <div className="bg-black/20 p-3 border border-white/5 rounded">
-                                <div className="flex items-center gap-2 text-primary mb-1"><Clock size={16} /><span className="text-xs uppercase font-bold">Start Time</span></div>
-                                <div className="font-bold text-white text-sm">08:00</div>
-                                <div className="text-xs text-gray-500">14h Cut-off</div>
-                            </div>
-                            <div className="bg-black/20 p-3 border border-white/5 rounded">
-                                <div className="flex items-center gap-2 text-primary mb-1"><MapPin size={16} /><span className="text-xs uppercase font-bold">Location</span></div>
-                                <div className="font-bold text-white text-sm">Tai Mo Shan</div>
-                                <div className="text-xs text-gray-500">Rotary Park</div>
-                            </div>
-                            <div className="bg-black/20 p-3 border border-white/5 rounded">
-                                <div className="flex items-center gap-2 text-primary mb-1"><User size={16} /><span className="text-xs uppercase font-bold">Age</span></div>
-                                <div className="font-bold text-white text-sm">18+ Years</div>
-                                <div className="text-xs text-gray-500">Min. Age</div>
-                            </div>
+                            <h2 className="text-3xl md:text-4xl font-black uppercase tracking-tighter italic text-white">50 KM Prizes</h2>
                         </div>
 
                         <div className="grid md:grid-cols-2 gap-8 md:gap-12">
@@ -113,39 +83,9 @@ const Prizes = () => {
                     <div className="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-primary/30 translate-x-2 -translate-y-2" />
                     <div className="absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 border-primary/30 -translate-x-2 translate-y-2" />
 
-                    <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6 mb-8 border-b border-white/10 pb-6">
-                        <div className="flex items-center gap-4">
-                            <Medal className="text-primary w-8 h-8" />
-                            <h2 className="text-2xl md:text-3xl font-black uppercase italic text-white">12 KM Race Info</h2>
-                        </div>
-                        <div className="flex flex-col items-end">
-                            <span className="text-2xl font-black text-primary">HKD 390</span>
-                            <span className="text-sm text-gray-400 uppercase tracking-widest">Registration Fee</span>
-                        </div>
-                    </div>
-
-                    {/* Race Info Grid */}
-                    <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
-                        <div className="bg-black/20 p-3 border border-white/5 rounded">
-                            <div className="flex items-center gap-2 text-primary mb-1"><Calendar size={16} /><span className="text-xs uppercase font-bold">Date</span></div>
-                            <div className="font-bold text-white text-sm">22 Mar 2026</div>
-                            <div className="text-xs text-gray-500">Sunday</div>
-                        </div>
-                        <div className="bg-black/20 p-3 border border-white/5 rounded">
-                            <div className="flex items-center gap-2 text-primary mb-1"><Clock size={16} /><span className="text-xs uppercase font-bold">Start Time</span></div>
-                            <div className="font-bold text-white text-sm">09:00</div>
-                            <div className="text-xs text-gray-500">4h Cut-off</div>
-                        </div>
-                        <div className="bg-black/20 p-3 border border-white/5 rounded">
-                            <div className="flex items-center gap-2 text-primary mb-1"><MapPin size={16} /><span className="text-xs uppercase font-bold">Location</span></div>
-                            <div className="font-bold text-white text-sm">Tai Mo Shan</div>
-                            <div className="text-xs text-gray-500">Rotary Park</div>
-                        </div>
-                        <div className="bg-black/20 p-3 border border-white/5 rounded">
-                            <div className="flex items-center gap-2 text-primary mb-1"><User size={16} /><span className="text-xs uppercase font-bold">Age</span></div>
-                            <div className="font-bold text-white text-sm">18+ Years</div>
-                            <div className="text-xs text-gray-500">Min. Age</div>
-                        </div>
+                    <div className="flex items-center gap-4 mb-8 border-b border-white/10 pb-6">
+                        <Medal className="text-primary w-8 h-8" />
+                        <h2 className="text-2xl md:text-3xl font-black uppercase italic text-white">12 KM Prizes</h2>
                     </div>
 
                     <div className="bg-black/40 border border-white/10 p-6">

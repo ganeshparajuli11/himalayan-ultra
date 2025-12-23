@@ -15,6 +15,7 @@ import RacePackPickUp from '@/pages/RacePackPickUp';
 import Prizes from '@/pages/Prizes';
 import Transport from '@/pages/Transport';
 import RulesAndRegulations from '@/pages/RulesAndRegulations';
+import BagDrop from '@/pages/BagDrop';
 import Volunteer from '@/pages/Volunteer';
 import Login from '@/pages/Login';
 import UserDashboard from '@/pages/UserDashboard';
@@ -43,6 +44,7 @@ function App() {
                         <Route path="/prizes" element={<Prizes />} />
                         <Route path="/transport" element={<Transport />} />
                         <Route path="/rules-and-regulations" element={<RulesAndRegulations />} />
+                        <Route path="/bag-drop" element={<BagDrop />} />
                         <Route path="/volunteer" element={<Volunteer />} />
                     </Route>
 

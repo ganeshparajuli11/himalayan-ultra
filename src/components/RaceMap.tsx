@@ -129,34 +129,27 @@ const RaceMap = ({ gpxFile = '/trail.gpx', checkpoints = [] }: RaceMapProps) => 
                 <Polyline positions={trackPoints} pathOptions={{ color: '#a855f7', weight: 4 }} />
             )}
 
-            {/* Start/Finish marker */}
-            {trackPoints.length > 0 && (
-                <CircleMarker
-                    center={trackPoints[0]}
-                    radius={10}
-                    pathOptions={{ color: '#22c55e', fillColor: '#22c55e', fillOpacity: 1, weight: 2 }}
-                >
-                    <Popup>
-                        <div className="text-sm font-bold">Start / Finish</div>
-                    </Popup>
-                </CircleMarker>
-            )}
-
             {/* Checkpoint markers */}
-            {checkpointPositions.map((cp, idx) => (
-                <CircleMarker
-                    key={idx}
-                    center={cp.position as [number, number]}
-                    radius={10}
-                    pathOptions={{ color: '#3b82f6', fillColor: '#3b82f6', fillOpacity: 1, weight: 2 }}
-                >
-                    <Popup>
-                        <div className="text-sm font-bold">{cp.name}</div>
-                        <div className="text-xs text-gray-600">{cp.dist}</div>
-                        <div className="text-xs text-gray-500">Cut-off: {cp.cutoff}</div>
-                    </Popup>
-                </CircleMarker>
-            ))}
+            {checkpointPositions.map((cp, idx) => {
+                const isStart = cp.name.toLowerCase().includes('start');
+                const isFinish = cp.name.toLowerCase().includes('finish');
+                const markerColor = isStart ? '#22c55e' : isFinish ? '#ef4444' : '#3b82f6';
+
+                return (
+                    <CircleMarker
+                        key={idx}
+                        center={cp.position as [number, number]}
+                        radius={isStart || isFinish ? 12 : 10}
+                        pathOptions={{ color: markerColor, fillColor: markerColor, fillOpacity: 1, weight: 2 }}
+                    >
+                        <Popup>
+                            <div className="text-sm font-bold" style={{ color: markerColor }}>{cp.name}</div>
+                            <div className="text-xs text-gray-600">{cp.dist}</div>
+                            <div className="text-xs text-gray-500">Cut-off: {cp.cutoff}</div>
+                        </Popup>
+                    </CircleMarker>
+                );
+            })}
         </MapContainer>
     );
 };

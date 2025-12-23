@@ -14,15 +14,16 @@ const Header = () => {
       label: "Race Info",
       children: [
         { label: "The Race", path: "/race-info" },
-        { label: "Race Pack Pick Up", path: "/race-pack-pick-up" },
+        // { label: "Race Pack Pick Up", path: "/race-pack-pick-up" },
+        { label: "Bag Drop", path: "/bag-drop" },
         { label: "Prizes", path: "/prizes" },
-        { label: "Transport", path: "/transport" },
+        // { label: "Transport", path: "/transport" },
         { label: "Rules & Regulations", path: "/rules-and-regulations" },
       ],
     },
     { label: "Registration", path: "/registration" },
     { label: "Volunteer", path: "/volunteer" },
-    { label: "News", path: "/news" },
+    // { label: "News", path: "/news" },
     { label: "Results", path: "/results" },
   ];
 

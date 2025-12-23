@@ -157,7 +157,7 @@ export default function Home() {
       </section>
 
       {/* Latest News */}
-      <section className="py-20 relative z-10">
+      {/* <section className="py-20 relative z-10">
         <div className="container mx-auto px-4">
           <FadeInUp>
             <h2 className="text-center mb-16 text-4xl md:text-5xl font-black uppercase italic tracking-tighter text-white">
@@ -204,7 +204,7 @@ export default function Home() {
                   transition={{ duration: 0.3 }}
                 >
                   <div className="h-48 bg-blue-900/30 overflow-hidden relative w-[110%] -ml-[5%] origin-center scale-105">
-                    {/* Placeholder for news image */}
+                    
                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
                     <div className="absolute top-2 right-4 bg-primary text-black text-[10px] font-bold px-2 py-0.5 skew-x-[-12deg]">
                       NEWS
@@ -234,10 +234,203 @@ export default function Home() {
             ))}
           </StaggerContainer>
         </div>
+      </section> */}
+
+      {/* Race Categories Section */}
+      <section className="py-20 relative z-10 bg-[#0a0a12]">
+        <div className="container mx-auto px-4">
+          <FadeInUp>
+            <h2 className="text-center mb-4 text-4xl md:text-5xl font-black uppercase italic tracking-tighter text-white">
+              Race <span className="text-primary">Categories</span>
+            </h2>
+            <p className="text-center text-gray-400 mb-12 max-w-2xl mx-auto">
+              Choose your challenge - from the ultimate 50KM ultra to the accessible 12KM experience
+            </p>
+          </FadeInUp>
+
+          <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto" staggerDelay={0.15}>
+            {/* 50KM Card */}
+            <StaggerItem>
+              <motion.div
+                className="relative bg-[#0a193c] border border-white/10 p-8 group overflow-hidden"
+                whileHover={{ y: -5, borderColor: 'rgba(22, 163, 74, 0.5)' }}
+                transition={{ duration: 0.3 }}
+              >
+                <div className="absolute top-0 right-0 w-12 h-12 border-t-2 border-r-2 border-primary/30 translate-x-3 -translate-y-3" />
+                <div className="absolute bottom-0 left-0 w-12 h-12 border-b-2 border-l-2 border-primary/30 -translate-x-3 translate-y-3" />
+
+                <div className="absolute top-4 right-4 bg-primary text-black text-xs font-black px-3 py-1 -skew-x-12">
+                  <span className="skew-x-12 block">ULTRA</span>
+                </div>
+
+                <h3 className="text-5xl md:text-6xl font-black text-white mb-2 italic">
+                  50<span className="text-primary">KM</span>
+                </h3>
+                <p className="text-primary font-bold uppercase tracking-widest text-sm mb-6">Challenge</p>
+
+                <div className="space-y-3 mb-8">
+                  <div className="flex justify-between border-b border-white/10 pb-2">
+                    <span className="text-gray-400 text-sm">Distance</span>
+                    <span className="text-white font-bold">51.7 km</span>
+                  </div>
+                  <div className="flex justify-between border-b border-white/10 pb-2">
+                    <span className="text-gray-400 text-sm">Elevation Gain</span>
+                    <span className="text-white font-bold">2,494m</span>
+                  </div>
+                  <div className="flex justify-between border-b border-white/10 pb-2">
+                    <span className="text-gray-400 text-sm">Cut-off Time</span>
+                    <span className="text-white font-bold">15.5 hours</span>
+                  </div>
+                  <div className="flex justify-between border-b border-white/10 pb-2">
+                    <span className="text-gray-400 text-sm">Registration Fee</span>
+                    <span className="text-primary font-bold">HKD 790</span>
+                  </div>
+                </div>
+
+                <Link to="/race-info" className="inline-block border border-primary/50 hover:bg-primary hover:text-black text-primary font-bold text-xs px-6 py-3 uppercase tracking-wider transition-all">
+                  View Details
+                </Link>
+              </motion.div>
+            </StaggerItem>
+
+            {/* 12KM Card */}
+            <StaggerItem>
+              <motion.div
+                className="relative bg-[#0a193c] border border-white/10 p-8 group overflow-hidden"
+                whileHover={{ y: -5, borderColor: 'rgba(22, 163, 74, 0.5)' }}
+                transition={{ duration: 0.3 }}
+              >
+                <div className="absolute top-0 right-0 w-12 h-12 border-t-2 border-r-2 border-primary/30 translate-x-3 -translate-y-3" />
+                <div className="absolute bottom-0 left-0 w-12 h-12 border-b-2 border-l-2 border-primary/30 -translate-x-3 translate-y-3" />
+
+                <div className="absolute top-4 right-4 bg-blue-500 text-white text-xs font-black px-3 py-1 -skew-x-12">
+                  <span className="skew-x-12 block">FUN RUN</span>
+                </div>
+
+                <h3 className="text-5xl md:text-6xl font-black text-white mb-2 italic">
+                  12<span className="text-primary">KM</span>
+                </h3>
+                <p className="text-primary font-bold uppercase tracking-widest text-sm mb-6">Experience</p>
+
+                <div className="space-y-3 mb-8">
+                  <div className="flex justify-between border-b border-white/10 pb-2">
+                    <span className="text-gray-400 text-sm">Distance</span>
+                    <span className="text-white font-bold">12.5 km</span>
+                  </div>
+                  <div className="flex justify-between border-b border-white/10 pb-2">
+                    <span className="text-gray-400 text-sm">Elevation Gain</span>
+                    <span className="text-white font-bold">659m</span>
+                  </div>
+                  <div className="flex justify-between border-b border-white/10 pb-2">
+                    <span className="text-gray-400 text-sm">Cut-off Time</span>
+                    <span className="text-white font-bold">5.5 hours</span>
+                  </div>
+                  <div className="flex justify-between border-b border-white/10 pb-2">
+                    <span className="text-gray-400 text-sm">Registration Fee</span>
+                    <span className="text-primary font-bold">HKD 390</span>
+                  </div>
+                </div>
+
+                <Link to="/race-info" className="inline-block border border-primary/50 hover:bg-primary hover:text-black text-primary font-bold text-xs px-6 py-3 uppercase tracking-wider transition-all">
+                  View Details
+                </Link>
+              </motion.div>
+            </StaggerItem>
+          </StaggerContainer>
+
+          <FadeInUp delay={0.3}>
+            <div className="text-center mt-12">
+              <Link to="/registration" className="relative group inline-block">
+                <span className="absolute inset-0 bg-[#2a6bf2] -skew-x-12 translate-x-1.5 translate-y-1.5 border border-white/10"></span>
+                <span className="relative block bg-[#ff8fa3] -skew-x-12 px-10 py-4 hover:-translate-y-0.5 transition-transform border border-white/10">
+                  <span className="block font-black italic uppercase text-[#0a193c] tracking-widest text-sm">
+                    Register Now
+                  </span>
+                </span>
+              </Link>
+            </div>
+          </FadeInUp>
+        </div>
+      </section>
+
+      {/* Sponsors Section */}
+      <section className="py-20 relative z-10 border-t border-white/5">
+        <div className="container mx-auto px-4">
+          <FadeInUp>
+            <h2 className="text-center mb-4 text-4xl md:text-5xl font-black uppercase italic tracking-tighter text-white">
+              Our <span className="text-primary">Sponsors</span>
+            </h2>
+            <p className="text-center text-gray-400 mb-12">
+              Proudly supported by
+            </p>
+          </FadeInUp>
+
+          <StaggerContainer className="space-y-12" staggerDelay={0.1}>
+            {/* Title Sponsor */}
+            <StaggerItem>
+              <div className="text-center">
+                <p className="text-xs text-primary font-bold uppercase tracking-widest mb-6">Title Sponsor</p>
+                <div className="flex justify-center">
+                  <motion.div
+                    className="bg-white/5 border border-white/10 px-12 py-8 hover:border-primary/50 transition-colors"
+                    whileHover={{ scale: 1.02 }}
+                  >
+                    <span className="text-2xl md:text-3xl font-black text-white/80 italic tracking-tight">SPONSOR LOGO</span>
+                  </motion.div>
+                </div>
+              </div>
+            </StaggerItem>
+
+            {/* Gold Sponsors */}
+            <StaggerItem>
+              <div className="text-center">
+                <p className="text-xs text-yellow-500 font-bold uppercase tracking-widest mb-6">Gold Sponsors</p>
+                <div className="flex flex-wrap justify-center gap-6">
+                  {[1, 2, 3].map((i) => (
+                    <motion.div
+                      key={i}
+                      className="bg-white/5 border border-white/10 px-8 py-6 hover:border-yellow-500/50 transition-colors"
+                      whileHover={{ scale: 1.02 }}
+                    >
+                      <span className="text-lg font-bold text-white/60 italic">Gold Sponsor {i}</span>
+                    </motion.div>
+                  ))}
+                </div>
+              </div>
+            </StaggerItem>
+
+            {/* Silver Sponsors */}
+            <StaggerItem>
+              <div className="text-center">
+                <p className="text-xs text-gray-400 font-bold uppercase tracking-widest mb-6">Silver Sponsors</p>
+                <div className="flex flex-wrap justify-center gap-4">
+                  {[1, 2, 3, 4].map((i) => (
+                    <motion.div
+                      key={i}
+                      className="bg-white/5 border border-white/10 px-6 py-4 hover:border-gray-400/50 transition-colors"
+                      whileHover={{ scale: 1.02 }}
+                    >
+                      <span className="text-sm font-bold text-white/50 italic">Silver {i}</span>
+                    </motion.div>
+                  ))}
+                </div>
+              </div>
+            </StaggerItem>
+          </StaggerContainer>
+
+          <FadeInUp delay={0.3}>
+            <div className="text-center mt-16 pt-8 border-t border-white/5">
+              <p className="text-gray-500 text-sm mb-4">Interested in sponsoring Himalayan Harmony?</p>
+              <a href="mailto:sponsors@himalayanharmony.com" className="text-primary hover:text-white transition-colors font-bold text-sm uppercase tracking-wider">
+                Contact Us
+              </a>
+            </div>
+          </FadeInUp>
+        </div>
       </section>
 
       {/* FAQ Section */}
-      <section className="py-20 pb-32 relative z-10">
+      <section className="py-20 pb-32 relative z-10 border-t border-white/5">
         <div className="container mx-auto px-4">
           <FadeInUp>
             <h2 className="text-center mb-16 text-4xl md:text-5xl font-black uppercase italic tracking-tighter text-white">

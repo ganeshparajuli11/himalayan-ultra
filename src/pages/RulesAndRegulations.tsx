@@ -17,6 +17,17 @@ interface RuleCategory {
 const RulesAndRegulations = () => {
     const ruleCategories: RuleCategory[] = [
         {
+            title: "Adjudication and appeal",
+            titleZh: "裁判及上訴",
+            icon: <Gavel className="w-5 h-5" />,
+            rules: [
+                {
+                    en: "The event will have referees and an appeals committee to handle and adjudicate complaints and appeals regarding the competition, and they will have final decision-making authority over the entire event. Participants who have any complaints regarding the results that affect the top ten standings must submit them in writing to the finish line before the award ceremony. The committee will make a judgment and respond after the event.",
+                    zh: "大會設有裁判及上訴委員會處理及裁判賽事之投訴及上訴，並對整項賽事的裁決擁有最終決定權。參賽者如對比賽結果有任何投訴而影響首十名之名次，必須頒獎時前提出，以書面形式交回終點，委員會將於賽後作出判決及回覆。"
+                }
+            ]
+        },
+        {
             title: "Eligibility & Registration",
             titleZh: "參賽資格",
             icon: <UserCheck className="w-5 h-5" />,
@@ -163,17 +174,6 @@ const RulesAndRegulations = () => {
                 {
                     en: "Racers wishing to make a protest must notify the race command centre in writing within 60 minutes of finishing the race. Protests will be considered by a three person committee consisting of the race director, a representative from HKNUTRA and a representative of the race timing system service provider.",
                     zh: "參賽者如有異議，必須在完成比賽的60分鐘之內以書面通知控制中心。反對的意見會由一個三人委員會裁決。委員會由賽事總監、HKNUTRA的代表，及一名獨立第三方如賽事計時服務供意商的代表組成。該委員會的決定將為最終決定。"
-                }
-            ]
-        },
-        {
-            title: "Adjudication and appeal",
-            titleZh: "裁判及上訴",
-            icon: <Gavel className="w-5 h-5" />,
-            rules: [
-                {
-                    en: "The event will have referees and an appeals committee to handle and adjudicate complaints and appeals regarding the competition, and they will have final decision-making authority over the entire event. Participants who have any complaints regarding the results that affect the top ten standings must submit them in writing to the finish line before the award ceremony. The committee will make a judgment and respond after the event.",
-                    zh: "大會設有裁判及上訴委員會處理及裁判賽事之投訴及上訴，並對整項賽事的裁決擁有最終決定權。參賽者如對比賽結果有任何投訴而影響首十名之名次，必須頒獎時前提出，以書面形式交回終點，委員會將於賽後作出判決及回覆。"
                 }
             ]
         }
@@ -339,22 +339,20 @@ const RulesAndRegulations = () => {
                     <h3 className="text-xl font-black text-red-400 uppercase italic mb-4 flex items-center gap-2">
                         <AlertTriangle className="w-5 h-5" /> Important Reminders / 重要提醒
                     </h3>
-                    <ul className="space-y-2 text-sm">
-                        <li className="flex items-start gap-2 text-gray-300">
-                            <span className="text-red-400 font-bold">•</span>
-                            <span>Disqualification may result from: using vehicles, taking shortcuts, littering, missing mandatory gear, or receiving unauthorized support.</span>
+                    <ul className="space-y-4 text-sm">
+                        <li className="flex items-start gap-2">
+                            <span className="text-red-400 font-bold mt-0.5">•</span>
+                            <div>
+                                <p className="text-gray-300">Disqualification may result from: using vehicles, taking shortcuts, littering, missing mandatory gear, or receiving unauthorized support.</p>
+                                <p className="text-gray-500 mt-1">可導致取消資格的情況：使用交通工具、抄捷徑、亂丟垃圾、缺少必備裝備或接受未經授權的支援。</p>
+                            </div>
                         </li>
-                        <li className="flex items-start gap-2 text-gray-400">
-                            <span className="text-red-400 font-bold">•</span>
-                            <span>可導致取消資格的情況：使用交通工具、抄捷徑、亂丟垃圾、缺少必備裝備或接受未經授權的支援。</span>
-                        </li>
-                        <li className="flex items-start gap-2 text-gray-300 mt-3">
-                            <span className="text-red-400 font-bold">•</span>
-                            <span>All participants must carry mandatory gear at ALL times. Random checks will be conducted.</span>
-                        </li>
-                        <li className="flex items-start gap-2 text-gray-400">
-                            <span className="text-red-400 font-bold">•</span>
-                            <span>所有參賽者必須全程攜帶必備裝備。工作人員會進行隨機檢查。</span>
+                        <li className="flex items-start gap-2">
+                            <span className="text-red-400 font-bold mt-0.5">•</span>
+                            <div>
+                                <p className="text-gray-300">All participants must carry mandatory gear at ALL times. Random checks will be conducted.</p>
+                                <p className="text-gray-500 mt-1">所有參賽者必須全程攜帶必備裝備。工作人員會進行隨機檢查。</p>
+                            </div>
                         </li>
                     </ul>
                 </motion.div>
