@@ -1,281 +1,229 @@
-import PageHeader from "@/components/PageHeader";
-import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import RaceMap from "@/components/RaceMap";
-import ElevationChart from "@/components/ElevationChart";
-import {
-  FadeInUp,
-  FadeInLeft,
-  FadeInRight,
-  StaggerContainer,
-  StaggerItem,
-} from "@/components/animations/ScrollAnimations";
+import PageHeader from '@/components/PageHeader';
+import { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import RaceMap from '@/components/RaceMap';
+import ElevationChart from '@/components/ElevationChart';
+import { FadeInUp, FadeInLeft, FadeInRight, StaggerContainer, StaggerItem } from '@/components/animations/ScrollAnimations';
 
-type RaceCategory = "ULTRA 50" | "12 KM";
+type RaceCategory = '50KM' | '12KM';
 
 const raceData = {
-  "ULTRA 50": {
-    name: "ULTRA 50km",
-    description:
-      "A challenging 50km loop course starting and finishing at the same location. The route passes through Shing Mun (CP1 & CP3), Shatin Pass, Lead Pass, and climbs to the peak at Sze Fong Shan before descending back to the start/finish line.",
-    elevation: { gain: "2,100m+", loss: "2,100m" },
-    gpxFile: "/HIMALAYAN HARMONY 50.gpx",
-    checkpoints: [
-      { name: "CP1 - Shing Mun", dist: "9 km", cutoff: "08:30" },
-      { name: "CP2 - Shatin Pass", dist: "22 km", cutoff: "11:00" },
-      { name: "CP3 - Shing Mun", dist: "35 km", cutoff: "15:00" },
-      { name: "CP4 - Lead Pass", dist: "42 km", cutoff: "17:00" },
-      { name: "CP5 - Sze Fong Shan", dist: "45 km", cutoff: "19:00" },
-    ],
-  },
-  "12 KM": {
-    name: "12km",
-    description:
-      "A challenging 12km loop course featuring two peaks above 900m. The route climbs to the first summit, descends through Sze Fong Shan (CP1), then ascends to the second peak before returning to the start/finish line.",
-    elevation: { gain: "650m+", loss: "650m" },
-    gpxFile: "/Himalayan Harmony 12KM.gpx",
-    checkpoints: [
-      { name: "CP1 - Sze Fong Shan", dist: "6 km", cutoff: "08:30" },
-    ],
-  },
+    '50KM': {
+        name: '50KM Challenge',
+        description: 'The 50KM Challenge is a rigorous test of endurance, traversing the most scenic and challenging parts of Tai Mo Shan. Suitable for experienced trail runners, this course offers significantly high elevation gain and technical descents.',
+        elevation: { gain: '2,800m+', loss: '2,600m' },
+        gpxFile: '/HIMALAYAN HARMONY 50.gpx',
+        checkpoints: [
+            { name: 'Start - Tai Mo Shan Rotary Park', dist: '0 km', cutoff: '08:00' },
+            { name: 'CP1 - Lead Mine Pass', dist: '12 km', cutoff: '11:00' },
+            { name: 'CP2 - Ng Tung Chai', dist: '24 km', cutoff: '14:30' },
+            { name: 'CP3 - Route Twisk', dist: '38 km', cutoff: '18:00' },
+            { name: 'Finish - Rotary Park', dist: '50 km', cutoff: '22:00 (14h)' },
+        ]
+    },
+    '12KM': {
+        name: '12KM Experience',
+        description: 'A fast and beautiful introductory course. Perfect for beginners or speedsters looking to blast through the trails. Enjoy the lush greenery of Tai Mo Shan without the extreme distance.',
+        elevation: { gain: '800m+', loss: '800m' },
+        gpxFile: '/Himalayan Harmony 12KM.gpx',
+        checkpoints: [
+            { name: 'Start - Tai Mo Shan Rotary Park', dist: '0 km', cutoff: '09:00' },
+            { name: 'CP1 - Chuen Lung', dist: '6 km', cutoff: '11:00' },
+            { name: 'Finish - Rotary Park', dist: '12 km', cutoff: '13:00 (4h)' },
+        ]
+    }
 };
 
 export default function RaceInfoPage() {
-  const [activeTab, setActiveTab] = useState<RaceCategory>("ULTRA 50");
+    const [activeTab, setActiveTab] = useState<RaceCategory>('50KM');
 
-  const content = raceData[activeTab];
+    const content = raceData[activeTab];
 
-  const handleDownloadGPX = () => {
-    const link = document.createElement("a");
-    link.href = content.gpxFile;
-    link.download = content.gpxFile.replace("/", "");
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-  };
+    const handleDownloadGPX = () => {
+        const link = document.createElement('a');
+        link.href = content.gpxFile;
+        link.download = content.gpxFile.replace('/', '');
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+    };
 
-  return (
-    <div className="flex flex-col overflow-hidden">
-      <PageHeader title="The Race" subtitle="Course Maps & Details" />
+    return (
+        <div className="flex flex-col overflow-hidden">
+            <PageHeader title="The Race" subtitle="Course Maps & Details" />
 
-      <div className="container mx-auto px-4 py-8 md:py-16">
-        <FadeInUp>
-          <div className="flex justify-center mb-8 md:mb-12 flex-wrap gap-4 md:gap-6">
-            {(Object.keys(raceData) as RaceCategory[]).map((tab) => (
-              <button
-                key={tab}
-                className="relative group inline-block"
-                onClick={() => setActiveTab(tab)}
-              >
-                <span
-                  className={`absolute inset-0 -skew-x-12 translate-x-1.5 translate-y-1.5 border border-white/10 ${
-                    activeTab === tab ? "bg-[#2a6bf2]" : "bg-[#2a6bf2]/50"
-                  }`}
-                ></span>
-                <span
-                  className={`relative block -skew-x-12 px-6 md:px-10 py-3 md:py-4 hover:-translate-y-0.5 transition-transform border border-white/10 ${
-                    activeTab === tab ? "bg-[#ff8fa3]" : "bg-background"
-                  }`}
-                >
-                  <span
-                    className={`block font-black italic uppercase tracking-widest text-xs md:text-sm ${
-                      activeTab === tab ? "text-[#0a193c]" : "text-gray-400"
-                    }`}
-                  >
-                    {tab === "ULTRA 50"
-                      ? "Himalayan 100"
-                      : tab === "12 KM"
-                      ? "The 12 KM"
-                      : "The Third"}
-                  </span>
-                </span>
-              </button>
-            ))}
-          </div>
-        </FadeInUp>
+            <div className="container mx-auto px-4 py-8 md:py-16">
+                <FadeInUp>
+                    <div className="flex justify-center mb-8 md:mb-12 flex-wrap gap-4 md:gap-6">
+                        {(Object.keys(raceData) as RaceCategory[]).map((tab) => (
+                            <button
+                                key={tab}
+                                className="relative group inline-block"
+                                onClick={() => setActiveTab(tab)}
+                            >
+                                <span className={`absolute inset-0 -skew-x-12 translate-x-1.5 translate-y-1.5 border border-white/10 ${activeTab === tab ? 'bg-[#2a6bf2]' : 'bg-[#2a6bf2]/50'}`}></span>
+                                <span className={`relative block -skew-x-12 px-6 md:px-10 py-3 md:py-4 hover:-translate-y-0.5 transition-transform border border-white/10 ${activeTab === tab ? 'bg-[#ff8fa3]' : 'bg-background'}`}>
+                                    <span className={`block font-black italic uppercase tracking-widest text-xs md:text-sm ${activeTab === tab ? 'text-[#0a193c]' : 'text-gray-400'}`}>
+                                        {raceData[tab].name}
+                                    </span>
+                                </span>
+                            </button>
+                        ))}
+                    </div>
+                </FadeInUp>
 
-        <section className="space-y-8 md:space-y-16">
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={activeTab}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -20 }}
-              transition={{ duration: 0.4 }}
-              className="text-center max-w-3xl mx-auto"
-            >
-              <h2 className="text-2xl md:text-3xl lg:text-4xl font-black mb-4 md:mb-6 text-white uppercase italic">
-                {content.name} Course
-              </h2>
-              <p className="text-base md:text-lg text-gray-300 leading-relaxed">
-                {content.description}
-              </p>
-            </motion.div>
-          </AnimatePresence>
-
-          <FadeInUp delay={0.2}>
-            <motion.div
-              className="bg-white/5 border border-white/10 overflow-hidden"
-              whileHover={{ borderColor: "rgba(255,255,255,0.2)" }}
-              transition={{ duration: 0.3 }}
-            >
-              <div className="p-4 md:p-6 lg:p-8 border-b border-white/10 flex flex-col md:flex-row justify-between items-center gap-3 md:gap-4">
-                <h3 className="text-xl md:text-2xl font-black text-white uppercase italic">
-                  Course Map
-                </h3>
-                <button
-                  onClick={handleDownloadGPX}
-                  className="relative group inline-block"
-                >
-                  <span className="absolute inset-0 bg-[#2a6bf2] -skew-x-12 translate-x-1.5 translate-y-1.5 border border-white/10"></span>
-                  <span className="relative block bg-background -skew-x-12 px-6 py-2 hover:-translate-y-0.5 transition-transform border border-white/10">
-                    <span className="block font-black italic uppercase text-white tracking-widest text-xs">
-                      Download GPX
-                    </span>
-                  </span>
-                </button>
-              </div>
-              <div className="p-0 bg-black/40 h-[300px] md:h-[400px] lg:h-[500px] w-full relative z-0">
-                <RaceMap
-                  key={activeTab}
-                  gpxFile={content.gpxFile}
-                  checkpoints={content.checkpoints}
-                />
-              </div>
-            </motion.div>
-          </FadeInUp>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-12">
-            <FadeInLeft delay={0.1}>
-              <motion.div
-                className="relative bg-[#0a193c] border border-white/10 p-6 hover:border-primary/50 transition-colors duration-300 h-full"
-                whileHover={{ scale: 1.01 }}
-                transition={{ duration: 0.3 }}
-              >
-                {/* Corner decorations */}
-                <div className="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-primary/30 translate-x-2 -translate-y-2" />
-                <div className="absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 border-primary/30 -translate-x-2 translate-y-2" />
-                <h3 className="text-xl md:text-2xl font-black text-white uppercase italic mb-4 md:mb-8 border-b border-white/10 pb-4">
-                  Elevation Profile
-                </h3>
-                <div className="h-40 md:h-48 bg-black/30 mb-6 md:mb-8 border border-white/10 overflow-hidden">
-                  <ElevationChart raceType={activeTab} />
-                </div>
-                <div className="grid grid-cols-2 gap-3 md:gap-6">
-                  <div className="bg-black/30 p-4 md:p-6 text-center border border-white/5 hover:bg-white/5 transition-colors cursor-pointer">
-                    <strong className="block text-gray-400 uppercase text-[10px] md:text-xs tracking-widest mb-1 md:mb-2">
-                      Gain
-                    </strong>
-                    <span className="text-xl md:text-3xl font-black text-primary">
-                      {content.elevation.gain}
-                    </span>
-                  </div>
-                  <div className="bg-black/30 p-4 md:p-6 text-center border border-white/5 hover:bg-white/5 transition-colors cursor-pointer">
-                    <strong className="block text-gray-400 uppercase text-[10px] md:text-xs tracking-widest mb-1 md:mb-2">
-                      Loss
-                    </strong>
-                    <span className="text-xl md:text-3xl font-black text-white">
-                      {content.elevation.loss}
-                    </span>
-                  </div>
-                </div>
-              </motion.div>
-            </FadeInLeft>
-
-            <FadeInRight delay={0.2}>
-              <motion.div
-                className="relative bg-[#0a193c] border border-white/10 p-6 hover:border-primary/50 transition-colors duration-300 h-full"
-                whileHover={{ scale: 1.01 }}
-                transition={{ duration: 0.3 }}
-              >
-                {/* Corner decorations */}
-                <div className="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-primary/30 translate-x-2 -translate-y-2" />
-                <div className="absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 border-primary/30 -translate-x-2 translate-y-2" />
-                <h3 className="text-xl md:text-2xl font-black text-white uppercase italic mb-4 md:mb-8 border-b border-white/10 pb-4">
-                  Checkpoints
-                </h3>
-                <div className="space-y-2 md:space-y-4 overflow-x-auto">
-                  <div className="grid grid-cols-3 text-[10px] md:text-xs uppercase text-gray-500 font-bold italic tracking-widest pb-2 border-b border-white/5 px-2 min-w-[280px]">
-                    <div>CP</div>
-                    <div>Distance</div>
-                    <div>Cut-off</div>
-                  </div>
-                  <AnimatePresence mode="wait">
-                    <motion.div
-                      key={activeTab}
-                      initial={{ opacity: 0 }}
-                      animate={{ opacity: 1 }}
-                      exit={{ opacity: 0 }}
-                      transition={{ duration: 0.3 }}
-                    >
-                      {content.checkpoints.map((cp, idx) => (
+                <section className="space-y-8 md:space-y-16">
+                    <AnimatePresence mode="wait">
                         <motion.div
-                          key={idx}
-                          className="grid grid-cols-3 py-3 md:py-4 border-b border-white/5 last:border-0 px-2 min-w-[280px] hover:bg-white/5 transition-colors cursor-pointer"
-                          initial={{ opacity: 0, x: -10 }}
-                          animate={{ opacity: 1, x: 0 }}
-                          transition={{ delay: idx * 0.1 }}
+                            key={activeTab}
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            exit={{ opacity: 0, y: -20 }}
+                            transition={{ duration: 0.4 }}
+                            className="text-center max-w-3xl mx-auto"
                         >
-                          <div className="font-medium text-white text-xs md:text-base truncate pr-2 italic">
-                            {cp.name}
-                          </div>
-                          <div className="font-mono text-primary text-xs md:text-base italic">
-                            {cp.dist}
-                          </div>
-                          <div className="font-mono text-gray-300 text-xs md:text-base italic">
-                            {cp.cutoff}
-                          </div>
+                            <h2 className="text-2xl md:text-3xl lg:text-4xl font-black mb-4 md:mb-6 text-white uppercase italic">{content.name} Course</h2>
+                            <p className="text-base md:text-lg text-gray-300 leading-relaxed">{content.description}</p>
                         </motion.div>
-                      ))}
-                    </motion.div>
-                  </AnimatePresence>
-                </div>
-              </motion.div>
-            </FadeInRight>
-          </div>
+                    </AnimatePresence>
 
-          {/* Rules Section using Design Box */}
-          <FadeInUp delay={0.3}>
-            <motion.div
-              className="design-box border-l-4 border-l-primary"
-              initial={{ skewX: -6 }}
-              whileHover={{
-                scale: 1.01,
-                skewX: -6,
-              }}
-              transition={{ duration: 0.3 }}
-            >
-              <h3 className="text-xl md:text-2xl font-bold text-white uppercase mb-4 md:mb-6">
-                Rules & Regulations
-              </h3>
-              <StaggerContainer
-                className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-3 md:gap-y-4"
-                staggerDelay={0.05}
-              >
-                {[
-                  "Participants must be self-sufficient and carry mandatory gear at all times.",
-                  "Littering on the course is strictly prohibited and will result in immediate disqualification.",
-                  "Bib numbers must be worn on the front and visible at all times.",
-                  "Helping other runners in distress is mandatory; time lost will be adjusted.",
-                  "The race director reserves the right to modify the course due to weather conditions.",
-                  "Supporters provided by runners are only allowed at designated checkpoints.",
-                ].map((rule, i) => (
-                  <StaggerItem key={i}>
-                    <motion.li
-                      className="flex items-start gap-2 md:gap-3 text-gray-300 text-sm md:text-base list-none"
-                      whileHover={{ x: 5, color: "#fff" }}
-                      transition={{ duration: 0.2 }}
-                    >
-                      <span className="text-primary mt-1.5 min-w-[6px] h-[6px] rounded-full bg-primary block"></span>
-                      <span>{rule}</span>
-                    </motion.li>
-                  </StaggerItem>
-                ))}
-              </StaggerContainer>
-            </motion.div>
-          </FadeInUp>
-        </section>
-      </div>
-    </div>
-  );
+                    <FadeInUp delay={0.2}>
+                        <motion.div
+                            className="bg-white/5 border border-white/10 overflow-hidden"
+                            whileHover={{ borderColor: 'rgba(255,255,255,0.2)' }}
+                            transition={{ duration: 0.3 }}
+                        >
+                            <div className="p-4 md:p-6 lg:p-8 border-b border-white/10 flex flex-col md:flex-row justify-between items-center gap-3 md:gap-4">
+                                <h3 className="text-xl md:text-2xl font-black text-white uppercase italic">Course Map</h3>
+                                <button
+                                    onClick={handleDownloadGPX}
+                                    className="relative group inline-block"
+                                >
+                                    <span className="absolute inset-0 bg-[#2a6bf2] -skew-x-12 translate-x-1.5 translate-y-1.5 border border-white/10"></span>
+                                    <span className="relative block bg-background -skew-x-12 px-6 py-2 hover:-translate-y-0.5 transition-transform border border-white/10">
+                                        <span className="block font-black italic uppercase text-white tracking-widest text-xs">Download GPX</span>
+                                    </span>
+                                </button>
+                            </div>
+                            <div className="p-0 bg-black/40 h-[300px] md:h-[400px] lg:h-[500px] w-full relative z-0">
+                                <RaceMap
+                                    key={activeTab}
+                                    gpxFile={content.gpxFile}
+                                    checkpoints={content.checkpoints}
+                                />
+                            </div>
+                        </motion.div>
+                    </FadeInUp>
+
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-12">
+                        <FadeInLeft delay={0.1}>
+                            <motion.div
+                                className="relative bg-[#0a193c] border border-white/10 p-6 hover:border-primary/50 transition-colors duration-300 h-full"
+                                whileHover={{ scale: 1.01 }}
+                                transition={{ duration: 0.3 }}
+                            >
+                                {/* Corner decorations */}
+                                <div className="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-primary/30 translate-x-2 -translate-y-2" />
+                                <div className="absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 border-primary/30 -translate-x-2 translate-y-2" />
+                                <h3 className="text-xl md:text-2xl font-black text-white uppercase italic mb-4 md:mb-8 border-b border-white/10 pb-4">Elevation Profile</h3>
+                                <div className="h-40 md:h-48 bg-black/30 mb-6 md:mb-8 border border-white/10 overflow-hidden">
+                                    <ElevationChart raceType={activeTab} />
+                                </div>
+                                <div className="grid grid-cols-2 gap-3 md:gap-6">
+                                    <div className="bg-black/30 p-4 md:p-6 text-center border border-white/5 hover:bg-white/5 transition-colors cursor-pointer">
+                                        <strong className="block text-gray-400 uppercase text-[10px] md:text-xs tracking-widest mb-1 md:mb-2">Gain</strong>
+                                        <span className="text-xl md:text-3xl font-black text-primary">{content.elevation.gain}</span>
+                                    </div>
+                                    <div className="bg-black/30 p-4 md:p-6 text-center border border-white/5 hover:bg-white/5 transition-colors cursor-pointer">
+                                        <strong className="block text-gray-400 uppercase text-[10px] md:text-xs tracking-widest mb-1 md:mb-2">Loss</strong>
+                                        <span className="text-xl md:text-3xl font-black text-white">{content.elevation.loss}</span>
+                                    </div>
+                                </div>
+                            </motion.div>
+                        </FadeInLeft>
+
+                        <FadeInRight delay={0.2}>
+                            <motion.div
+                                className="relative bg-[#0a193c] border border-white/10 p-6 hover:border-primary/50 transition-colors duration-300 h-full"
+                                whileHover={{ scale: 1.01 }}
+                                transition={{ duration: 0.3 }}
+                            >
+                                {/* Corner decorations */}
+                                <div className="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-primary/30 translate-x-2 -translate-y-2" />
+                                <div className="absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 border-primary/30 -translate-x-2 translate-y-2" />
+                                <h3 className="text-xl md:text-2xl font-black text-white uppercase italic mb-4 md:mb-8 border-b border-white/10 pb-4">Checkpoints</h3>
+                                <div className="space-y-2 md:space-y-4 overflow-x-auto">
+                                    <div className="grid grid-cols-3 text-[10px] md:text-xs uppercase text-gray-500 font-bold italic tracking-widest pb-2 border-b border-white/5 px-2 min-w-[280px]">
+                                        <div>CP</div>
+                                        <div>Distance</div>
+                                        <div>Cut-off</div>
+                                    </div>
+                                    <AnimatePresence mode="wait">
+                                        <motion.div
+                                            key={activeTab}
+                                            initial={{ opacity: 0 }}
+                                            animate={{ opacity: 1 }}
+                                            exit={{ opacity: 0 }}
+                                            transition={{ duration: 0.3 }}
+                                        >
+                                            {content.checkpoints.map((cp, idx) => (
+                                                <motion.div
+                                                    key={idx}
+                                                    className="grid grid-cols-3 py-3 md:py-4 border-b border-white/5 last:border-0 px-2 min-w-[280px] hover:bg-white/5 transition-colors cursor-pointer"
+                                                    initial={{ opacity: 0, x: -10 }}
+                                                    animate={{ opacity: 1, x: 0 }}
+                                                    transition={{ delay: idx * 0.1 }}
+                                                >
+                                                    <div className="font-medium text-white text-xs md:text-base truncate pr-2 italic">{cp.name}</div>
+                                                    <div className="font-mono text-primary text-xs md:text-base italic">{cp.dist}</div>
+                                                    <div className="font-mono text-gray-300 text-xs md:text-base italic">{cp.cutoff}</div>
+                                                </motion.div>
+                                            ))}
+                                        </motion.div>
+                                    </AnimatePresence>
+                                </div>
+                            </motion.div>
+                        </FadeInRight>
+                    </div>
+
+                    {/* Rules Section using Design Box */}
+                    <FadeInUp delay={0.3}>
+                        <motion.div
+                            className="design-box border-l-4 border-l-primary"
+                            initial={{ skewX: -6 }}
+                            whileHover={{
+                                scale: 1.01,
+                                skewX: -6
+                            }}
+                            transition={{ duration: 0.3 }}
+                        >
+                            <h3 className="text-xl md:text-2xl font-bold text-white uppercase mb-4 md:mb-6">Rules & Regulations</h3>
+                            <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-3 md:gap-y-4" staggerDelay={0.05}>
+                                {[
+                                    "Participants must be self-sufficient and carry mandatory gear at all times.",
+                                    "Littering on the course is strictly prohibited and will result in immediate disqualification.",
+                                    "Bib numbers must be worn on the front and visible at all times.",
+                                    "Helping other runners in distress is mandatory; time lost will be adjusted.",
+                                    "The race director reserves the right to modify the course due to weather conditions.",
+                                    "Supporters provided by runners are only allowed at designated checkpoints.",
+                                    "Age Categories: 18-39, 40-49 and 50 above."
+                                ].map((rule, i) => (
+                                    <StaggerItem key={i}>
+                                        <motion.li
+                                            className="flex items-start gap-2 md:gap-3 text-gray-300 text-sm md:text-base list-none"
+                                            whileHover={{ x: 5, color: '#fff' }}
+                                            transition={{ duration: 0.2 }}
+                                        >
+                                            <span className="text-primary mt-1.5 min-w-[6px] h-[6px] rounded-full bg-primary block"></span>
+                                            <span>{rule}</span>
+                                        </motion.li>
+                                    </StaggerItem>
+                                ))}
+                            </StaggerContainer>
+                        </motion.div>
+                    </FadeInUp>
+                </section>
+            </div>
+        </div>
+    );
 }

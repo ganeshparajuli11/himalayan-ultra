@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import PageHeader from '@/components/PageHeader';
-import { FadeInUp, FadeInLeft, FadeInRight, ScaleIn, StaggerContainer, StaggerItem } from '@/components/animations/ScrollAnimations';
+import { FadeInUp, FadeInLeft, FadeInRight, ScaleIn } from '@/components/animations/ScrollAnimations';
+import { Calendar, Clock, MapPin, Trophy, CheckCircle } from 'lucide-react';
 
 export default function RegistrationPage() {
     return (
@@ -58,123 +59,70 @@ export default function RegistrationPage() {
                     </FadeInUp>
 
                     <FadeInUp delay={0.1}>
-                        <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-center mb-8 md:mb-16 text-white uppercase">Entry Fees</h2>
+                        <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-center mb-8 md:mb-16 text-white uppercase">Race Categories</h2>
                     </FadeInUp>
 
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-8 max-w-6xl mx-auto">
-                        {/* The Third */}
-                        {/* The Third */}
-                        <FadeInLeft delay={0.2} className="order-2 md:order-1">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+
+                        {/* 50KM Challenge */}
+                        <FadeInLeft delay={0.2} className="h-full">
                             <motion.div
-                                className="design-box flex flex-col h-full"
+                                className="design-box border-2 border-primary/50 flex flex-col h-full bg-[#1a2c55]" // Highlighted style
                                 initial={{ skewX: -6 }}
                                 whileHover={{
                                     y: -10,
                                     x: 5,
                                     skewX: -6,
-                                    borderColor: 'rgba(255, 255, 255, 0.3)',
-                                    boxShadow: '8px 8px 0px 0px rgba(42, 107, 242, 0.4)'
+                                    borderColor: 'rgba(22, 163, 74, 0.8)',
+                                    boxShadow: '8px 8px 0px 0px rgba(22, 163, 74, 0.3)'
                                 }}
                                 transition={{ duration: 0.3 }}
                             >
-                                <div className="text-center mb-6 md:mb-8 border-b border-white/5 pb-6 md:pb-8">
-                                    <h3 className="text-xl md:text-2xl font-bold text-white uppercase mb-2">The Third</h3>
-                                    <span className="inline-block bg-white/10 text-white text-xs font-bold px-3 py-1 skew-x-[-12deg]">33KM</span>
+                                <div className="text-center mb-6 border-b border-white/10 pb-6">
+                                    <h3 className="text-2xl md:text-3xl font-black text-white uppercase mb-2">50KM Challenge</h3>
+                                    <span className="inline-block bg-primary text-[#0a193c] text-xs font-bold px-3 py-1 skew-x-[-12deg]">The Ultimate Test</span>
                                 </div>
-                                <div className="text-center text-3xl md:text-4xl font-black text-white mb-6 md:mb-8">HKD 1,200</div>
-                                <ul className="space-y-3 md:space-y-4 mb-6 md:mb-10 flex-grow text-gray-300 text-sm md:text-base">
-                                    {['Official Race Tee', 'Finisher Medal', 'ITRA Points: 1', 'Checkpoints: 3'].map((item, i) => (
-                                        <motion.li
-                                            key={i}
-                                            className="flex items-center gap-2 md:gap-3"
-                                            initial={{ opacity: 0, x: -10 }}
-                                            whileInView={{ opacity: 1, x: 0 }}
-                                            viewport={{ once: true }}
-                                            transition={{ delay: 0.3 + i * 0.1 }}
-                                        >
-                                            <span className="text-primary">✓</span> {item}
-                                        </motion.li>
-                                    ))}
-                                </ul>
-                                <motion.button
-                                    className="btn btn-outline w-full group text-sm md:text-base"
-                                    whileHover={{ scale: 1.02 }}
-                                    whileTap={{ scale: 0.98 }}
-                                >
-                                    View Details
-                                </motion.button>
-                            </motion.div>
-                        </FadeInLeft>
 
-                        {/* Himalayan 100 - Featured */}
-                        <ScaleIn delay={0.1} className="order-1 md:order-2">
-                            <motion.div
-                                className="design-box border-2 border-primary/50 flex flex-col relative h-full bg-[#1a2c55]"
-                                initial={{ boxShadow: '0 0 30px rgba(22, 163, 74, 0.1)', skewX: -6 }}
-                                whileHover={{
-                                    y: -10,
-                                    x: 5,
-                                    skewX: -6,
-                                    boxShadow: '10px 10px 0px 0px rgba(22, 163, 74, 0.3)',
-                                    borderColor: 'rgba(22, 163, 74, 0.8)'
-                                }}
-                                transition={{ duration: 0.3 }}
-                            >
-                                <motion.div
-                                    className="absolute top-0 right-0 bg-primary text-[#0a193c] text-[10px] md:text-xs font-black px-4 py-1 transform skew-x-[-12deg] translate-x-2 -translate-y-2 shadow-lg"
-                                    animate={{ scale: [1, 1.05, 1] }}
-                                    transition={{ duration: 2, repeat: Infinity }}
-                                >
-                                    POPULAR
-                                </motion.div>
-                                <div className="text-center mb-6 md:mb-8 border-b border-white/10 pb-6 md:pb-8">
-                                    <h3 className="text-2xl md:text-3xl font-black text-primary uppercase mb-2">Himalayan 100</h3>
-                                    <span className="inline-block bg-primary text-[#0a193c] text-xs font-bold px-3 py-1 skew-x-[-12deg]">103KM</span>
+                                <div className="text-center text-4xl md:text-5xl font-black text-primary mb-2">HKD 790</div>
+                                <div className="text-center text-gray-400 text-sm mb-6">Registration Fee</div>
+
+                                <div className="bg-black/20 p-4 mb-6 space-y-2 text-sm text-gray-300">
+                                    <div className="flex justify-between border-b border-white/5 pb-2">
+                                        <span className="flex items-center gap-2"><Calendar size={14} className="text-primary" /> Date</span>
+                                        <span className="text-white font-bold">22 March 2026</span>
+                                    </div>
+                                    <div className="flex justify-between border-b border-white/5 pb-2">
+                                        <span className="flex items-center gap-2"><Clock size={14} className="text-primary" /> Start Time</span>
+                                        <span className="text-white font-bold">08:00 (14h Cut-off)</span>
+                                    </div>
+                                    <div className="flex justify-between">
+                                        <span className="flex items-center gap-2"><MapPin size={14} className="text-primary" /> Min. Age</span>
+                                        <span className="text-white font-bold">18 Years</span>
+                                    </div>
                                 </div>
-                                <motion.div
-                                    className="text-center text-3xl md:text-5xl font-black text-white mb-6 md:mb-8"
-                                    initial={{ scale: 0.9 }}
-                                    whileInView={{ scale: 1 }}
-                                    viewport={{ once: true }}
-                                    transition={{ type: 'spring', stiffness: 200 }}
-                                >
-                                    HKD 2,800
-                                </motion.div>
-                                <ul className="space-y-3 md:space-y-4 mb-6 md:mb-10 flex-grow text-gray-200 text-sm md:text-base">
-                                    {['Official Race Tee & Hoodie', 'Finisher Trophy (Gold/Silver/Bronze)', 'ITRA Points: 5', 'Checkpoints: 9'].map((item, i) => (
-                                        <motion.li
-                                            key={i}
-                                            className="flex items-center gap-2 md:gap-3 font-medium"
-                                            initial={{ opacity: 0, x: -10 }}
-                                            whileInView={{ opacity: 1, x: 0 }}
-                                            viewport={{ once: true }}
-                                            transition={{ delay: 0.2 + i * 0.1 }}
-                                        >
-                                            <motion.span
-                                                className="text-primary text-base md:text-lg"
-                                                animate={{ rotate: [0, 10, -10, 0] }}
-                                                transition={{ duration: 2, repeat: Infinity, delay: i * 0.2 }}
-                                            >
-                                                ★
-                                            </motion.span>
-                                            {item}
+
+                                <ul className="space-y-3 mb-8 flex-grow text-gray-300 text-sm">
+                                    {['Official Race Tee', 'Finisher Medal', 'ITRA Points (Pending)', 'Top 3 Cash Prizes'].map((item, i) => (
+                                        <motion.li key={i} className="flex items-center gap-2">
+                                            <CheckCircle className="w-4 h-4 text-primary shrink-0" /> {item}
                                         </motion.li>
                                     ))}
                                 </ul>
+
                                 <motion.button
-                                    className="btn btn-primary w-full py-3 md:py-4 text-sm md:text-base shadow-lg shadow-primary/25"
-                                    whileHover={{ scale: 1.02, boxShadow: '0 0 40px rgba(255, 143, 163, 0.4)' }}
+                                    className="btn btn-primary w-full py-3 text-base font-bold shadow-lg shadow-primary/20"
+                                    whileHover={{ scale: 1.02 }}
                                     whileTap={{ scale: 0.98 }}
                                 >
                                     Register Now
                                 </motion.button>
                             </motion.div>
-                        </ScaleIn>
+                        </FadeInLeft>
 
-                        {/* The Half */}
-                        <FadeInRight delay={0.2} className="order-3">
+                        {/* 12KM Experience */}
+                        <FadeInRight delay={0.2} className="h-full">
                             <motion.div
-                                className="design-box flex flex-col h-full"
+                                className="design-box flex flex-col h-full bg-[#0a193c] border border-white/10"
                                 initial={{ skewX: -6 }}
                                 whileHover={{
                                     y: -10,
@@ -185,34 +133,51 @@ export default function RegistrationPage() {
                                 }}
                                 transition={{ duration: 0.3 }}
                             >
-                                <div className="text-center mb-6 md:mb-8 border-b border-white/5 pb-6 md:pb-8">
-                                    <h3 className="text-xl md:text-2xl font-bold text-white uppercase mb-2">The Half</h3>
-                                    <span className="inline-block bg-white/10 text-white text-xs font-bold px-3 py-1 skew-x-[-12deg]">56KM</span>
+                                <div className="text-center mb-6 border-b border-white/10 pb-6">
+                                    <h3 className="text-2xl md:text-3xl font-black text-white uppercase mb-2">12KM Experience</h3>
+                                    <span className="inline-block bg-white/10 text-white text-xs font-bold px-3 py-1 skew-x-[-12deg]">Fast & Furious</span>
                                 </div>
-                                <div className="text-center text-3xl md:text-4xl font-black text-white mb-6 md:mb-8">HKD 1,800</div>
-                                <ul className="space-y-3 md:space-y-4 mb-6 md:mb-10 flex-grow text-gray-300 text-sm md:text-base">
-                                    {['Official Race Tee', 'Finisher Medal', 'ITRA Points: 3', 'Checkpoints: 5'].map((item, i) => (
-                                        <motion.li
-                                            key={i}
-                                            className="flex items-center gap-2 md:gap-3"
-                                            initial={{ opacity: 0, x: -10 }}
-                                            whileInView={{ opacity: 1, x: 0 }}
-                                            viewport={{ once: true }}
-                                            transition={{ delay: 0.3 + i * 0.1 }}
-                                        >
-                                            <span className="text-primary">✓</span> {item}
+
+                                <div className="text-center text-4xl md:text-5xl font-black text-white mb-2">HKD 390</div>
+                                <div className="text-center text-gray-500 text-sm mb-6">Registration Fee</div>
+
+                                <div className="bg-black/20 p-4 mb-6 space-y-2 text-sm text-gray-300">
+                                    <div className="flex justify-between border-b border-white/5 pb-2">
+                                        <span className="flex items-center gap-2"><Calendar size={14} className="text-primary" /> Date</span>
+                                        <span className="text-white font-bold">22 March 2026</span>
+                                    </div>
+                                    <div className="flex justify-between border-b border-white/5 pb-2">
+                                        <span className="flex items-center gap-2"><Clock size={14} className="text-primary" /> Start Time</span>
+                                        <span className="text-white font-bold">09:00 (4h Cut-off)</span>
+                                    </div>
+                                    <div className="flex justify-between items-start">
+                                        <span className="flex items-center gap-2 mt-0.5"><Trophy size={14} className="text-primary" /> Categories</span>
+                                        <div className="text-right">
+                                            <span className="text-white font-bold block">18-39</span>
+                                            <span className="text-white font-bold block">40-49</span>
+                                            <span className="text-white font-bold block">50+</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <ul className="space-y-3 mb-8 flex-grow text-gray-300 text-sm">
+                                    {['Official Race Tee', 'Finisher Medal', ' scenic route', 'Age Group Trophies'].map((item, i) => (
+                                        <motion.li key={i} className="flex items-center gap-2">
+                                            <CheckCircle className="w-4 h-4 text-gray-500 shrink-0" /> {item}
                                         </motion.li>
                                     ))}
                                 </ul>
+
                                 <motion.button
-                                    className="btn btn-outline w-full text-sm md:text-base"
+                                    className="btn btn-primary w-full py-3 text-base font-bold shadow-lg shadow-blue-500/20"
                                     whileHover={{ scale: 1.02 }}
                                     whileTap={{ scale: 0.98 }}
                                 >
-                                    View Details
+                                    Register Now
                                 </motion.button>
                             </motion.div>
                         </FadeInRight>
+
                     </div>
                 </section>
 
@@ -236,36 +201,36 @@ export default function RegistrationPage() {
                                 transition={{ duration: 0.3 }}
                             >
                                 <div className="skew-x-[6deg]">
-                                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8 mb-4 md:mb-6">
-                                    <motion.div
-                                        initial={{ opacity: 0, x: -20 }}
-                                        whileInView={{ opacity: 1, x: 0 }}
+                                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8 mb-4 md:mb-6">
+                                        <motion.div
+                                            initial={{ opacity: 0, x: -20 }}
+                                            whileInView={{ opacity: 1, x: 0 }}
+                                            viewport={{ once: true }}
+                                            transition={{ delay: 0.1 }}
+                                        >
+                                            <strong className="block text-primary uppercase text-[10px] md:text-xs tracking-widest mb-1">50% Refund</strong>
+                                            <span className="text-base md:text-lg text-white">Before Oct 1, 2025</span>
+                                        </motion.div>
+                                        <motion.div
+                                            initial={{ opacity: 0, x: -20 }}
+                                            whileInView={{ opacity: 1, x: 0 }}
+                                            viewport={{ once: true }}
+                                            transition={{ delay: 0.2 }}
+                                        >
+                                            <strong className="block text-red-500 uppercase text-[10px] md:text-xs tracking-widest mb-1">No Refund</strong>
+                                            <span className="text-base md:text-lg text-white">After Oct 1, 2025</span>
+                                        </motion.div>
+                                    </div>
+                                    <motion.p
+                                        className="text-gray-400 text-xs md:text-sm leading-relaxed border-t border-white/10 pt-4"
+                                        initial={{ opacity: 0 }}
+                                        whileInView={{ opacity: 1 }}
                                         viewport={{ once: true }}
-                                        transition={{ delay: 0.1 }}
+                                        transition={{ delay: 0.3 }}
                                     >
-                                        <strong className="block text-primary uppercase text-[10px] md:text-xs tracking-widest mb-1">50% Refund</strong>
-                                        <span className="text-base md:text-lg text-white">Before Oct 1, 2025</span>
-                                    </motion.div>
-                                    <motion.div
-                                        initial={{ opacity: 0, x: -20 }}
-                                        whileInView={{ opacity: 1, x: 0 }}
-                                        viewport={{ once: true }}
-                                        transition={{ delay: 0.2 }}
-                                    >
-                                        <strong className="block text-red-500 uppercase text-[10px] md:text-xs tracking-widest mb-1">No Refund</strong>
-                                        <span className="text-base md:text-lg text-white">After Oct 1, 2025</span>
-                                    </motion.div>
-                                </div>
-                                <motion.p
-                                    className="text-gray-400 text-xs md:text-sm leading-relaxed border-t border-white/10 pt-4"
-                                    initial={{ opacity: 0 }}
-                                    whileInView={{ opacity: 1 }}
-                                    viewport={{ once: true }}
-                                    transition={{ delay: 0.3 }}
-                                >
-                                    Transfers and deferrals are not permitted. Please see the full Rules & Regulations for more details.
-                                    Medical deferrals are considered on a case-by-case basis with valid documentation.
-                                </motion.p>
+                                        Transfers and deferrals are not permitted. Please see the full Rules & Regulations for more details.
+                                        Medical deferrals are considered on a case-by-case basis with valid documentation.
+                                    </motion.p>
                                 </div>
                             </motion.div>
                         </div>

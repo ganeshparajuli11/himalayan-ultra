@@ -1,6 +1,6 @@
 import PageHeader from '@/components/PageHeader';
 import { motion } from 'framer-motion';
-import { BookOpen, Shield, AlertTriangle, Backpack, Users, MapPin, Clock, Flag, Trash2, UserCheck, Footprints } from 'lucide-react';
+import { BookOpen, Shield, AlertTriangle, Backpack, Users, MapPin, Clock, Flag, Trash2, UserCheck, Footprints, Gavel } from 'lucide-react';
 
 interface Rule {
     en: string;
@@ -163,6 +163,17 @@ const RulesAndRegulations = () => {
                 {
                     en: "Racers wishing to make a protest must notify the race command centre in writing within 60 minutes of finishing the race. Protests will be considered by a three person committee consisting of the race director, a representative from HKNUTRA and a representative of the race timing system service provider.",
                     zh: "參賽者如有異議，必須在完成比賽的60分鐘之內以書面通知控制中心。反對的意見會由一個三人委員會裁決。委員會由賽事總監、HKNUTRA的代表，及一名獨立第三方如賽事計時服務供意商的代表組成。該委員會的決定將為最終決定。"
+                }
+            ]
+        },
+        {
+            title: "Adjudication and appeal",
+            titleZh: "裁判及上訴",
+            icon: <Gavel className="w-5 h-5" />,
+            rules: [
+                {
+                    en: "The event will have referees and an appeals committee to handle and adjudicate complaints and appeals regarding the competition, and they will have final decision-making authority over the entire event. Participants who have any complaints regarding the results that affect the top ten standings must submit them in writing to the finish line before the award ceremony. The committee will make a judgment and respond after the event.",
+                    zh: "大會設有裁判及上訴委員會處理及裁判賽事之投訴及上訴，並對整項賽事的裁決擁有最終決定權。參賽者如對比賽結果有任何投訴而影響首十名之名次，必須頒獎時前提出，以書面形式交回終點，委員會將於賽後作出判決及回覆。"
                 }
             ]
         }

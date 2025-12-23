@@ -6,11 +6,11 @@ interface Checkpoint {
 }
 
 interface ElevationChartProps {
-    raceType: 'ULTRA 50' | '12 KM';
+    raceType: '50KM' | '12KM';
 }
 
 const elevationData = {
-    'ULTRA 50': {
+    '50KM': {
         // Simplified elevation points [distance (km), elevation (m)]
         points: [
             [0, 450], [1, 400], [2, 350], [3, 300], [4, 320], [5, 300], [6, 280], [7, 300], [8, 280], [9, 300], [10, 280],
@@ -30,7 +30,7 @@ const elevationData = {
         maxDistance: 50,
         maxElevation: 1000,
     },
-    '12 KM': {
+    '12KM': {
         points: [
             [0, 450], [1, 550], [2, 650], [3, 800], [4, 880], [4.5, 920],
             [5, 850], [5.5, 780], [6, 750], [6.5, 800], [7, 870], [7.8, 930],
@@ -83,12 +83,12 @@ const ElevationChart = ({ raceType }: ElevationChartProps) => {
     const yScale = (e: number) => padding.top + chartHeight - (e / data.maxElevation) * chartHeight;
 
     // Y-axis labels
-    const yLabels = raceType === 'ULTRA 50'
+    const yLabels = raceType === '50KM'
         ? [0, 200, 400, 600, 800, 1000]
         : [0, 250, 500, 750, 1000];
 
     // X-axis labels
-    const xLabels = raceType === 'ULTRA 50'
+    const xLabels = raceType === '50KM'
         ? [0, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50]
         : [0, 3, 6, 9, 12];
 
