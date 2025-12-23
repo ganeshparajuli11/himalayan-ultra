@@ -237,7 +237,7 @@ export default function Home() {
       </section> */}
 
       {/* Race Categories Section */}
-      <section className="py-20 relative z-10 bg-[#0a0a12]">
+      <section className="py-20 relative z-10 bg-black/30 backdrop-blur-[2px] border-y border-white/5">
         <div className="container mx-auto px-4">
           <FadeInUp>
             <h2 className="text-center mb-4 text-4xl md:text-5xl font-black uppercase italic tracking-tighter text-white">
@@ -287,7 +287,7 @@ export default function Home() {
                   </div>
                 </div>
 
-                <Link to="/race-info" className="inline-block border border-primary/50 hover:bg-primary hover:text-black text-primary font-bold text-xs px-6 py-3 uppercase tracking-wider transition-all">
+                <Link to="/race-info" state={{ activeTab: "50KM" }} className="inline-block border border-primary/50 hover:bg-primary hover:text-black text-primary font-bold text-xs px-6 py-3 uppercase tracking-wider transition-all">
                   View Details
                 </Link>
               </motion.div>
@@ -331,7 +331,7 @@ export default function Home() {
                   </div>
                 </div>
 
-                <Link to="/race-info" className="inline-block border border-primary/50 hover:bg-primary hover:text-black text-primary font-bold text-xs px-6 py-3 uppercase tracking-wider transition-all">
+                <Link to="/race-info" state={{ activeTab: "12KM" }} className="inline-block border border-primary/50 hover:bg-primary hover:text-black text-primary font-bold text-xs px-6 py-3 uppercase tracking-wider transition-all">
                   View Details
                 </Link>
               </motion.div>
@@ -419,18 +419,23 @@ export default function Home() {
           </StaggerContainer>
 
           <FadeInUp delay={0.3}>
-            <div className="text-center mt-16 pt-8 border-t border-white/5">
-              <p className="text-gray-500 text-sm mb-4">Interested in sponsoring Himalayan Harmony?</p>
-              <a href="mailto:sponsors@himalayanharmony.com" className="text-primary hover:text-white transition-colors font-bold text-sm uppercase tracking-wider">
-                Contact Us
-              </a>
+            <div className="mt-16 pt-10 border-t border-white/5 flex justify-center">
+              <div className="flex flex-col items-center">
+                <Link
+                  to="/sponsorship"
+                  className="btn btn-outline text-xs px-6 py-3 border-white/20 text-gray-400 hover:text-white hover:border-primary hover:bg-primary/10"
+                >
+                  <span>Become a Sponsor</span>
+                </Link>
+                <p className="text-[10px] text-gray-600 mt-3 uppercase tracking-widest">Partner with us</p>
+              </div>
             </div>
           </FadeInUp>
         </div>
       </section>
 
       {/* FAQ Section */}
-      <section className="py-20 pb-32 relative z-10 border-t border-white/5">
+      <section className="py-20 pb-32 relative z-10 bg-black/30 backdrop-blur-[2px] border-t border-white/5">
         <div className="container mx-auto px-4">
           <FadeInUp>
             <h2 className="text-center mb-16 text-4xl md:text-5xl font-black uppercase italic tracking-tighter text-white">

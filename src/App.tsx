@@ -17,6 +17,7 @@ import Transport from '@/pages/Transport';
 import RulesAndRegulations from '@/pages/RulesAndRegulations';
 import BagDrop from '@/pages/BagDrop';
 import Volunteer from '@/pages/Volunteer';
+import Sponsorship from '@/pages/Sponsorship';
 import Login from '@/pages/Login';
 import UserDashboard from '@/pages/UserDashboard';
 import AdminDashboard from '@/pages/admin/Dashboard';
@@ -46,6 +47,7 @@ function App() {
                         <Route path="/rules-and-regulations" element={<RulesAndRegulations />} />
                         <Route path="/bag-drop" element={<BagDrop />} />
                         <Route path="/volunteer" element={<Volunteer />} />
+                        <Route path="/sponsorship" element={<Sponsorship />} />
                     </Route>
 
                     {/* Auth Routes */}
