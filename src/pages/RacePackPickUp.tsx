@@ -23,18 +23,18 @@ const RacePackPickUp = () => {
                             {/* Corner decorations */}
                             <div className="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-primary/30 translate-x-2 -translate-y-2" />
                             <div className="absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 border-primary/30 -translate-x-2 translate-y-2" />
-                            <h2 className="text-3xl font-black mb-8 text-white flex items-center gap-3 uppercase italic tracking-wider border-b border-white/10 pb-4">
+                            <h2 className="text-3xl font-black mb-8 text-slate-900 flex items-center gap-3 uppercase italic tracking-wider border-b border-white/10 pb-4">
                                 <Calendar className="w-8 h-8 text-primary" /> Collection Schedule
                             </h2>
 
                             <div className="space-y-4 mb-8">
                                 <div className="flex flex-col md:flex-row md:items-center justify-between p-4 bg-black/40 border border-white/5 hover:border-primary/50 transition-colors group">
                                     <span className="text-gray-400 font-bold uppercase text-xs tracking-widest">Date</span>
-                                    <span className="text-lg md:text-xl font-black text-white italic group-hover:text-primary transition-colors">Feb 4-7, 2026 (Wed - Fri)</span>
+                                    <span className="text-lg md:text-xl font-black text-slate-900 italic group-hover:text-primary transition-colors">Feb 4-7, 2026 (Wed - Fri)</span>
                                 </div>
                                 <div className="flex flex-col md:flex-row md:items-center justify-between p-4 bg-black/40 border border-white/5 hover:border-primary/50 transition-colors group">
                                     <span className="text-gray-400 font-bold uppercase text-xs tracking-widest">Time</span>
-                                    <span className="text-lg md:text-xl font-black text-white italic group-hover:text-primary transition-colors">11:45 AM - 7:45 PM</span>
+                                    <span className="text-lg md:text-xl font-black text-slate-900 italic group-hover:text-primary transition-colors">11:45 AM - 7:45 PM</span>
                                 </div>
                             </div>
 
@@ -55,7 +55,7 @@ const RacePackPickUp = () => {
                             {/* Corner decorations */}
                             <div className="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-primary/30 translate-x-2 -translate-y-2" />
                             <div className="absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 border-primary/30 -translate-x-2 translate-y-2" />
-                            <h2 className="text-3xl font-black mb-8 text-white flex items-center gap-3 uppercase italic tracking-wider border-b border-white/10 pb-4">
+                            <h2 className="text-3xl font-black mb-8 text-slate-900 flex items-center gap-3 uppercase italic tracking-wider border-b border-white/10 pb-4">
                                 <MapPin className="w-8 h-8 text-primary" /> Location
                             </h2>
                             <div className="space-y-6">
@@ -93,7 +93,7 @@ const RacePackPickUp = () => {
                                 {/* Corner decorations */}
                                 <div className="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-primary/30 translate-x-2 -translate-y-2" />
                                 <div className="absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 border-primary/30 -translate-x-2 translate-y-2" />
-                                <h3 className="text-xl font-black mb-6 flex items-center gap-2 text-white uppercase italic tracking-wider">
+                                <h3 className="text-xl font-black mb-6 flex items-center gap-2 text-slate-900 uppercase italic tracking-wider">
                                     <FileText className="w-6 h-6 text-primary" /> What's Included?
                                 </h3>
                                 <ul className="space-y-3">
@@ -114,7 +114,7 @@ const RacePackPickUp = () => {
                                 {/* Corner decorations */}
                                 <div className="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-primary/30 translate-x-2 -translate-y-2" />
                                 <div className="absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 border-primary/30 -translate-x-2 translate-y-2" />
-                                <h3 className="text-xl font-black mb-6 flex items-center gap-2 text-white uppercase italic tracking-wider">
+                                <h3 className="text-xl font-black mb-6 flex items-center gap-2 text-slate-900 uppercase italic tracking-wider">
                                     <AlertCircle className="w-6 h-6 text-primary" /> Friend Pickup?
                                 </h3>
                                 <p className="text-gray-300 text-sm mb-6 leading-relaxed">
@@ -144,7 +144,7 @@ const RacePackPickUp = () => {
                             <div className="relative z-10">
                                 <h3 className="text-2xl font-black mb-4 text-red-500 uppercase italic tracking-wider">Missed the pickup?</h3>
                                 <p className="text-red-100/80 font-medium leading-relaxed max-w-2xl">
-                                    Special arrangements on race day require a <strong className="text-white border-b-2 border-red-500">HKD 150 administrative fee</strong> (cash only).
+                                    Special arrangements on race day require a <strong className="text-slate-900 border-b-2 border-red-500">HKD 150 administrative fee</strong> (cash only).
                                     Fee waived for Macau/Mainland China/Overseas participants with valid ID if emailed 3 days prior.
                                 </p>
                             </div>

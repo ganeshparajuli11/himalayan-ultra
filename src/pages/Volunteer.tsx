@@ -17,7 +17,7 @@ const Volunteer = () => {
                         Be The Pulse <br /><span className="text-primary not-italic skew-x-0 inline-block">Of The Race</span>
                     </h2>
                     <p className="text-lg text-blue-100/80 font-medium leading-relaxed max-w-2xl mx-auto">
-                        We are looking for enthusiastic individuals to help make the <span className="text-white font-bold">HK50 Series</span> a legendary experience.
+                        We are looking for enthusiastic individuals to help make the <span className="text-slate-900 font-bold">Himalayan Harmony</span> a legendary experience.
                         Whether you're a runner yourself or just love the mountain vibes, we have a role for you.
                     </p>
                 </div>
@@ -43,7 +43,7 @@ const Volunteer = () => {
                                 { title: "Media & Medical", desc: "Photography, videography, and first aid support." },
                             ].map((role, i) => (
                                 <div key={i} className="card-poster group hover:-translate-y-1 transition-transform duration-300">
-                                    <h4 className="font-bold text-xl text-white group-hover:text-primary transition-colors uppercase italic">{role.title}</h4>
+                                    <h4 className="font-bold text-xl text-slate-900 group-hover:text-primary transition-colors uppercase italic">{role.title}</h4>
                                     <p className="text-blue-200 mt-1 font-medium">{role.desc}</p>
                                 </div>
                             ))}
@@ -63,29 +63,29 @@ const Volunteer = () => {
                             {/* Decorative tape or stripe */}
                             <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-primary via-secondary to-primary"></div>
 
-                            <h3 className="text-3xl font-black uppercase italic tracking-wider flex items-center gap-3 text-white mb-8">
+                            <h3 className="text-3xl font-black uppercase italic tracking-wider flex items-center gap-3 text-slate-900 mb-8">
                                 <Gift className="w-8 h-8 text-primary" /> The Perks
                             </h3>
 
                             <ul className="space-y-8">
                                 <li className="flex gap-5 items-start">
-                                    <div className="p-3 bg-gradient-to-br from-primary to-pink-600 shadow-lg text-white transform -rotate-3"><DollarSignIcon /></div>
+                                    <div className="p-3 bg-gradient-to-br from-primary to-pink-600 shadow-lg text-slate-900 transform -rotate-3"><DollarSignIcon /></div>
                                     <div>
-                                        <strong className="block text-xl text-white uppercase font-bold tracking-wide">Allowances</strong>
+                                        <strong className="block text-xl text-slate-900 uppercase font-bold tracking-wide">Allowances</strong>
                                         <span className="text-blue-200 font-medium pt-1 block">HKD $100 Cash <span className="text-primary mx-2">/</span> Free Race Entry (Value $400)</span>
                                     </div>
                                 </li>
                                 <li className="flex gap-5 items-start">
-                                    <div className="p-3 bg-gradient-to-br from-secondary to-blue-600 shadow-lg text-white transform rotate-3"><Zap /></div>
+                                    <div className="p-3 bg-gradient-to-br from-secondary to-blue-600 shadow-lg text-slate-900 transform rotate-3"><Zap /></div>
                                     <div>
-                                        <strong className="block text-xl text-white uppercase font-bold tracking-wide">Fuel Up</strong>
+                                        <strong className="block text-xl text-slate-900 uppercase font-bold tracking-wide">Fuel Up</strong>
                                         <span className="text-blue-200 font-medium pt-1 block">Premium snacks, hot meals, and hydration provided.</span>
                                     </div>
                                 </li>
                                 <li className="flex gap-5 items-start">
-                                    <div className="p-3 bg-gradient-to-br from-purple-500 to-indigo-600 shadow-lg text-white transform -rotate-2"><Trophy /></div>
+                                    <div className="p-3 bg-gradient-to-br from-purple-500 to-indigo-600 shadow-lg text-slate-900 transform -rotate-2"><Trophy /></div>
                                     <div>
-                                        <strong className="block text-xl text-white uppercase font-bold tracking-wide">Exclusive Swag</strong>
+                                        <strong className="block text-xl text-slate-900 uppercase font-bold tracking-wide">Exclusive Swag</strong>
                                         <span className="text-blue-200 font-medium pt-1 block">Official Crew Tee, Sponsor Gifts & Certificate.</span>
                                     </div>
                                 </li>
@@ -99,7 +99,7 @@ const Volunteer = () => {
                                 >
                                     <span>Apply To Volunteer</span>
                                 </a>
-                                <p className="mt-4 text-xs text-white/40 uppercase tracking-widest">Limited spots available</p>
+                                <p className="mt-4 text-xs text-slate-900/40 uppercase tracking-widest">Limited spots available</p>
                             </div>
                         </div>
                     </motion.div>

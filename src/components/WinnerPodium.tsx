@@ -77,8 +77,8 @@ export default function WinnerPodium({ winners }: WinnerProps) {
                     >
                         {/* Name Above (F1 Style) - Italic as requested */}
                         <div className="text-center mb-3 w-full flex flex-col items-center justify-end h-16">
-                            <div className="font-bold italic uppercase text-white/70 text-base md:text-xl tracking-widest leading-none mb-1">{firstName}</div>
-                            <div className="font-black italic uppercase text-white text-2xl md:text-4xl tracking-wide leading-none">{lastName || firstName}</div>
+                            <div className="font-bold italic uppercase text-slate-500 text-base md:text-xl tracking-widest leading-none mb-1">{firstName}</div>
+                            <div className="font-black italic uppercase text-slate-900 text-2xl md:text-4xl tracking-wide leading-none">{lastName || firstName}</div>
                         </div>
 
                         {/* Big Rank Number Line */}
@@ -98,7 +98,7 @@ export default function WinnerPodium({ winners }: WinnerProps) {
 
                             {/* Bottom Info Bar Overlay */}
                             <div className="absolute bottom-0 w-full bg-black/90 backdrop-blur-md p-2 flex justify-between items-center border-t border-white/10">
-                                <span className="text-white font-bold text-xs italic">{winner.pts} PTS</span>
+                                <span className="text-slate-900 font-bold text-xs italic">{winner.pts} PTS</span>
                                 <span className="text-gray-400 text-[10px] font-mono">{winner.time}</span>
                             </div>
                         </div>

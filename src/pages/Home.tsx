@@ -8,36 +8,36 @@ export default function Home() {
         <div className="flex flex-col overflow-hidden">
             {/* Hero Section */}
             <section className="relative min-h-screen md:min-h-[800px] flex items-center justify-center overflow-hidden p-0 pt-24 md:pt-32">
-                <div className="absolute inset-0 bg-gradient-to-b from-transparent via-background/20 to-background z-10"></div>
+                <div className="absolute inset-0 bg-gradient-to-b from-transparent via-white/50 to-background z-10"></div>
                 <motion.img
                     src="/hero-bg.png"
                     alt="Trail Runner on Ridge"
-                    className="absolute top-0 left-0 w-full h-full object-cover z-0 opacity-80 mix-blend-overlay"
+                    className="absolute top-0 left-0 w-full h-full object-cover z-0 opacity-20 mix-blend-multiply"
                     initial={{ scale: 1.1 }}
                     animate={{ scale: 1 }}
                     transition={{ duration: 1.5, ease: 'easeOut' }}
                 />
                 <div className="container relative z-20 text-center mt-8 md:mt-16 flex flex-col items-center px-4">
                     <motion.h1
-                        className="text-4xl sm:text-6xl md:text-7xl lg:text-9xl font-black mb-4 leading-none drop-shadow-2xl text-white tracking-tighter"
+                        className="text-4xl sm:text-6xl md:text-7xl lg:text-9xl font-black mb-4 leading-none text-white tracking-tighter"
                         initial={{ opacity: 0, y: 30 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8, delay: 0.2 }}
                     >
                         HIMALAYAN<motion.span
-                            className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-white block transform -skew-x-6"
+                            className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary block transform -skew-x-6"
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.8, delay: 0.4 }}
-                        >ULTRA</motion.span>
+                        >HARMONY</motion.span>
                     </motion.h1>
                     <motion.p
-                        className="text-base sm:text-lg md:text-2xl mb-6 md:mb-8 tracking-[2px] uppercase font-bold text-blue-200 px-4 max-w-2xl"
+                        className="text-base sm:text-lg md:text-2xl mb-6 md:mb-8 tracking-[2px] uppercase font-bold text-white px-4 max-w-2xl"
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         transition={{ duration: 0.8, delay: 0.6 }}
                     >
-                        The <span className="text-primary italic">Ultimate</span> Endurance Challenge
+                        The <span className="text-primary italic">Ultimate</span> Harmony of Body & Mind
                     </motion.p>
 
                     <motion.div
@@ -70,14 +70,14 @@ export default function Home() {
                     </motion.div>
 
                     <motion.div
-                        className="mt-12 mb-16 bg-black/30 backdrop-blur-md px-6 py-2 rounded-none border border-white/10 skew-x-[-10deg]"
+                        className="mt-12 mb-16 bg-white/50 backdrop-blur-md px-6 py-2 rounded-none border border-slate-200 skew-x-[-10deg] shadow-sm"
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         transition={{ duration: 0.8, delay: 1.2 }}
                     >
                         <div className="skew-x-[10deg]">
-                            <span className="text-[10px] md:text-xs uppercase text-gray-400 tracking-wider block">Organized By</span>
-                            <strong className="text-xs md:text-sm text-primary tracking-wide">HIMALAYAN ADVENTURE SPORTS</strong>
+                            <span className="text-[10px] md:text-xs uppercase text-slate-500 tracking-wider block">Organized By</span>
+                            <strong className="text-xs md:text-sm text-primary tracking-wide">HKNUTRA</strong>
                         </div>
                     </motion.div>
                 </div>
@@ -88,32 +88,32 @@ export default function Home() {
                 <div className="container max-w-4xl mx-auto px-4">
                     <div className="mb-12">
                         <TextReveal>
-                            <h2 className="text-white mb-8 text-3xl md:text-5xl font-black uppercase leading-tight italic tracking-tighter">
+                            <h2 className="text-slate-900 mb-8 text-3xl md:text-5xl font-black uppercase leading-tight italic tracking-tighter">
                                 A Journey Through <br /><span className="text-primary">Hong Kong's Wildest Trails</span>
                             </h2>
                         </TextReveal>
                         <FadeInUp delay={0.2}>
-                            <p className="text-lg md:text-xl text-blue-100/80 mb-12 leading-relaxed font-medium">
-                                The Himalayan Ultra is an ultra endurance race that takes place in Hong Kong, starting in Pak Tam Chung on the Sai Kung Peninsula and covering some of the most beautiful trails in Hong Kong, including the MacLehose Trail. The race finishes at the summit of Tai Mo Shan, Hong Kong's highest peak.
+                            <p className="text-lg md:text-xl text-slate-600 mb-12 leading-relaxed font-medium">
+                                The Himalayan Harmony is an ultra endurance race that takes place in Hong Kong, starting in Pak Tam Chung on the Sai Kung Peninsula and covering some of the most beautiful trails in Hong Kong, including the MacLehose Trail. The race finishes at the summit of Tai Mo Shan, Hong Kong's highest peak.
                             </p>
                         </FadeInUp>
-                        <StaggerContainer className="flex flex-col md:flex-row justify-around mt-16 pt-10 border-t border-white/10 gap-8">
+                        <StaggerContainer className="flex flex-col md:flex-row justify-around mt-16 pt-10 border-t border-slate-200 gap-8">
                             <StaggerItem>
                                 <AnimatedStat className="flex flex-col">
-                                    <h3 className="text-4xl md:text-6xl font-black text-white mb-2 italic">103<span className="text-primary text-3xl">km</span></h3>
-                                    <p className="text-blue-300 uppercase tracking-widest text-sm font-bold">Distance</p>
+                                    <h3 className="text-4xl md:text-6xl font-black text-slate-900 mb-2 italic">103<span className="text-primary text-3xl">km</span></h3>
+                                    <p className="text-slate-500 uppercase tracking-widest text-sm font-bold">Distance</p>
                                 </AnimatedStat>
                             </StaggerItem>
                             <StaggerItem>
                                 <AnimatedStat className="flex flex-col">
-                                    <h3 className="text-4xl md:text-6xl font-black text-white mb-2 italic">5300<span className="text-primary text-3xl">m+</span></h3>
-                                    <p className="text-blue-300 uppercase tracking-widest text-sm font-bold">Elevation Gain</p>
+                                    <h3 className="text-4xl md:text-6xl font-black text-slate-900 mb-2 italic">5300<span className="text-primary text-3xl">m+</span></h3>
+                                    <p className="text-slate-500 uppercase tracking-widest text-sm font-bold">Elevation Gain</p>
                                 </AnimatedStat>
                             </StaggerItem>
                             <StaggerItem>
                                 <AnimatedStat className="flex flex-col">
-                                    <h3 className="text-4xl md:text-6xl font-black text-white mb-2 italic">30<span className="text-primary text-3xl">h</span></h3>
-                                    <p className="text-blue-300 uppercase tracking-widest text-sm font-bold">Cut-off Time</p>
+                                    <h3 className="text-4xl md:text-6xl font-black text-slate-900 mb-2 italic">30<span className="text-primary text-3xl">h</span></h3>
+                                    <p className="text-slate-500 uppercase tracking-widest text-sm font-bold">Cut-off Time</p>
                                 </AnimatedStat>
                             </StaggerItem>
                         </StaggerContainer>
@@ -125,7 +125,7 @@ export default function Home() {
             <section className="py-20 relative z-10">
                 <div className="container mx-auto px-4">
                     <FadeInUp>
-                        <h2 className="text-center mb-16 text-4xl md:text-5xl font-black uppercase italic tracking-tighter text-white">
+                        <h2 className="text-center mb-16 text-4xl md:text-5xl font-black uppercase italic tracking-tighter text-slate-900">
                             Latest <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">News</span>
                         </h2>
                     </FadeInUp>
@@ -147,16 +147,16 @@ export default function Home() {
                                     }}
                                     transition={{ duration: 0.3 }}
                                 >
-                                    <div className="h-48 bg-blue-900/30 overflow-hidden relative w-[110%] -ml-[5%] origin-center scale-105">
+                                    <div className="h-48 bg-blue-100 overflow-hidden relative w-[110%] -ml-[5%] origin-center scale-105">
                                         {/* Placeholder for news image */}
-                                        <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
+                                        <div className="absolute inset-0 bg-gradient-to-t from-white/20 to-transparent"></div>
                                         <div className="absolute top-2 right-4 bg-primary text-black text-[10px] font-bold px-2 py-0.5 skew-x-[-12deg]">NEWS</div>
                                     </div>
                                     <div className="p-6 flex-grow flex flex-col">
                                         <span className="text-xs text-primary font-bold block mb-2 tracking-widest">{news.date}</span>
-                                        <h4 className="text-xl font-black mb-3 text-white group-hover:text-primary transition-colors uppercase italic leading-none">{news.title}</h4>
-                                        <p className="text-blue-200/80 mb-6 text-sm leading-relaxed flex-grow">{news.desc}</p>
-                                        <Link to={news.link} className="self-start inline-block border border-white/30 hover:border-primary hover:text-primary text-white font-bold text-xs px-4 py-2 uppercase tracking-wider transition-all skew-x-[-12deg]">
+                                        <h4 className="text-xl font-black mb-3 text-slate-900 group-hover:text-primary transition-colors uppercase italic leading-none">{news.title}</h4>
+                                        <p className="text-slate-600 mb-6 text-sm leading-relaxed flex-grow">{news.desc}</p>
+                                        <Link to={news.link} className="self-start inline-block border border-slate-300 hover:border-primary hover:text-primary text-slate-900 font-bold text-xs px-4 py-2 uppercase tracking-wider transition-all skew-x-[-12deg]">
                                             <span className="skew-x-[12deg] inline-block">Read More</span>
                                         </Link>
                                     </div>
@@ -171,7 +171,7 @@ export default function Home() {
             <section className="py-20 pb-32 relative z-10">
                 <div className="container mx-auto px-4">
                     <FadeInUp>
-                        <h2 className="text-center mb-16 text-4xl md:text-5xl font-black uppercase italic tracking-tighter text-white">
+                        <h2 className="text-center mb-16 text-4xl md:text-5xl font-black uppercase italic tracking-tighter text-slate-900">
                             FAQ<span className="text-primary">s</span>
                         </h2>
                     </FadeInUp>
@@ -195,8 +195,8 @@ export default function Home() {
                                     }}
                                     transition={{ duration: 0.3 }}
                                 >
-                                    <h3 className="text-xl text-primary font-black uppercase italic mb-3 group-hover:text-white transition-colors">{faq.q}</h3>
-                                    <p className="text-blue-200 leading-relaxed text-base">{faq.a}</p>
+                                    <h3 className="text-xl text-primary font-black uppercase italic mb-3 group-hover:text-slate-900 transition-colors">{faq.q}</h3>
+                                    <p className="text-slate-600 leading-relaxed text-base">{faq.a}</p>
                                 </motion.div>
                             </StaggerItem>
                         ))}

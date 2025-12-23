@@ -40,7 +40,7 @@ const Header = () => {
                 {/* Logo - Left */}
                 <div className="text-xl md:text-2xl font-extrabold tracking-tighter z-50 italic shrink-0 flex-1">
                     <Link to="/" onClick={() => setIsMenuOpen(false)}>
-                        HIMALAYAN<span className="text-primary">ULTRA</span>
+                        HIMALAYAN<span className="text-primary">HARMONY</span>
                     </Link>
                 </div>
 
@@ -66,7 +66,7 @@ const Header = () => {
                                                         <Link
                                                             key={child.label}
                                                             to={child.path}
-                                                            className="block px-4 py-2 text-sm text-gray-300 hover:text-white hover:bg-white/5 transition-colors italic"
+                                                            className="block px-4 py-2 text-sm text-gray-300 hover:text-slate-900 hover:bg-white/5 transition-colors italic"
                                                         >
                                                             {child.label}
                                                         </Link>
@@ -95,7 +95,7 @@ const Header = () => {
 
                 {/* Desktop Buttons - Right */}
                 <div className="hidden md:flex items-center justify-end gap-8 shrink-0 flex-1">
-                    <Link to="/login" className="text-sm font-black italic uppercase tracking-wider text-white hover:text-primary transition-colors">
+                    <Link to="/login" className="text-sm font-black italic uppercase tracking-wider text-slate-900 hover:text-primary transition-colors">
                         Login
                     </Link>
                     <Link to="/registration" className="relative group inline-block">
@@ -153,7 +153,7 @@ const Header = () => {
                                                                 <Link
                                                                     key={child.label}
                                                                     to={child.path}
-                                                                    className="block px-6 py-3 text-base text-gray-300 hover:text-white hover:bg-white/5 transition-colors"
+                                                                    className="block px-6 py-3 text-base text-gray-300 hover:text-slate-900 hover:bg-white/5 transition-colors"
                                                                     onClick={() => setIsMenuOpen(false)}
                                                                 >
                                                                     {child.label}

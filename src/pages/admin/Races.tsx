@@ -19,7 +19,7 @@ export default function RacesPage() {
     return (
         <div>
             <header className="flex justify-between items-center mb-8">
-                <h1 className="text-3xl font-bold text-white uppercase tracking-wider">Race Management</h1>
+                <h1 className="text-3xl font-bold text-slate-900 uppercase tracking-wider">Race Management</h1>
                 <Link to="/admin/races/config" className="btn btn-primary px-4 py-2 text-sm">+ Add New Race</Link>
             </header>
 
@@ -40,12 +40,12 @@ export default function RacesPage() {
                             {races.map((race) => (
                                 <tr key={race.id} className="hover:bg-white/5 transition-colors">
                                     <td className="p-4 text-gray-400 font-mono text-sm">{race.id}</td>
-                                    <td className="p-4 text-white font-medium">{race.name}</td>
+                                    <td className="p-4 text-slate-900 font-medium">{race.name}</td>
                                     <td className="p-4 text-gray-300">{race.distance}</td>
                                     <td className="p-4 text-gray-300">{race.participants}</td>
                                     <td className="p-4 text-gray-400 text-sm font-mono">{race.date}</td>
                                     <td className="p-4 flex items-center gap-2">
-                                        <Link to="/admin/races/config" className="px-2 py-1 rounded border border-white/20 text-gray-300 text-xs hover:bg-white/10 hover:text-white transition-colors">Configure</Link>
+                                        <Link to="/admin/races/config" className="px-2 py-1 rounded border border-white/20 text-gray-300 text-xs hover:bg-white/10 hover:text-slate-900 transition-colors">Configure</Link>
                                         <button
                                             onClick={() => handleDelete(race.id)}
                                             className="px-2 py-1 rounded border border-red-500/30 text-red-500 text-xs hover:bg-red-500/10 hover:text-red-400 transition-colors"

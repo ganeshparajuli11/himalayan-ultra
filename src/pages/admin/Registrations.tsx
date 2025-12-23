@@ -8,7 +8,7 @@ export default function RegistrationsPage() {
 
     return (
         <div>
-            <h1 className="text-3xl font-bold text-white uppercase tracking-wider mb-8">Registrations</h1>
+            <h1 className="text-3xl font-bold text-slate-900 uppercase tracking-wider mb-8">Registrations</h1>
             <div className="bg-[#15151e] rounded-xl border border-white/10 overflow-hidden shadow-lg">
                 <div className="overflow-x-auto">
                     <table className="w-full text-left border-collapse">
@@ -26,7 +26,7 @@ export default function RegistrationsPage() {
                             {registrations.map((reg) => (
                                 <tr key={reg.id} className="hover:bg-white/5 transition-colors">
                                     <td className="p-4 text-gray-400 font-mono text-sm">#{reg.id}</td>
-                                    <td className="p-4 text-white font-medium">{reg.name}</td>
+                                    <td className="p-4 text-slate-900 font-medium">{reg.name}</td>
                                     <td className="p-4 text-gray-300">{reg.race}</td>
                                     <td className="p-4 text-gray-400 text-sm font-mono">{reg.date}</td>
                                     <td className="p-4">

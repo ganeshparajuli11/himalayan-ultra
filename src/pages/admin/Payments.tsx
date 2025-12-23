@@ -33,7 +33,7 @@ export default function PaymentsPage() {
     return (
         <div>
             <header className="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 gap-4">
-                <h1 className="text-3xl font-bold text-white uppercase tracking-wider">Payments</h1>
+                <h1 className="text-3xl font-bold text-slate-900 uppercase tracking-wider">Payments</h1>
                 <div className="flex items-center gap-3 w-full md:w-auto">
                     <select
                         className="bg-[#15151e] border border-white/20 text-gray-300 rounded px-3 py-2 text-sm focus:outline-none focus:border-primary w-full md:w-auto"
@@ -65,9 +65,9 @@ export default function PaymentsPage() {
                             {filteredPayments.map((pay) => (
                                 <tr key={pay.id} className="hover:bg-white/5 transition-colors">
                                     <td className="p-4 text-gray-400 font-mono text-sm">{pay.id}</td>
-                                    <td className="p-4 text-white font-medium">{pay.user}</td>
+                                    <td className="p-4 text-slate-900 font-medium">{pay.user}</td>
                                     <td className="p-4 text-gray-300">{pay.race}</td>
-                                    <td className="p-4 text-white font-bold">{pay.amount}</td>
+                                    <td className="p-4 text-slate-900 font-bold">{pay.amount}</td>
                                     <td className="p-4 text-gray-400 text-sm">{pay.method}</td>
                                     <td className="p-4 text-gray-400 text-sm font-mono">{pay.date}</td>
                                     <td className="p-4">
@@ -81,7 +81,7 @@ export default function PaymentsPage() {
                                     <td className="p-4 flex items-center gap-2">
                                         <button
                                             onClick={() => handleStatusToggle(pay.id)}
-                                            className="px-2 py-1 rounded border border-white/20 text-gray-300 text-xs hover:bg-white/10 hover:text-white transition-colors"
+                                            className="px-2 py-1 rounded border border-white/20 text-gray-300 text-xs hover:bg-white/10 hover:text-slate-900 transition-colors"
                                         >
                                             {pay.status === 'Completed' ? 'Mark Pending' : 'Mark Paid'}
                                         </button>

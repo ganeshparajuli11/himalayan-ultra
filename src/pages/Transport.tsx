@@ -19,7 +19,7 @@ const Transport = () => {
                     <div className="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-primary/30 translate-x-2 -translate-y-2" />
                     <div className="absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 border-primary/30 -translate-x-2 translate-y-2" />
                     <div className="border-b border-white/10 pb-6 mb-6">
-                        <h2 className="text-3xl font-black text-white uppercase italic tracking-wider flex items-center gap-3">
+                        <h2 className="text-3xl font-black text-slate-900 uppercase italic tracking-wider flex items-center gap-3">
                             <Bus className="w-8 h-8 text-primary" /> Official Shuttle Bus
                         </h2>
                         <p className="text-primary font-bold tracking-widest uppercase mt-2 text-sm">Departure Time: 5:20 AM Sharp</p>
@@ -72,7 +72,7 @@ const Transport = () => {
                     {/* Corner decorations */}
                     <div className="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-primary/30 translate-x-2 -translate-y-2" />
                     <div className="absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 border-primary/30 -translate-x-2 translate-y-2" />
-                    <h2 className="text-2xl font-black mb-4 flex items-center gap-2 text-white uppercase italic">
+                    <h2 className="text-2xl font-black mb-4 flex items-center gap-2 text-slate-900 uppercase italic">
                         <Navigation className="w-6 h-6 text-primary" /> Personal Transport
                     </h2>
                     <p className="text-blue-200/80 mb-6 font-medium">
@@ -80,7 +80,7 @@ const Transport = () => {
                     </p>
                     <div className="bg-black/40 p-6 border border-white/10 flex flex-col md:flex-row items-center justify-between gap-4 group hover:border-primary/50 transition-colors">
                         <div>
-                            <h3 className="text-xl font-black text-white uppercase tracking-wider mb-1">Shing Mun Reservoir</h3>
+                            <h3 className="text-xl font-black text-slate-900 uppercase tracking-wider mb-1">Shing Mun Reservoir</h3>
                             <span className="text-primary font-bold uppercase text-xs tracking-widest">Tsuen Wan, New Territories</span>
                         </div>
                         <a

@@ -32,7 +32,7 @@ export default function LoginPage() {
         <div className="flex flex-col min-h-screen w-full bg-[#050510]">
             <div className="flex flex-1 w-full">
                 {/* Left Panel - Image & Branding */}
-                <div className="hidden lg:flex w-1/2 relative flex-col justify-end p-16 text-white">
+                <div className="hidden lg:flex w-1/2 relative flex-col justify-end p-16 text-slate-900">
                     <div className="absolute inset-0 z-0">
                         <img
                             src="/hero-bg.png"
@@ -56,19 +56,19 @@ export default function LoginPage() {
                     <div className="w-full max-w-md bg-[#15151e] p-8 md:p-10 border border-white/10 relative z-10 skew-x-[-3deg] shadow-[10px_10px_0px_0px_rgba(42,107,242,0.1)]">
                         <div className="skew-x-[3deg]">
                             <div className="text-center mb-10">
-                                <h2 className="text-3xl font-black text-white mb-2 uppercase italic tracking-tighter">Welcome Back</h2>
+                                <h2 className="text-3xl font-black text-slate-900 mb-2 uppercase italic tracking-tighter">Welcome Back</h2>
                                 <p className="text-gray-400">Please enter your details to sign in.</p>
                             </div>
 
                             <div className="flex bg-[#0a0a1a] p-1 mb-8 border border-white/5 skew-x-[-6deg]">
                                 <button
-                                    className={`flex-1 py-2 text-sm font-bold skew-x-[6deg] transition-all duration-300 ${!isAdmin ? 'bg-white text-black shadow-lg' : 'text-gray-400 hover:text-white'}`}
+                                    className={`flex-1 py-2 text-sm font-bold skew-x-[6deg] transition-all duration-300 ${!isAdmin ? 'bg-white text-black shadow-lg' : 'text-gray-400 hover:text-slate-900'}`}
                                     onClick={() => setIsAdmin(false)}
                                 >
                                     Runner
                                 </button>
                                 <button
-                                    className={`flex-1 py-2 text-sm font-bold skew-x-[6deg] transition-all duration-300 ${isAdmin ? 'bg-primary text-black shadow-lg' : 'text-gray-400 hover:text-white'}`}
+                                    className={`flex-1 py-2 text-sm font-bold skew-x-[6deg] transition-all duration-300 ${isAdmin ? 'bg-primary text-black shadow-lg' : 'text-gray-400 hover:text-slate-900'}`}
                                     onClick={() => setIsAdmin(true)}
                                 >
                                     Admin
@@ -84,7 +84,7 @@ export default function LoginPage() {
                                         value={email}
                                         onChange={(e) => setEmail(e.target.value)}
                                         required
-                                        className="w-full bg-[#0a0a1a] border border-white/10 px-4 py-3 text-white focus:outline-none focus:border-primary focus:bg-[#0a0a1a] transition-colors placeholder-gray-600 rounded-none skew-x-[-3deg]"
+                                        className="w-full bg-[#0a0a1a] border border-white/10 px-4 py-3 text-slate-900 focus:outline-none focus:border-primary focus:bg-[#0a0a1a] transition-colors placeholder-gray-600 rounded-none skew-x-[-3deg]"
                                     />
                                 </div>
 
@@ -96,7 +96,7 @@ export default function LoginPage() {
                                         value={password}
                                         onChange={(e) => setPassword(e.target.value)}
                                         required
-                                        className="w-full bg-[#0a0a1a] border border-white/10 px-4 py-3 text-white focus:outline-none focus:border-primary focus:bg-[#0a0a1a] transition-colors placeholder-gray-600 rounded-none skew-x-[-3deg]"
+                                        className="w-full bg-[#0a0a1a] border border-white/10 px-4 py-3 text-slate-900 focus:outline-none focus:border-primary focus:bg-[#0a0a1a] transition-colors placeholder-gray-600 rounded-none skew-x-[-3deg]"
                                     />
                                 </div>
 
@@ -106,7 +106,7 @@ export default function LoginPage() {
                             </form>
 
                             <p className="text-center text-gray-400 mt-8 text-sm">
-                                Don't have an account? <Link to="/registration" className="text-primary hover:text-white font-bold uppercase tracking-wider transition-colors ml-1">Register</Link>
+                                Don't have an account? <Link to="/registration" className="text-primary hover:text-slate-900 font-bold uppercase tracking-wider transition-colors ml-1">Register</Link>
                             </p>
 
                             <div className="mt-8 pt-6 border-t border-white/5 text-xs text-center text-gray-500 font-mono bg-black/20 p-4 border border-white/5 skew-x-[-3deg]">

@@ -85,12 +85,12 @@ export default function NewsPage() {
                                         />
                                         {item.date}
                                     </div>
-                                    <h3 className="text-xl md:text-2xl font-black text-white mb-3 md:mb-4 leading-none uppercase italic group-hover:text-primary transition-colors">
+                                    <h3 className="text-xl md:text-2xl font-black text-slate-900 mb-3 md:mb-4 leading-none uppercase italic group-hover:text-primary transition-colors">
                                         <Link to={`/news/${item.id}`}>
                                             {item.title}
                                         </Link>
                                     </h3>
-                                    <p className="text-blue-200/80 text-sm leading-relaxed mb-6 flex-grow ">
+                                    <p className="text-slate-600 text-sm leading-relaxed mb-6 flex-grow ">
                                         {item.excerpt}
                                     </p>
                                     <motion.div

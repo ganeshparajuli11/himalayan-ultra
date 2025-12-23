@@ -58,7 +58,7 @@ const StylizedRaceTrack = () => {
 
     return (
         <div className="bg-white/5 rounded-2xl p-8 relative overflow-hidden border border-white/10 shadow-2xl">
-            <h2 className="text-3xl font-black text-white uppercase tracking-wider mb-2 text-center drop-shadow-[0_0_10px_rgba(255,215,0,0.5)]">HIMALAYAN 100 CIRCUIT</h2>
+            <h2 className="text-3xl font-black text-slate-900 uppercase tracking-wider mb-2 text-center drop-shadow-[0_0_10px_rgba(255,215,0,0.5)]">HIMALAYAN 100 CIRCUIT</h2>
             <p className="text-gray-400 text-center max-w-2xl mx-auto mb-10 text-sm">
                 Spanning 103km with over 5,300m elevation gain, this legendary course tests endurance
                 against the backdrop of Hong Kong's most rugged peaks and pristine coastlines.
@@ -149,7 +149,7 @@ const StylizedRaceTrack = () => {
                         <div className="flex justify-between items-center mb-2 border-b border-white/10 pb-2">
                             <span className="text-primary font-mono font-bold text-xs uppercase tracking-widest">{activeCp.isStart ? 'START' : (activeCp.isFinish ? 'FINISH' : `CP ${activeCp.id}`)}</span>
                         </div>
-                        <div className="text-white font-bold text-lg leading-tight mb-2">{activeCp.name}</div>
+                        <div className="text-slate-900 font-bold text-lg leading-tight mb-2">{activeCp.name}</div>
                         <div className="text-gray-300 text-xs leading-relaxed">{activeCp.description}</div>
                     </div>
                 ) : (

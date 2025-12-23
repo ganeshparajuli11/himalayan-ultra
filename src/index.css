@@ -16,9 +16,13 @@
   --color-harmony-purple: rgb(88 28 135);
   /* Deep Purple for gradients */
 
-  /* Structural Variables */
-  --color-background: var(--color-harmony-dark);
-  --color-foreground: rgb(255 255 255);
+  /* Structural Variables - Light Blue Theme */
+  --color-background: rgb(225 235 250);
+  /* Soft Light Blue */
+  --color-foreground: rgb(15 23 42);
+  /* Slate 900 */
+  --color-surface: rgb(255 255 255);
+  /* White surface */
 
   /* Primary Action: The Pink Sky Color */
   --color-primary: var(--color-harmony-pink);
@@ -27,8 +31,8 @@
   /* Secondary: The Runner Blue */
   --color-secondary: var(--color-harmony-blue);
 
-  --color-muted: rgb(148 178 255);
-  /* Lighter Blue text */
+  --color-muted: rgb(71 85 105);
+  /* Slate 600 for muted text */
 
   --font-sans: Inter, system-ui, sans-serif;
   --container-2xl: 1200px;
@@ -39,25 +43,25 @@
     @apply bg-background text-foreground antialiased;
 
     /* 
-       Poster Aesthetic:
-       Combination of a deep gradient + the "halftone" dot texture.
+       Poster Aesthetic - LIGHT THEME:
+       Subtle gradient on light background.
     */
-    background-color: var(--color-harmony-dark);
+    background-color: var(--color-background);
     background-image:
-      radial-gradient(circle at 15% 50%, rgba(42, 107, 242, 0.15) 0%, transparent 50%),
-      radial-gradient(circle at 85% 30%, rgba(255, 143, 163, 0.1) 0%, transparent 50%),
-      radial-gradient(var(--color-harmony-blue) 1px, transparent 1px),
-      radial-gradient(var(--color-harmony-blue) 1px, transparent 1px);
+      radial-gradient(circle at 15% 50%, rgba(42, 107, 242, 0.05) 0%, transparent 50%),
+      radial-gradient(circle at 85% 30%, rgba(255, 143, 163, 0.08) 0%, transparent 50%),
+      radial-gradient(rgba(42, 107, 242, 0.05) 1px, transparent 1px),
+      radial-gradient(rgba(42, 107, 242, 0.05) 1px, transparent 1px);
     background-size: 100% 100%, 100% 100%, 40px 40px, 40px 40px;
     background-position: 0 0, 0 0, 0 0, 20px 20px;
     background-attachment: fixed;
     /* Soften the dots */
-    background-blend-mode: normal, normal, overlay, overlay;
+    background-blend-mode: normal;
 
     /* Selection Color */
     ::selection {
       background-color: var(--color-primary);
-      color: var(--color-harmony-dark);
+      color: var(--color-foreground);
     }
   }
 
@@ -92,7 +96,8 @@
   h1 {
     @apply text-5xl md:text-7xl mb-6;
     /* Poster Headline Style: maybe a slight text shadow */
-    text-shadow: 2px 2px 0px rgba(42, 107, 242, 0.5);
+    text-shadow: 2px 2px 0px rgba(42, 107, 242, 0.2);
+    /* lighter shadow */
   }
 
   h2 {
@@ -100,7 +105,8 @@
   }
 
   h3 {
-    @apply text-xl md:text-2xl mb-4 text-white/90;
+    @apply text-xl md:text-2xl mb-4 text-slate-700;
+    /* Darker text for visibility */
   }
 }
 
@@ -129,7 +135,7 @@
      Outline/Secondary Button
   */
   .btn-outline {
-    @apply border-2 border-secondary bg-transparent text-white hover:bg-secondary hover:text-white;
+    @apply border-2 border-secondary bg-transparent text-secondary hover:bg-secondary hover:text-white font-bold;
   }
 
   /* 
@@ -139,17 +145,17 @@
      Cards / Glass Panels
   */
   .card-poster {
-    @apply bg-[#1a2c55]/80 backdrop-blur-sm border-l-4 border-primary p-6 relative overflow-hidden;
+    @apply bg-white/80 backdrop-blur-sm border-l-4 border-primary p-6 relative overflow-hidden shadow-lg;
   }
 
   .card-poster::before {
     content: '';
-    @apply absolute top-0 right-0 w-20 h-20 bg-gradient-to-bl from-white/5 to-transparent pointer-events-none;
+    @apply absolute top-0 right-0 w-20 h-20 bg-gradient-to-bl from-blue-500/10 to-transparent pointer-events-none;
   }
 
   /* New Design Box - Parallelogram/Rectangular Technical Look */
   .design-box {
-    @apply relative bg-[#0a193c] border border-white/10 p-6 skew-x-[-6deg] hover:border-primary/50 transition-colors duration-300 italic;
+    @apply relative bg-white border border-slate-200 p-6 skew-x-[-6deg] hover:border-primary/50 transition-colors duration-300 italic shadow-md;
     box-shadow: 4px 4px 0px 0px rgba(42, 107, 242, 0.2);
   }
 
@@ -164,7 +170,7 @@
   }
 
   .text-gradient {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary to-white;
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary to-blue-600;
   }
 
   .container-custom {

@@ -35,7 +35,7 @@ export default function ContentManagementPage() {
     return (
         <div className="flex flex-col gap-8">
             <header className="flex justify-between items-center mb-4">
-                <h1 className="text-3xl font-bold text-white uppercase tracking-wider">Site Content Management</h1>
+                <h1 className="text-3xl font-bold text-slate-900 uppercase tracking-wider">Site Content Management</h1>
                 <button onClick={handleSave} className="btn btn-primary px-6 py-2">Publish Changes</button>
             </header>
 
@@ -43,7 +43,7 @@ export default function ContentManagementPage() {
                 <button
                     className={`px-6 py-3 font-bold transition-colors border-b-2 ${activeSection === 'home'
                             ? 'border-primary text-primary'
-                            : 'border-transparent text-gray-400 hover:text-white'
+                            : 'border-transparent text-gray-400 hover:text-slate-900'
                         }`}
                     onClick={() => setActiveSection('home')}
                 >
@@ -52,7 +52,7 @@ export default function ContentManagementPage() {
                 <button
                     className={`px-6 py-3 font-bold transition-colors border-b-2 ${activeSection === 'footer'
                             ? 'border-primary text-primary'
-                            : 'border-transparent text-gray-400 hover:text-white'
+                            : 'border-transparent text-gray-400 hover:text-slate-900'
                         }`}
                     onClick={() => setActiveSection('footer')}
                 >
@@ -63,7 +63,7 @@ export default function ContentManagementPage() {
             <div className="bg-[#15151e] p-8 rounded-xl border border-white/10">
                 {activeSection === 'home' && (
                     <div className="max-w-3xl">
-                        <h2 className="text-xl font-bold text-white uppercase mb-6 pb-2 border-b border-white/5">Home Page Hero</h2>
+                        <h2 className="text-xl font-bold text-slate-900 uppercase mb-6 pb-2 border-b border-white/5">Home Page Hero</h2>
                         <div className="mb-6">
                             <label className="block text-gray-400 text-sm font-bold mb-2 uppercase tracking-wider">Hero Title</label>
                             <input
@@ -71,7 +71,7 @@ export default function ContentManagementPage() {
                                 name="heroTitle"
                                 value={homeContent.heroTitle}
                                 onChange={handleHomeChange}
-                                className="w-full bg-black/30 border border-white/10 rounded px-4 py-3 text-white focus:outline-none focus:border-primary transition-colors"
+                                className="w-full bg-black/30 border border-white/10 rounded px-4 py-3 text-slate-900 focus:outline-none focus:border-primary transition-colors"
                             />
                         </div>
                         <div className="mb-6">
@@ -81,7 +81,7 @@ export default function ContentManagementPage() {
                                 name="heroSubtitle"
                                 value={homeContent.heroSubtitle}
                                 onChange={handleHomeChange}
-                                className="w-full bg-black/30 border border-white/10 rounded px-4 py-3 text-white focus:outline-none focus:border-primary transition-colors"
+                                className="w-full bg-black/30 border border-white/10 rounded px-4 py-3 text-slate-900 focus:outline-none focus:border-primary transition-colors"
                             />
                         </div>
                         <div className="mb-6">
@@ -91,7 +91,7 @@ export default function ContentManagementPage() {
                                 rows={5}
                                 value={homeContent.introText}
                                 onChange={handleHomeChange}
-                                className="w-full bg-black/30 border border-white/10 rounded px-4 py-3 text-white focus:outline-none focus:border-primary transition-colors resize-y"
+                                className="w-full bg-black/30 border border-white/10 rounded px-4 py-3 text-slate-900 focus:outline-none focus:border-primary transition-colors resize-y"
                             />
                         </div>
                     </div>
@@ -99,7 +99,7 @@ export default function ContentManagementPage() {
 
                 {activeSection === 'footer' && (
                     <div className="max-w-3xl">
-                        <h2 className="text-xl font-bold text-white uppercase mb-6 pb-2 border-b border-white/5">Footer Settings</h2>
+                        <h2 className="text-xl font-bold text-slate-900 uppercase mb-6 pb-2 border-b border-white/5">Footer Settings</h2>
                         <div className="mb-6">
                             <label className="block text-gray-400 text-sm font-bold mb-2 uppercase tracking-wider">Copyright Text</label>
                             <input
@@ -107,7 +107,7 @@ export default function ContentManagementPage() {
                                 name="copyrightText"
                                 value={footerContent.copyrightText}
                                 onChange={handleFooterChange}
-                                className="w-full bg-black/30 border border-white/10 rounded px-4 py-3 text-white focus:outline-none focus:border-primary transition-colors"
+                                className="w-full bg-black/30 border border-white/10 rounded px-4 py-3 text-slate-900 focus:outline-none focus:border-primary transition-colors"
                             />
                         </div>
                         <div className="mb-6">
@@ -117,7 +117,7 @@ export default function ContentManagementPage() {
                                 name="contactEmail"
                                 value={footerContent.contactEmail}
                                 onChange={handleFooterChange}
-                                className="w-full bg-black/30 border border-white/10 rounded px-4 py-3 text-white focus:outline-none focus:border-primary transition-colors"
+                                className="w-full bg-black/30 border border-white/10 rounded px-4 py-3 text-slate-900 focus:outline-none focus:border-primary transition-colors"
                             />
                         </div>
                     </div>

@@ -45,22 +45,22 @@ export default function Countdown({ targetDate }: CountdownProps) {
                     <h3 className="text-[10px] sm:text-xs uppercase tracking-[0.2em] text-primary mb-3 font-bold">Race Start Countdown</h3>
                     <div className="flex items-start justify-center gap-3 sm:gap-5 md:gap-8">
                         <div className="flex flex-col items-center">
-                            <span className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-white leading-none tracking-tighter filter drop-shadow-[0_0_10px_rgba(255,255,255,0.3)]">{timeLeft.days}</span>
+                            <span className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-slate-900 leading-none tracking-tighter filter drop-shadow-[0_0_10px_rgba(255,255,255,0.3)]">{timeLeft.days}</span>
                             <span className="text-[9px] sm:text-[10px] uppercase text-gray-400 mt-1 font-bold tracking-wider">Days</span>
                         </div>
                         <div className="text-2xl sm:text-3xl md:text-5xl font-black text-primary/50 self-start mt-1">:</div>
                         <div className="flex flex-col items-center">
-                            <span className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-white leading-none tracking-tighter filter drop-shadow-[0_0_10px_rgba(255,255,255,0.3)]">{timeLeft.hours.toString().padStart(2, '0')}</span>
+                            <span className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-slate-900 leading-none tracking-tighter filter drop-shadow-[0_0_10px_rgba(255,255,255,0.3)]">{timeLeft.hours.toString().padStart(2, '0')}</span>
                             <span className="text-[9px] sm:text-[10px] uppercase text-gray-400 mt-1 font-bold tracking-wider">Hrs</span>
                         </div>
                         <div className="text-2xl sm:text-3xl md:text-5xl font-black text-primary/50 self-start mt-1">:</div>
                         <div className="flex flex-col items-center">
-                            <span className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-white leading-none tracking-tighter filter drop-shadow-[0_0_10px_rgba(255,255,255,0.3)]">{timeLeft.minutes.toString().padStart(2, '0')}</span>
+                            <span className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-slate-900 leading-none tracking-tighter filter drop-shadow-[0_0_10px_rgba(255,255,255,0.3)]">{timeLeft.minutes.toString().padStart(2, '0')}</span>
                             <span className="text-[9px] sm:text-[10px] uppercase text-gray-400 mt-1 font-bold tracking-wider">Min</span>
                         </div>
                         <div className="text-2xl sm:text-3xl md:text-5xl font-black text-primary/50 self-start mt-1">:</div>
                         <div className="flex flex-col items-center">
-                            <span className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-white leading-none tracking-tighter filter drop-shadow-[0_0_10px_rgba(255,255,255,0.3)]">{timeLeft.seconds.toString().padStart(2, '0')}</span>
+                            <span className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-slate-900 leading-none tracking-tighter filter drop-shadow-[0_0_10px_rgba(255,255,255,0.3)]">{timeLeft.seconds.toString().padStart(2, '0')}</span>
                             <span className="text-[9px] sm:text-[10px] uppercase text-gray-400 mt-1 font-bold tracking-wider">Sec</span>
                         </div>
                     </div>

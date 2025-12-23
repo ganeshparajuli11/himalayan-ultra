@@ -8,12 +8,12 @@ export default function UsersPage() {
 
     return (
         <div>
-            <h1 className="text-3xl font-bold text-white uppercase tracking-wider mb-8">User Management</h1>
+            <h1 className="text-3xl font-bold text-slate-900 uppercase tracking-wider mb-8">User Management</h1>
             <div className="glass rounded-xl overflow-hidden shadow-2xl">
                 <div className="overflow-x-auto">
                     <table className="w-full text-left border-collapse">
                         <thead>
-                            <tr className="bg-primary/20 text-white text-xs uppercase tracking-wider">
+                            <tr className="bg-primary/20 text-slate-900 text-xs uppercase tracking-wider">
                                 <th className="p-4 font-bold border-b border-white/10">ID</th>
                                 <th className="p-4 font-bold border-b border-white/10">Name</th>
                                 <th className="p-4 font-bold border-b border-white/10">Email</th>
@@ -26,7 +26,7 @@ export default function UsersPage() {
                             {users.map((user) => (
                                 <tr key={user.id} className="hover:bg-white/5 transition-colors">
                                     <td className="p-4 text-gray-400 font-mono text-sm">{user.id}</td>
-                                    <td className="p-4 text-white font-medium">{user.name}</td>
+                                    <td className="p-4 text-slate-900 font-medium">{user.name}</td>
                                     <td className="p-4 text-gray-300">{user.email}</td>
                                     <td className="p-4">
                                         <span className={`text-xs font-bold px-2 py-1 rounded ${user.role === 'Admin'
@@ -39,7 +39,7 @@ export default function UsersPage() {
                                     <td className="p-4 text-gray-400 text-sm font-mono">{user.joined}</td>
                                     <td className="p-4 flex items-center gap-2">
                                         <button className="px-3 py-1 rounded-none border border-white/20 text-gray-300 text-xs hover:bg-white hover:text-black transition-all uppercase font-bold tracking-wide">Edit</button>
-                                        <button className="px-3 py-1 rounded-none border border-red-500/50 text-red-400 text-xs hover:bg-red-500 hover:text-white transition-all uppercase font-bold tracking-wide">Ban</button>
+                                        <button className="px-3 py-1 rounded-none border border-red-500/50 text-red-400 text-xs hover:bg-red-500 hover:text-slate-900 transition-all uppercase font-bold tracking-wide">Ban</button>
                                     </td>
                                 </tr>
                             ))}
