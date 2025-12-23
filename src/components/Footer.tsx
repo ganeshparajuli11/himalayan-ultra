@@ -2,6 +2,7 @@
 
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
+import { Facebook } from "lucide-react";
 import {
   FadeInUp,
   StaggerContainer,
@@ -115,28 +116,46 @@ const Footer = () => {
               Contact
             </h4>
             <div className="space-y-3 md:space-y-4 text-gray-400 text-xs md:text-sm font-light">
-              <p>Kathmandu, Nepal</p>
-              <p>info@himalayanultra.com</p>
+              <p>
+                G/F, 874 Canton Road,
+                <br />
+                Yau Ma Tei, Kowloon, Hong Kong
+              </p>
+              <p>
+                <a
+                  href="mailto:Hknutra@gmail.com"
+                  className="hover:text-primary transition-colors"
+                >
+                  hknutra@gmail.com
+                </a>
+              </p>
+              <p>
+                <a
+                  href="tel:+85268443741"
+                  className="hover:text-primary transition-colors"
+                >
+                  6844 3741
+                </a>
+              </p>
               <div className="flex gap-3 mt-4 md:mt-6">
-                {["FB", "IG", "TW"].map((social, index) => (
-                  <motion.a
-                    key={social}
-                    href="#"
-                    className="glass w-7 h-7 md:w-8 md:h-8 rounded-full flex items-center justify-center cursor-pointer font-bold text-[9px] md:text-[10px] tracking-widest"
-                    whileHover={{
-                      scale: 1.15,
-                      backgroundColor: "rgb(22, 163, 74)",
-                      color: "#000",
-                    }}
-                    whileTap={{ scale: 0.95 }}
-                    initial={{ opacity: 0, y: 10 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: 0.3 + index * 0.1 }}
-                  >
-                    {social}
-                  </motion.a>
-                ))}
+                <motion.a
+                  href="https://www.facebook.com/hknutra"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="glass w-9 h-9 md:w-10 md:h-10 rounded-full flex items-center justify-center cursor-pointer"
+                  whileHover={{
+                    scale: 1.15,
+                    backgroundColor: "#1877F2",
+                    color: "#fff",
+                  }}
+                  whileTap={{ scale: 0.95 }}
+                  initial={{ opacity: 0, y: 10 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.3 }}
+                >
+                  <Facebook className="w-4 h-4 md:w-5 md:h-5" />
+                </motion.a>
               </div>
             </div>
           </FadeInUp>
@@ -150,7 +169,7 @@ const Footer = () => {
           transition={{ delay: 0.4 }}
         >
           <p className="text-gray-600 text-xs">
-            &copy; {new Date().getFullYear()} Himalayan Ultra. All rights
+            &copy; {new Date().getFullYear()} Himalayan Harmony. All rights
             reserved.
           </p>
           <div className="flex gap-6 text-xs text-gray-600">
