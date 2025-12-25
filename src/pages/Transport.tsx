@@ -1,8 +1,11 @@
 import PageHeader from '@/components/PageHeader';
 import { motion } from 'framer-motion';
 import { Bus, Map, Navigation, DollarSign } from 'lucide-react';
+import { usePageTitle } from '@/hooks/usePageTitle';
 
 const Transport = () => {
+    usePageTitle('Transport');
+
     return (
         <div className="min-h-screen bg-background text-foreground">
             <PageHeader title="Transport" subtitle="Getting to the Start Line" />

@@ -1,8 +1,11 @@
 import PageHeader from '@/components/PageHeader';
 import { motion } from 'framer-motion';
-import { Gift, Users, Trophy, Zap } from 'lucide-react'; // Swapped Coffee for Zap (Energy)
+import { Gift, Users, Trophy, Zap, Car } from 'lucide-react';
+import { usePageTitle } from '@/hooks/usePageTitle';
 
 const Volunteer = () => {
+    usePageTitle('Volunteer');
+
     return (
         <div className="min-h-screen bg-background text-foreground overflow-hidden">
             {/* Added a subtle overlay for extra depth if PageHeader doesn't cover it */}
@@ -39,7 +42,6 @@ const Volunteer = () => {
                                 { title: "Course Marshal", desc: "Direct participants and ensure safety on course." },
                                 { title: "Check Point Support", desc: "Food/drink distribution, timing, morale support." },
                                 { title: "Start/Finish Crew", desc: "Registration, baggage, medals, crowd control." },
-                                { title: "Sweepers", desc: "Follow the last runner and clear course markings." },
                                 { title: "Media & Medical", desc: "Photography, videography, and first aid support." },
                             ].map((role, i) => (
                                 <div key={i} className="card-poster group hover:-translate-y-1 transition-transform duration-300">
@@ -69,32 +71,40 @@ const Volunteer = () => {
 
                             <ul className="space-y-8">
                                 <li className="flex gap-5 items-start">
-                                    <div className="p-3 bg-gradient-to-br from-primary to-pink-600 shadow-lg text-white transform -rotate-3"><DollarSignIcon /></div>
+                                    <div className="p-3 bg-gradient-to-br from-primary to-pink-600 shadow-lg text-white transform -rotate-3"><Zap /></div>
                                     <div>
-                                        <strong className="block text-xl text-white uppercase font-bold tracking-wide">Allowances</strong>
-                                        <span className="text-blue-200 font-medium pt-1 block">HKD $100 Cash <span className="text-primary mx-2">/</span> Free Race Entry (Value $400)</span>
+                                        <strong className="block text-xl text-white uppercase font-bold tracking-wide">Foods</strong>
+                                        <span className="text-blue-200 font-medium pt-1 block">Meals and refreshments provided throughout the event.</span>
                                     </div>
                                 </li>
                                 <li className="flex gap-5 items-start">
-                                    <div className="p-3 bg-gradient-to-br from-secondary to-blue-600 shadow-lg text-white transform rotate-3"><Zap /></div>
+                                    <div className="p-3 bg-gradient-to-br from-secondary to-blue-600 shadow-lg text-white transform rotate-3"><Car /></div>
                                     <div>
-                                        <strong className="block text-xl text-white uppercase font-bold tracking-wide">Fuel Up</strong>
-                                        <span className="text-blue-200 font-medium pt-1 block">Premium snacks, hot meals, and hydration provided.</span>
+                                        <strong className="block text-xl text-white uppercase font-bold tracking-wide">Transportation</strong>
+                                        <span className="text-blue-200 font-medium pt-1 block">Free transport to and from event locations.</span>
                                     </div>
                                 </li>
                                 <li className="flex gap-5 items-start">
-                                    <div className="p-3 bg-gradient-to-br from-purple-500 to-indigo-600 shadow-lg text-white transform -rotate-2"><Trophy /></div>
+                                    <div className="p-3 bg-gradient-to-br from-purple-500 to-indigo-600 shadow-lg text-white transform -rotate-2"><Gift /></div>
                                     <div>
-                                        <strong className="block text-xl text-white uppercase font-bold tracking-wide">Exclusive Swag</strong>
-                                        <span className="text-blue-200 font-medium pt-1 block">Official Crew Tee, Sponsor Gifts & Certificate.</span>
+                                        <strong className="block text-xl text-white uppercase font-bold tracking-wide">Special Gifts</strong>
+                                        <span className="text-blue-200 font-medium pt-1 block">Exclusive volunteer merchandise and sponsor gifts.</span>
+                                    </div>
+                                </li>
+                                <li className="flex gap-5 items-start">
+                                    <div className="p-3 bg-gradient-to-br from-amber-500 to-orange-600 shadow-lg text-white transform -rotate-1"><Trophy /></div>
+                                    <div>
+                                        <strong className="block text-xl text-white uppercase font-bold tracking-wide">Certificates</strong>
+                                        <span className="text-blue-200 font-medium pt-1 block">Official volunteer certificate for your participation.</span>
                                     </div>
                                 </li>
                             </ul>
 
                             <div className="mt-12 text-center">
                                 <a
-                                    href="https://goo.gl/forms/uK1BAYWKFeyrKxlg2"
+                                    href="https://forms.gle/sSjT4cSYqVvkmVXX6"
                                     target="_blank"
+                                    rel="noopener noreferrer"
                                     className="btn btn-primary w-full md:w-auto text-xl py-6 hover:scale-105"
                                 >
                                     <span>Apply To Volunteer</span>
@@ -109,8 +119,5 @@ const Volunteer = () => {
         </div>
     );
 };
-
-// Simple styled icons
-const DollarSignIcon = () => <span className="font-black text-xl">$</span>;
 
 export default Volunteer;

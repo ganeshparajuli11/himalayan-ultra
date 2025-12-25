@@ -1,7 +1,8 @@
-
 import { useState } from 'react';
+import { usePageTitle } from '@/hooks/usePageTitle';
 
 export default function PaymentsPage() {
+    usePageTitle('Admin - Payments');
     const [selectedEvent, setSelectedEvent] = useState('All');
 
     // Mock Data

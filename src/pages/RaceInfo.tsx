@@ -1,6 +1,7 @@
 import PageHeader from "@/components/PageHeader";
 import { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
+import { usePageTitle } from "@/hooks/usePageTitle";
 import { motion, AnimatePresence } from "framer-motion";
 import RaceMap from "@/components/RaceMap";
 import ElevationChart from "@/components/ElevationChart";
@@ -113,6 +114,7 @@ const raceData = {
 };
 
 export default function RaceInfoPage() {
+    usePageTitle('Race Info');
     const location = useLocation();
     const [activeTab, setActiveTab] = useState<RaceCategory>("50KM");
 

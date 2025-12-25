@@ -1,8 +1,10 @@
-
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { usePageTitle } from '@/hooks/usePageTitle';
 
 export default function RacesPage() {
+    usePageTitle('Admin - Races');
+
     const [races, setRaces] = useState([
         { id: 'H100', name: 'Himalayan 100', distance: '103km', participants: 1542, date: '2026-01-15' },
         { id: 'HALF', name: 'The Half', distance: '56km', participants: 890, date: '2026-01-16' },

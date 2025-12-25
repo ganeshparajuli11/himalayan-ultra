@@ -1,6 +1,7 @@
 import PageHeader from '@/components/PageHeader';
 import { motion } from 'framer-motion';
 import { Luggage, Clock, Package, ShieldAlert, AlertTriangle } from 'lucide-react';
+import { usePageTitle } from '@/hooks/usePageTitle';
 
 interface BagDropRule {
     en: string;
@@ -8,6 +9,7 @@ interface BagDropRule {
 }
 
 const BagDrop = () => {
+    usePageTitle('Bag Drop');
     const rules: BagDropRule[] = [
         {
             en: "After the registration and equipment inspection, the participants can go to the luggage handling area at the starting point. The luggage handling area opens one hour before the start.",

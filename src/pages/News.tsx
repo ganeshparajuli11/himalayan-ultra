@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import PageHeader from '@/components/PageHeader';
 import { FadeInUp, StaggerContainer, StaggerItem } from '@/components/animations/ScrollAnimations';
+import { usePageTitle } from '@/hooks/usePageTitle';
 
 const newsItems = [
     {
@@ -42,6 +43,7 @@ const newsItems = [
 ];
 
 export default function NewsPage() {
+    usePageTitle('News');
     return (
         <div className="flex flex-col overflow-hidden">
             <PageHeader title="News" subtitle="Latest Updates & Stories" />

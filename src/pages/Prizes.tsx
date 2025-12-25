@@ -1,8 +1,11 @@
 import PageHeader from '@/components/PageHeader';
 import { motion } from 'framer-motion';
 import { Trophy, Medal, Award, Crown } from 'lucide-react';
+import { usePageTitle } from '@/hooks/usePageTitle';
 
 const Prizes = () => {
+    usePageTitle('Prizes');
+
     return (
         <div className="min-h-screen bg-background text-foreground">
             <PageHeader title="Prizes & Awards" subtitle="Champions of the Trail" />

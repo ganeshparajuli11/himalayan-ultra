@@ -33,7 +33,8 @@ const Footer = () => {
                 className="text-2xl md:text-3xl font-black tracking-tighter text-white"
                 whileHover={{ scale: 1.02 }}
               >
-                HIMALAYAN<span className="text-primary">HARMONY</span>
+                HIMALAYAN <br></br>
+                <span className="text-primary">HARMONY</span>
               </motion.h3>
             </Link>
             <p className="text-gray-400 leading-relaxed font-light text-xs md:text-sm">

@@ -1,8 +1,11 @@
 import PageHeader from '@/components/PageHeader';
 import { motion } from 'framer-motion';
 import { MapPin, Calendar, Clock, FileText, AlertCircle } from 'lucide-react';
+import { usePageTitle } from '@/hooks/usePageTitle';
 
 const RacePackPickUp = () => {
+    usePageTitle('Race Pack Pick Up');
+
     return (
         <div className="min-h-screen bg-background text-foreground">
             <PageHeader title="Race Pack Pick Up" subtitle="Get Ready for Race Day" />

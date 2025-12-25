@@ -1,6 +1,7 @@
 import PageHeader from '@/components/PageHeader';
 import { motion } from 'framer-motion';
 import { BookOpen, Shield, AlertTriangle, Backpack, Users, MapPin, Clock, Flag, Trash2, UserCheck, Footprints, Gavel } from 'lucide-react';
+import { usePageTitle } from '@/hooks/usePageTitle';
 
 interface Rule {
     en: string;
@@ -15,6 +16,7 @@ interface RuleCategory {
 }
 
 const RulesAndRegulations = () => {
+    usePageTitle('Rules & Regulations');
     const ruleCategories: RuleCategory[] = [
         {
             title: "Adjudication and appeal",

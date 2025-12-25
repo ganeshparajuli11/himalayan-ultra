@@ -1,8 +1,11 @@
 import PageHeader from '@/components/PageHeader';
 import { motion } from 'framer-motion';
 import { Clock, Calendar, Trophy } from 'lucide-react';
+import { usePageTitle } from '@/hooks/usePageTitle';
 
 export default function ResultsPage() {
+    usePageTitle('Results');
+
     return (
         <div className="flex flex-col min-h-screen">
             <PageHeader title="Race Results" subtitle="Official Race Classifications" />

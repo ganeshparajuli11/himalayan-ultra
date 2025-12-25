@@ -1,9 +1,15 @@
 import { motion } from 'framer-motion';
 import PageHeader from '@/components/PageHeader';
 import { FadeInUp, FadeInLeft, FadeInRight, ScaleIn } from '@/components/animations/ScrollAnimations';
-import { Calendar, Clock, MapPin, Trophy, CheckCircle } from 'lucide-react';
+import { Calendar, Clock, MapPin, Trophy, CheckCircle, Lock } from 'lucide-react';
+import { usePageTitle } from '@/hooks/usePageTitle';
+
+const REGISTRATION_OPEN_DATE = new Date('2026-01-15T00:00:00');
 
 export default function RegistrationPage() {
+    usePageTitle('Registration');
+    const isRegistrationOpen = new Date() >= REGISTRATION_OPEN_DATE;
+
     return (
         <div className="flex flex-col overflow-hidden">
             <PageHeader title="Registration" subtitle="Secure your spot for 2026" />
@@ -33,7 +39,7 @@ export default function RegistrationPage() {
                                     transition={{ delay: 0.2 }}
                                 >
                                     <span className="text-gray-500 uppercase text-[10px] md:text-xs font-bold tracking-widest mb-2">Opening Date</span>
-                                    <span className="text-2xl md:text-3xl font-black text-primary">Aug 15, 2025</span>
+                                    <span className="text-2xl md:text-3xl font-black text-primary">Jan 15, 2026</span>
                                 </motion.div>
                                 <motion.div
                                     className="flex flex-col items-center bg-black/20 p-4 border border-white/5"
@@ -43,7 +49,7 @@ export default function RegistrationPage() {
                                     transition={{ delay: 0.3 }}
                                 >
                                     <span className="text-gray-500 uppercase text-[10px] md:text-xs font-bold tracking-widest mb-2">Closing Date</span>
-                                    <span className="text-2xl md:text-3xl font-black text-white">Dec 10, 2025</span>
+                                    <span className="text-2xl md:text-3xl font-black text-white">Feb 15, 2026</span>
                                 </motion.div>
                             </div>
                             <motion.p
@@ -110,11 +116,16 @@ export default function RegistrationPage() {
                                 </ul>
 
                                 <motion.button
-                                    className="btn btn-primary w-full py-3 text-base font-bold shadow-lg shadow-primary/20"
-                                    whileHover={{ scale: 1.02 }}
-                                    whileTap={{ scale: 0.98 }}
+                                    className={`btn w-full py-3 text-base font-bold ${isRegistrationOpen ? 'btn-primary shadow-lg shadow-primary/20' : 'bg-gray-600 text-gray-400 cursor-not-allowed'}`}
+                                    whileHover={isRegistrationOpen ? { scale: 1.02 } : {}}
+                                    whileTap={isRegistrationOpen ? { scale: 0.98 } : {}}
+                                    disabled={!isRegistrationOpen}
                                 >
-                                    Register Now
+                                    {isRegistrationOpen ? 'Register Now' : (
+                                        <span className="flex items-center justify-center gap-2">
+                                            <Lock size={16} /> Opens Jan 15, 2026
+                                        </span>
+                                    )}
                                 </motion.button>
                             </motion.div>
                         </FadeInLeft>
@@ -169,11 +180,16 @@ export default function RegistrationPage() {
                                 </ul>
 
                                 <motion.button
-                                    className="btn btn-primary w-full py-3 text-base font-bold shadow-lg shadow-blue-500/20"
-                                    whileHover={{ scale: 1.02 }}
-                                    whileTap={{ scale: 0.98 }}
+                                    className={`btn w-full py-3 text-base font-bold ${isRegistrationOpen ? 'btn-primary shadow-lg shadow-blue-500/20' : 'bg-gray-600 text-gray-400 cursor-not-allowed'}`}
+                                    whileHover={isRegistrationOpen ? { scale: 1.02 } : {}}
+                                    whileTap={isRegistrationOpen ? { scale: 0.98 } : {}}
+                                    disabled={!isRegistrationOpen}
                                 >
-                                    Register Now
+                                    {isRegistrationOpen ? 'Register Now' : (
+                                        <span className="flex items-center justify-center gap-2">
+                                            <Lock size={16} /> Opens Jan 15, 2026
+                                        </span>
+                                    )}
                                 </motion.button>
                             </motion.div>
                         </FadeInRight>
@@ -209,7 +225,7 @@ export default function RegistrationPage() {
                                             transition={{ delay: 0.1 }}
                                         >
                                             <strong className="block text-primary uppercase text-[10px] md:text-xs tracking-widest mb-1">50% Refund</strong>
-                                            <span className="text-base md:text-lg text-white">Before Oct 1, 2025</span>
+                                            <span className="text-base md:text-lg text-white">Before Feb 10, 2026</span>
                                         </motion.div>
                                         <motion.div
                                             initial={{ opacity: 0, x: -20 }}
@@ -218,7 +234,7 @@ export default function RegistrationPage() {
                                             transition={{ delay: 0.2 }}
                                         >
                                             <strong className="block text-red-500 uppercase text-[10px] md:text-xs tracking-widest mb-1">No Refund</strong>
-                                            <span className="text-base md:text-lg text-white">After Oct 1, 2025</span>
+                                            <span className="text-base md:text-lg text-white">After Feb 10, 2026</span>
                                         </motion.div>
                                     </div>
                                     <motion.p

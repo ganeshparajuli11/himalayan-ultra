@@ -1,8 +1,10 @@
 import { useState } from 'react';
+import { usePageTitle } from '@/hooks/usePageTitle';
 
 type Section = 'home' | 'about' | 'footer' | 'rules';
 
 export default function ContentManagementPage() {
+    usePageTitle('Admin - Content');
     const [activeSection, setActiveSection] = useState<Section>('home');
 
     // Mock content state

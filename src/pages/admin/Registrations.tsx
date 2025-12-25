@@ -1,5 +1,8 @@
+import { usePageTitle } from '@/hooks/usePageTitle';
 
 export default function RegistrationsPage() {
+    usePageTitle('Admin - Registrations');
+
     const registrations = [
         { id: '1001', name: 'John Doe', race: 'Himalayan 100', status: 'Paid', date: '2024-10-24' },
         { id: '1002', name: 'Jane Smith', race: 'The Half', status: 'Pending', date: '2024-10-25' },

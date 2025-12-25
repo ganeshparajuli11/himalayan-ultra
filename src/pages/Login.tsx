@@ -1,10 +1,11 @@
-
 import { useState } from 'react';
 import { useAuth } from '@/context/AuthContext';
 import { Link } from 'react-router-dom';
 import Footer from '@/components/Footer';
+import { usePageTitle } from '@/hooks/usePageTitle';
 
 export default function LoginPage() {
+    usePageTitle('Login');
     const { login } = useAuth();
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');

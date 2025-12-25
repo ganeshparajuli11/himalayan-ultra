@@ -1,7 +1,7 @@
-
 import PageHeader from '@/components/PageHeader';
 import { Link, useParams } from 'react-router-dom';
 import RaceMap from '@/components/RaceMap';
+import { usePageTitle } from '@/hooks/usePageTitle';
 
 const article = {
     title: "Race Results Published",
@@ -26,6 +26,7 @@ const article = {
 };
 
 export default function ArticlePage() {
+    usePageTitle(article.title);
     const { id } = useParams();
 
     return (

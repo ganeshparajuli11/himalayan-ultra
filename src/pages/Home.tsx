@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import Countdown from "@/components/Countdown";
+import { usePageTitle } from "@/hooks/usePageTitle";
 import {
   FadeInUp,
   StaggerContainer,
@@ -10,6 +11,8 @@ import {
 } from "@/components/animations/ScrollAnimations";
 
 export default function Home() {
+  usePageTitle();
+
   return (
     <div className="flex flex-col overflow-hidden">
       {/* Hero Section */}
@@ -144,7 +147,7 @@ export default function Home() {
               <StaggerItem>
                 <AnimatedStat className="flex flex-col">
                   <h3 className="text-4xl md:text-6xl font-black text-white mb-2 italic">
-                    5<span className="text-primary text-3xl">h</span>
+                    15.5<span className="text-primary text-3xl">h</span>
                   </h3>
                   <p className="text-blue-300 uppercase tracking-widest text-sm font-bold">
                     Cut-off Time
@@ -244,16 +247,20 @@ export default function Home() {
               Race <span className="text-primary">Categories</span>
             </h2>
             <p className="text-center text-gray-400 mb-12 max-w-2xl mx-auto">
-              Choose your challenge - from the ultimate 50KM ultra to the accessible 12KM experience
+              Choose your challenge - from the ultimate 50KM ultra to the
+              accessible 12KM experience
             </p>
           </FadeInUp>
 
-          <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto" staggerDelay={0.15}>
+          <StaggerContainer
+            className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto"
+            staggerDelay={0.15}
+          >
             {/* 50KM Card */}
             <StaggerItem>
               <motion.div
                 className="relative bg-[#0a193c] border border-white/10 p-8 group overflow-hidden"
-                whileHover={{ y: -5, borderColor: 'rgba(22, 163, 74, 0.5)' }}
+                whileHover={{ y: -5, borderColor: "rgba(22, 163, 74, 0.5)" }}
                 transition={{ duration: 0.3 }}
               >
                 <div className="absolute top-0 right-0 w-12 h-12 border-t-2 border-r-2 border-primary/30 translate-x-3 -translate-y-3" />
@@ -266,7 +273,9 @@ export default function Home() {
                 <h3 className="text-5xl md:text-6xl font-black text-white mb-2 italic">
                   50<span className="text-primary">KM</span>
                 </h3>
-                <p className="text-primary font-bold uppercase tracking-widest text-sm mb-6">Challenge</p>
+                <p className="text-primary font-bold uppercase tracking-widest text-sm mb-6">
+                  Challenge
+                </p>
 
                 <div className="space-y-3 mb-8">
                   <div className="flex justify-between border-b border-white/10 pb-2">
@@ -274,7 +283,9 @@ export default function Home() {
                     <span className="text-white font-bold">51.7 km</span>
                   </div>
                   <div className="flex justify-between border-b border-white/10 pb-2">
-                    <span className="text-gray-400 text-sm">Elevation Gain</span>
+                    <span className="text-gray-400 text-sm">
+                      Elevation Gain
+                    </span>
                     <span className="text-white font-bold">2,494m</span>
                   </div>
                   <div className="flex justify-between border-b border-white/10 pb-2">
@@ -282,12 +293,18 @@ export default function Home() {
                     <span className="text-white font-bold">15.5 hours</span>
                   </div>
                   <div className="flex justify-between border-b border-white/10 pb-2">
-                    <span className="text-gray-400 text-sm">Registration Fee</span>
+                    <span className="text-gray-400 text-sm">
+                      Registration Fee
+                    </span>
                     <span className="text-primary font-bold">HKD 790</span>
                   </div>
                 </div>
 
-                <Link to="/race-info" state={{ activeTab: "50KM" }} className="inline-block border border-primary/50 hover:bg-primary hover:text-black text-primary font-bold text-xs px-6 py-3 uppercase tracking-wider transition-all">
+                <Link
+                  to="/race-info"
+                  state={{ activeTab: "50KM" }}
+                  className="inline-block border border-primary/50 hover:bg-primary hover:text-black text-primary font-bold text-xs px-6 py-3 uppercase tracking-wider transition-all"
+                >
                   View Details
                 </Link>
               </motion.div>
@@ -297,7 +314,7 @@ export default function Home() {
             <StaggerItem>
               <motion.div
                 className="relative bg-[#0a193c] border border-white/10 p-8 group overflow-hidden"
-                whileHover={{ y: -5, borderColor: 'rgba(22, 163, 74, 0.5)' }}
+                whileHover={{ y: -5, borderColor: "rgba(22, 163, 74, 0.5)" }}
                 transition={{ duration: 0.3 }}
               >
                 <div className="absolute top-0 right-0 w-12 h-12 border-t-2 border-r-2 border-primary/30 translate-x-3 -translate-y-3" />
@@ -310,7 +327,9 @@ export default function Home() {
                 <h3 className="text-5xl md:text-6xl font-black text-white mb-2 italic">
                   12<span className="text-primary">KM</span>
                 </h3>
-                <p className="text-primary font-bold uppercase tracking-widest text-sm mb-6">Experience</p>
+                <p className="text-primary font-bold uppercase tracking-widest text-sm mb-6">
+                  Experience
+                </p>
 
                 <div className="space-y-3 mb-8">
                   <div className="flex justify-between border-b border-white/10 pb-2">
@@ -318,7 +337,9 @@ export default function Home() {
                     <span className="text-white font-bold">12.5 km</span>
                   </div>
                   <div className="flex justify-between border-b border-white/10 pb-2">
-                    <span className="text-gray-400 text-sm">Elevation Gain</span>
+                    <span className="text-gray-400 text-sm">
+                      Elevation Gain
+                    </span>
                     <span className="text-white font-bold">659m</span>
                   </div>
                   <div className="flex justify-between border-b border-white/10 pb-2">
@@ -326,12 +347,18 @@ export default function Home() {
                     <span className="text-white font-bold">5.5 hours</span>
                   </div>
                   <div className="flex justify-between border-b border-white/10 pb-2">
-                    <span className="text-gray-400 text-sm">Registration Fee</span>
+                    <span className="text-gray-400 text-sm">
+                      Registration Fee
+                    </span>
                     <span className="text-primary font-bold">HKD 390</span>
                   </div>
                 </div>
 
-                <Link to="/race-info" state={{ activeTab: "12KM" }} className="inline-block border border-primary/50 hover:bg-primary hover:text-black text-primary font-bold text-xs px-6 py-3 uppercase tracking-wider transition-all">
+                <Link
+                  to="/race-info"
+                  state={{ activeTab: "12KM" }}
+                  className="inline-block border border-primary/50 hover:bg-primary hover:text-black text-primary font-bold text-xs px-6 py-3 uppercase tracking-wider transition-all"
+                >
                   View Details
                 </Link>
               </motion.div>
@@ -369,13 +396,19 @@ export default function Home() {
             {/* Title Sponsor */}
             <StaggerItem>
               <div className="text-center">
-                <p className="text-xs text-primary font-bold uppercase tracking-widest mb-6">Title Sponsor</p>
+                <p className="text-xs text-primary font-bold uppercase tracking-widest mb-6">
+                  Title Sponsor
+                </p>
                 <div className="flex justify-center">
                   <motion.div
                     className="bg-white/5 border border-white/10 px-12 py-8 hover:border-primary/50 transition-colors"
                     whileHover={{ scale: 1.02 }}
                   >
-                    <span className="text-2xl md:text-3xl font-black text-white/80 italic tracking-tight">SPONSOR LOGO</span>
+                    <img
+                      src="https://image.similarpng.com/file/similarpng/very-thumbnail/2020/06/Logo-google-transparent-background-PNG.png"
+                      alt="Google"
+                      className="h-10 md:h-12 w-auto"
+                    />
                   </motion.div>
                 </div>
               </div>
@@ -384,15 +417,34 @@ export default function Home() {
             {/* Gold Sponsors */}
             <StaggerItem>
               <div className="text-center">
-                <p className="text-xs text-yellow-500 font-bold uppercase tracking-widest mb-6">Gold Sponsors</p>
+                <p className="text-xs text-yellow-500 font-bold uppercase tracking-widest mb-6">
+                  Gold Sponsors
+                </p>
                 <div className="flex flex-wrap justify-center gap-6">
-                  {[1, 2, 3].map((i) => (
+                  {[
+                    {
+                      name: "Meta",
+                      logo: "https://i.pinimg.com/736x/b7/06/fa/b706fa17832e8854ee125404a655f0df.jpg",
+                    },
+                    {
+                      name: "Pinterest",
+                      logo: "https://upload.wikimedia.org/wikipedia/commons/0/08/Pinterest-logo.png",
+                    },
+                    {
+                      name: "Spotify",
+                      logo: "https://storage.googleapis.com/pr-newsroom-wp/1/2018/11/Spotify_Logo_RGB_White.png",
+                    },
+                  ].map((sponsor, i) => (
                     <motion.div
                       key={i}
                       className="bg-white/5 border border-white/10 px-8 py-6 hover:border-yellow-500/50 transition-colors"
                       whileHover={{ scale: 1.02 }}
                     >
-                      <span className="text-lg font-bold text-white/60 italic">Gold Sponsor {i}</span>
+                      <img
+                        src={sponsor.logo}
+                        alt={sponsor.name}
+                        className="h-8 md:h-10 w-auto max-w-30 object-contain"
+                      />
                     </motion.div>
                   ))}
                 </div>
@@ -402,15 +454,38 @@ export default function Home() {
             {/* Silver Sponsors */}
             <StaggerItem>
               <div className="text-center">
-                <p className="text-xs text-gray-400 font-bold uppercase tracking-widest mb-6">Silver Sponsors</p>
+                <p className="text-xs text-gray-400 font-bold uppercase tracking-widest mb-6">
+                  Silver Sponsors
+                </p>
                 <div className="flex flex-wrap justify-center gap-4">
-                  {[1, 2, 3, 4].map((i) => (
+                  {[
+                    {
+                      name: "WhatsApp",
+                      logo: "https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg",
+                    },
+                    {
+                      name: "Slack",
+                      logo: "https://upload.wikimedia.org/wikipedia/commons/d/d5/Slack_icon_2019.svg",
+                    },
+                    {
+                      name: "Notion",
+                      logo: "https://upload.wikimedia.org/wikipedia/commons/4/45/Notion_app_logo.png",
+                    },
+                    {
+                      name: "Figma",
+                      logo: "https://upload.wikimedia.org/wikipedia/commons/3/33/Figma-logo.svg",
+                    },
+                  ].map((sponsor, i) => (
                     <motion.div
                       key={i}
                       className="bg-white/5 border border-white/10 px-6 py-4 hover:border-gray-400/50 transition-colors"
                       whileHover={{ scale: 1.02 }}
                     >
-                      <span className="text-sm font-bold text-white/50 italic">Silver {i}</span>
+                      <img
+                        src={sponsor.logo}
+                        alt={sponsor.name}
+                        className="h-6 md:h-8 w-auto max-w-25 object-contain"
+                      />
                     </motion.div>
                   ))}
                 </div>
@@ -421,13 +496,21 @@ export default function Home() {
           <FadeInUp delay={0.3}>
             <div className="mt-16 pt-10 border-t border-white/5 flex justify-center">
               <div className="flex flex-col items-center">
-                <Link
+                {/* <Link
                   to="/sponsorship"
                   className="btn btn-outline text-xs px-6 py-3 border-white/20 text-gray-400 hover:text-white hover:border-primary hover:bg-primary/10"
                 >
                   <span>Become a Sponsor</span>
-                </Link>
-                <p className="text-[10px] text-gray-600 mt-3 uppercase tracking-widest">Partner with us</p>
+                </Link> */}
+                <p className="text-[10px] text-gray-600 mt-3 uppercase tracking-widest">
+                  Partner with us
+                </p>
+                <a
+                  href="mailto:hknutra@gmail.com"
+                  className="text-sm text-primary hover:text-white transition-colors mt-2"
+                >
+                  hknutra@gmail.com
+                </a>
               </div>
             </div>
           </FadeInUp>
@@ -457,11 +540,11 @@ export default function Home() {
               },
               {
                 q: "Can I have a pacer?",
-                a: "Pacers are allowed for the last 40km section starting from CP6 for the 100km category only.",
+                a: "Feel the Himalayan thrill, challenge yourself! No pacers allowed.",
               },
               {
                 q: "What is the refund policy?",
-                a: "50% refund is available until Dec 31st, 2025. No refunds after that date. Deferrals allowed for medical reasons.",
+                a: "50% refund is available until Feb 10th, 2026. No refunds after that date. Deferrals allowed for medical reasons.",
               },
             ].map((faq, index) => (
               <StaggerItem key={index}>

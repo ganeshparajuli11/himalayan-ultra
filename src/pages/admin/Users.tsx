@@ -1,5 +1,8 @@
+import { usePageTitle } from '@/hooks/usePageTitle';
 
 export default function UsersPage() {
+    usePageTitle('Admin - Users');
+
     const users = [
         { id: 1, name: 'John Doe', email: 'john@example.com', role: 'Runner', joined: '2024-09-15' },
         { id: 2, name: 'Jane Smith', email: 'jane@example.com', role: 'Runner', joined: '2024-09-18' },

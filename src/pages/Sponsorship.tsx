@@ -5,8 +5,11 @@ import {
     StaggerItem
 } from '@/components/animations/ScrollAnimations';
 import { Mail, TrendingUp, Users, Globe, CheckCircle2 } from 'lucide-react';
+import { usePageTitle } from '@/hooks/usePageTitle';
 
 export default function SponsorshipPage() {
+    usePageTitle('Sponsorship');
+
     return (
         <div className="flex flex-col min-h-screen">
             {/* Hero Section with Slanted Design */}

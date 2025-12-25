@@ -1,8 +1,9 @@
-
 import { useAuth } from '@/context/AuthContext';
 import Footer from '@/components/Footer';
+import { usePageTitle } from '@/hooks/usePageTitle';
 
 export default function UserDashboard() {
+    usePageTitle('Dashboard');
     const { user, logout } = useAuth();
 
     return (

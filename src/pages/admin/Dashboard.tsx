@@ -1,5 +1,3 @@
-
-
 import {
     Chart as ChartJS,
     CategoryScale,
@@ -13,6 +11,7 @@ import {
     ArcElement,
 } from 'chart.js';
 import { Bar, Doughnut } from 'react-chartjs-2';
+import { usePageTitle } from '@/hooks/usePageTitle';
 
 ChartJS.register(
     CategoryScale,
@@ -27,6 +26,8 @@ ChartJS.register(
 );
 
 export default function AdminDashboard() {
+    usePageTitle('Admin Dashboard');
+
     const barData = {
         labels: ['Himalayan 100', 'The Half', 'The Third', 'Kids Race'],
         datasets: [
